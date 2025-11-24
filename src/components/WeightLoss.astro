@@ -1,0 +1,484 @@
+---
+// WeightLossSection.astro
+const treatments = [
+    {
+        name: "Semaglutide Standard Treatment",
+        image: "/images/semaglutide-standard.png",
+        price: "$140/month",
+        link: "#",
+    },
+    {
+        name: "Tirzepatide Premium Treatment",
+        image: "/images/tirzepatide-premium.png",
+        price: "$200/month",
+        link: "#",
+    },
+    {
+        name: "Semaglutide Tablets Oral Treatment",
+        image: "/images/semaglutide-tablets.png",
+        price: "$125/month",
+        competitor: "$1,000+/month",
+        link: "#",
+    },
+];
+
+const features = [
+    "Doctor-Trusted Ingredients",
+    "U.S. Based Pharmacies",
+    "Licensed Providers",
+    "FSA/HSA Eligible",
+];
+
+const competitors = [
+    { name: "Wegovy ®", price: "$1,999/mo" },
+    { name: "Mounjaro®", price: "$1,899/mo" },
+    { name: "Ozempic®", price: "$1,799/mo" },
+];
+---
+
+<section class="weight-loss-section">
+    <!-- Top Row -->
+    <div class="top-row">
+        <!-- Trust Badge Card -->
+        <div class="trust-card">
+            <div class="trust-content">
+                <ul class="trust-list">
+                    {
+                        features.map((feature) => (
+                            <li>
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M12 2L4 6v6c0 5.5 3.84 10.74 8 12 4.16-1.26 8-6.5 8-12V6l-8-4z"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        fill="none"
+                                    />
+                                    <path
+                                        d="M9 12l2 2 4-4"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                                <span>{feature}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div class="doctor-image">
+                <img src="/images/doctor.png" alt="Doctor" />
+            </div>
+        </div>
+
+        <!-- Placeholder Card -->
+        <div class="placeholder-card">
+            <p>Awaiting content</p>
+        </div>
+    </div>
+
+    <!-- Main Content Card -->
+    <div class="main-card">
+        <div class="main-header">
+            <h2>Lose Weight</h2>
+            <span class="glass-effect">MAKE BOXES<br />GLASS EFFECT</span>
+        </div>
+
+        <div class="main-content">
+            <!-- Info Box -->
+            <div class="info-box">
+                <h3>5 MinuteMeds GLP-1</h3>
+                <p>
+                    Experience a customized weight loss solution that is as much
+                    as 10x less expensive than the leading name brands with the
+                    same Same active Ingredient as Ozempic® and Wegovy®.
+                </p>
+                <p class="quality-text">Get the same quality for less.</p>
+            </div>
+
+            <!-- Product Image -->
+            <div class="product-hero">
+                <img src="/images/glp1-product.png" alt="5 MinuteMeds GLP-1" />
+            </div>
+        </div>
+
+        <!-- Treatment Options -->
+        <div class="treatments-grid">
+            {
+                treatments.map((treatment) => (
+                    <div class="treatment-card">
+                        <h4>{treatment.name}</h4>
+                        <div class="treatment-image">
+                            <img src={treatment.image} alt={treatment.name} />
+                        </div>
+                        <p class="treatment-price">
+                            Our Price: <strong>{treatment.price}</strong>
+                        </p>
+                        {treatment.competitor && (
+                            <p class="competitor-price">
+                                Our Competitors: {treatment.competitor}
+                            </p>
+                        )}
+                        <a href={treatment.link} class="get-started-btn">
+                            Get Started
+                        </a>
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Competitor Comparison -->
+        <div class="competitor-comparison">
+            {
+                competitors.map((comp) => (
+                    <div class="competitor-item">
+                        <span class="competitor-name">{comp.name}</span>
+                        <span class="competitor-price">{comp.price}</span>
+                    </div>
+                ))
+            }
+            <div class="competitor-images">
+                <img src="/images/wegovy.png" alt="Wegovy" />
+                <img src="/images/mounjaro.png" alt="Mounjaro" />
+                <img src="/images/ozempic.png" alt="Ozempic" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .weight-loss-section {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #bcdeff;
+    }
+
+    /* Top Row */
+    .top-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    /* Trust Card */
+    .trust-card {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        border-radius: 40px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .trust-content {
+        flex: 1;
+    }
+
+    .trust-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .trust-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .trust-list svg {
+        width: 28px;
+        height: 28px;
+        stroke: white;
+        flex-shrink: 0;
+    }
+
+    .doctor-image {
+        position: relative;
+        width: 200px;
+        height: 250px;
+    }
+
+    .doctor-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Placeholder Card */
+    .placeholder-card {
+        background-color: #d1d1d1;
+        border-radius: 40px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 18px;
+    }
+
+    /* Main Card */
+    .main-card {
+        background: linear-gradient(135deg, #c5ddc9 0%, #b5cdb9 100%);
+        border-radius: 40px;
+        padding: 60px;
+    }
+
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .main-header h2 {
+        font-size: 56px;
+        font-weight: 300;
+        color: white;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .glass-effect {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: right;
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+
+    /* Main Content */
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+        align-items: center;
+    }
+
+    .info-box {
+        background-color: rgba(50, 70, 80, 0.95);
+        border-radius: 40px;
+        padding: 40px;
+        color: white;
+    }
+
+    .info-box h3 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+
+    .info-box p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .quality-text {
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .product-hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-hero img {
+        max-width: 100%;
+        height: auto;
+        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+    }
+
+    /* Treatments Grid */
+    .treatments-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+        background-color: rgba(134, 171, 142, 0.5);
+        border-radius: 40px;
+        padding: 40px;
+    }
+
+    .treatment-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 30px;
+        padding: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .treatment-card h4 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #2d5a3d;
+        margin-bottom: 10px;
+        min-height: 50px;
+    }
+
+    .treatment-image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .treatment-image img {
+        max-width: 100%;
+        height: auto;
+        max-height: 180px;
+        object-fit: contain;
+    }
+
+    .treatment-price {
+        font-size: 16px;
+        color: #2d5a3d;
+        margin: 8px 0;
+    }
+
+    .treatment-price strong {
+        font-weight: 700;
+    }
+
+    .competitor-price {
+        font-size: 14px;
+        color: #2d5a3d;
+        margin-bottom: 8px;
+    }
+
+    .get-started-btn {
+        background-color: white;
+        color: #2d5a3d;
+        border: 2px solid #2d5a3d;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .get-started-btn:hover {
+        background-color: #2d5a3d;
+        color: white;
+    }
+
+    /* Competitor Comparison */
+    .competitor-comparison {
+        background-color: rgba(134, 171, 142, 0.5);
+        border-radius: 40px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .competitor-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .competitor-name {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .competitor-price {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .competitor-images {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .competitor-images img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .treatments-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .main-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .weight-loss-section {
+            padding: 24px;
+        }
+
+        .top-row {
+            grid-template-columns: 1fr;
+        }
+
+        .trust-card {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .doctor-image {
+            width: 150px;
+            height: 200px;
+        }
+
+        .main-card {
+            padding: 30px;
+        }
+
+        .main-header h2 {
+            font-size: 36px;
+        }
+
+        .info-box h3 {
+            font-size: 24px;
+        }
+
+        .treatments-grid {
+            padding: 24px;
+        }
+
+        .competitor-comparison {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .competitor-images {
+            margin-left: 0;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

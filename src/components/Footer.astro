@@ -1,0 +1,346 @@
+---
+// Footer.astro
+const footerLinks = {
+    features: [
+        { text: "Core features", url: "#" },
+        { text: "Pro experience", url: "#" },
+        { text: "Integrations", url: "#" },
+    ],
+    learnMore: [
+        { text: "Blog", url: "#" },
+        { text: "Case studies", url: "#" },
+        { text: "Customer stories", url: "#" },
+        { text: "Best practices", url: "#" },
+    ],
+    support: [
+        { text: "Contact", url: "#" },
+        { text: "Support", url: "#" },
+        { text: "Legal", url: "#" },
+    ],
+};
+
+const socialLinks = [
+    {
+        name: "Instagram",
+        url: "#",
+        icon: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z",
+    },
+    {
+        name: "LinkedIn",
+        url: "#",
+        icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+    },
+    {
+        name: "X (Twitter)",
+        url: "#",
+        icon: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z",
+    },
+];
+---
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Top Section -->
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2 class="brand-name">5MinuteMeds</h2>
+                <p class="brand-tagline">Fast & Affordable Medication</p>
+                <div class="social-links">
+                    {
+                        socialLinks.map((social) => (
+                            <a
+                                href={social.url}
+                                aria-label={social.name}
+                                class="social-link"
+                            >
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                >
+                                    <path d={social.icon} />
+                                </svg>
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="legitscript-badge">
+                <img
+                    src="/images/legitscript.png"
+                    alt="LegitScript Certified"
+                />
+            </div>
+
+            <nav class="footer-nav">
+                <div class="nav-column">
+                    <h3>Features</h3>
+                    <ul>
+                        {
+                            footerLinks.features.map((link) => (
+                                <li>
+                                    <a href={link.url}>{link.text}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div class="nav-column">
+                    <h3>Learn more</h3>
+                    <ul>
+                        {
+                            footerLinks.learnMore.map((link) => (
+                                <li>
+                                    <a href={link.url}>{link.text}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div class="nav-column">
+                    <h3>Support</h3>
+                    <ul>
+                        {
+                            footerLinks.support.map((link) => (
+                                <li>
+                                    <a href={link.url}>{link.text}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Disclaimers -->
+        <div class="footer-disclaimers">
+            <p class="disclaimer">
+                Product packaging shown in images is for illustrative purposes
+                only and may differ from the actual packaging customers receive.
+            </p>
+            <p class="disclaimer">
+                *Compounded products have not been approved by the FDA. The FDA
+                does not verify the safety, effectiveness, or quality of
+                compounded drugs. *Prescription products require an online
+                consultation with a healthcare provider who will determine if a
+                prescription is appropriate. *Ozempic® (semaglutide), Wegovy®
+                (semaglutide), and Mounjaro® (tirzepatide) are not compounded.
+                Ozempic® and Mounjaro® are FDA-approved for type 2 diabetes
+                treatment but may be prescribed off-label for weight loss at a
+                healthcare provider's discretion. Wegovy® is FDA-approved for
+                weight loss. Ozempic® and Wegovy® are the registered
+                trademarks of Novo Nordisk A/S. Mounjaro® is a registered
+                trademark of Eli Lilly and Company. 5MinuteMeds is not
+                affiliated or endorsed by Novo Nordisk A/S or Eli Lilly and
+                Company.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background-color: #f5f5f5;
+        padding: 60px 0 40px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    /* Top Section */
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1fr auto 2fr;
+        gap: 60px;
+        margin-bottom: 40px;
+    }
+
+    /* Brand Section */
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .brand-name {
+        font-size: 28px;
+        font-weight: 700;
+        color: #000;
+        margin: 0;
+    }
+
+    .brand-tagline {
+        font-size: 16px;
+        color: #666;
+        margin: 0;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .social-link:hover {
+        color: #000;
+    }
+
+    /* LegitScript Badge */
+    .legitscript-badge {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .legitscript-badge img {
+        width: 120px;
+        height: auto;
+    }
+
+    /* Navigation */
+    .footer-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .nav-column h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #000;
+        margin: 0 0 16px 0;
+    }
+
+    .nav-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-column a {
+        color: #666;
+        text-decoration: none;
+        font-size: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .nav-column a:hover {
+        color: #000;
+    }
+
+    /* Divider */
+    .footer-divider {
+        height: 1px;
+        background-color: #ddd;
+        margin: 40px 0;
+    }
+
+    /* Disclaimers */
+    .footer-disclaimers {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .disclaimer {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #666;
+        margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .footer-top {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-nav {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .legitscript-badge {
+            justify-content: flex-start;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer {
+            padding: 40px 0 30px;
+        }
+
+        .footer-container {
+            padding: 0 24px;
+        }
+
+        .footer-top {
+            gap: 32px;
+        }
+
+        .footer-nav {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+        }
+
+        .brand-tagline {
+            font-size: 14px;
+        }
+
+        .social-links {
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+        }
+
+        .disclaimer {
+            font-size: 11px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer {
+            padding: 32px 0 24px;
+        }
+
+        .nav-column h3 {
+            font-size: 16px;
+        }
+
+        .nav-column a {
+            font-size: 14px;
+        }
+    }
+</style>

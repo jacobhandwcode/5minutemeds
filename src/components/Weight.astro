@@ -1,0 +1,560 @@
+---
+// AdditionalSections.astro
+const sexLifeTestimonials = [
+    {
+        name: "Alan, 35",
+        text: "I couldn't believe how fast I was able to get it up. I have never lasted longer. The convenience of being able to do this online is unbeatable!",
+    },
+    {
+        name: "Daniel, 28",
+        text: "'I wasn't able to maintain an erection and it was destroying my confidence. Thanks to these mints from 5MinuteMeds I don't have to worry anymore'",
+    },
+];
+---
+
+<section class="additional-sections">
+    <!-- Top Row: Sex Life & Longevity -->
+    <div class="treatments-row">
+        <!-- Improve Sex Life Card -->
+        <div class="treatment-card sex-life-card">
+            <h2>Improve Sex Life</h2>
+            <p class="subtitle">
+                Easy on the go solutions for improved sexual performance
+            </p>
+
+            <div class="product-showcase">
+                <img
+                    src="/images/pill-blue.png"
+                    alt="5MinuteMeds Pill"
+                    class="product-image"
+                />
+            </div>
+
+            <div class="pricing">
+                <p>Our Price: <strong>$18.99/month</strong></p>
+                <p>Our Competitors: $39/month</p>
+            </div>
+
+            <button class="get-started-btn">Get Started</button>
+
+            <div class="product-info">
+                <p>
+                    Our fast-acting mints use the same ingredients as <strong
+                        >Viagra®</strong
+                    > and <strong>Cialis®</strong> and work in about 30 minutes.
+                </p>
+                <p>
+                    They're chewable with no water needed, or you can swallow
+                    them like a pill.
+                </p>
+                <p>Get hard and stay hard when you need to.</p>
+            </div>
+
+            <div class="testimonials">
+                {
+                    sexLifeTestimonials.map((testimonial) => (
+                        <div class="testimonial-box">
+                            <p class="testimonial-name">{testimonial.name}</p>
+                            <p class="testimonial-text">{testimonial.text}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Support Longevity Card -->
+        <div class="treatment-card longevity-card">
+            <h2>Support Longevity</h2>
+            <p class="subtitle">
+                Support Healthy Aging Through Cellular Renewal
+            </p>
+
+            <div class="product-showcase">
+                <img src="/images/nad-box.png" alt="NAD+ Box" class="nad-box" />
+                <img
+                    src="/images/nad-vial.png"
+                    alt="NAD+ Vial"
+                    class="nad-vial"
+                />
+            </div>
+
+            <div class="pricing">
+                <p>Our Price: <strong>$119.99/month</strong></p>
+                <p>Our Competitors: $159.99/month</p>
+            </div>
+
+            <button class="get-started-btn">Get Started</button>
+
+            <div class="product-info">
+                <p>
+                    NAD+ is a key molecule your cells use for energy, repair,
+                    and overall performance — but levels drop as you age,
+                    causing fatigue and slower recovery.
+                </p>
+                <p>
+                    NAD+ injections restore these levels directly, bypassing
+                    digestion for faster, more effective cellular support.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Regrow Hair Card -->
+    <div class="regrow-hair-card">
+        <h2>Regrow Hair</h2>
+        <h3>Finasteride & Minoxidil</h3>
+
+        <p class="description">
+            Take advantage of the power of both Finasteride and Minoxidil in a
+            single pill or separately. Also available in topical form.
+        </p>
+
+        <div class="hair-content">
+            <div class="hair-info">
+                <p class="pricing-info">
+                    <strong
+                        >Separate formulations: Starting at $30/month</strong>
+                </p>
+                <p class="pricing-info">
+                    <strong>Combo formulations: Starting at $35/month</strong>
+                </p>
+
+                <p class="clinical-info">
+                    Finasteride has been clinically proven to help regrow hair
+                    in 3-6 months.*
+                </p>
+
+                <p class="better-together"><strong>Better together</strong></p>
+                <p>
+                    Finasteride is clinically proven to give even better results
+                    when paired with minoxidil, which helps to kickstart
+                    regrowth.
+                </p>
+
+                <button class="get-started-btn">Get Started</button>
+            </div>
+
+            <div class="hair-products">
+                <img
+                    src="/images/hair-pill.png"
+                    alt="Hair Growth Pill"
+                    class="hair-pill"
+                />
+                <img
+                    src="/images/hair-spray.png"
+                    alt="Hair Growth Spray"
+                    class="hair-spray"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Row: Mission & Contact -->
+    <div class="bottom-row">
+        <!-- Our Outstanding Mission -->
+        <div class="mission-card">
+            <h2>Our Outstanding Mission</h2>
+            <p>
+                Get the treatments you need in minutes, not weeks. At
+                5MinuteMeds, our mission is simple: make quality medication fast
+                and affordable. No long waits, no inflated prices—just quick,
+                convenient access to trusted treatments when you need them.
+            </p>
+            <div class="mission-image">
+                <img src="/images/happy-person.png" alt="Happy Customer" />
+            </div>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="contact-card">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="First Name" required />
+                    <input type="text" placeholder="Last Name" required />
+                </div>
+                <div class="form-row">
+                    <input type="email" placeholder="Email" required />
+                    <input type="tel" placeholder="Phone" required />
+                </div>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    .additional-sections {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #bcdeff;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* Treatments Row */
+    .treatments-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .treatment-card {
+        border-radius: 40px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .treatment-card h2 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 24px;
+        line-height: 1.4;
+    }
+
+    /* Sex Life Card */
+    .sex-life-card {
+        background: linear-gradient(135deg, #8fa9c4 0%, #7b94b3 100%);
+        color: #1a1a1a;
+    }
+
+    .product-showcase {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0;
+        min-height: 150px;
+    }
+
+    .product-image {
+        max-width: 200px;
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    }
+
+    .pricing {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .pricing p {
+        margin: 4px 0;
+        font-size: 15px;
+    }
+
+    .pricing strong {
+        font-weight: 700;
+    }
+
+    .get-started-btn {
+        background-color: white;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0 auto 24px;
+        display: block;
+    }
+
+    .get-started-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-info {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    .product-info p {
+        margin-bottom: 12px;
+    }
+
+    .testimonials {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .testimonial-box {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .testimonial-name {
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .testimonial-text {
+        font-size: 13px;
+        line-height: 1.5;
+        font-style: italic;
+    }
+
+    /* Longevity Card */
+    .longevity-card {
+        background: linear-gradient(135deg, #6b7280 0%, #5a6169 100%);
+        color: white;
+    }
+
+    .nad-box,
+    .nad-vial {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .nad-vial {
+        margin-left: -20px;
+    }
+
+    /* Regrow Hair Card */
+    .regrow-hair-card {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        border-radius: 40px;
+        padding: 50px;
+        color: #1a1a1a;
+    }
+
+    .regrow-hair-card h2 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .regrow-hair-card h3 {
+        font-size: 32px;
+        font-weight: 400;
+        margin-bottom: 24px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .description {
+        font-size: 16px;
+        margin-bottom: 24px;
+        line-height: 1.6;
+    }
+
+    .hair-content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .hair-info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .pricing-info {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .clinical-info {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .better-together {
+        font-size: 16px;
+        margin-top: 16px;
+    }
+
+    .hair-products {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .hair-pill {
+        width: 120px;
+        height: auto;
+    }
+
+    .hair-spray {
+        width: 100px;
+        height: auto;
+    }
+
+    /* Bottom Row */
+    .bottom-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    /* Mission Card */
+    .mission-card {
+        background: linear-gradient(135deg, #6b7280 0%, #5a6169 100%);
+        border-radius: 40px;
+        padding: 40px;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mission-card h2 {
+        font-size: 36px;
+        font-weight: 400;
+        margin-bottom: 24px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .mission-card p {
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 500px;
+    }
+
+    .mission-image {
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        width: 300px;
+        height: auto;
+    }
+
+    .mission-image img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Contact Card */
+    .contact-card {
+        background: linear-gradient(135deg, #a8d8cd 0%, #95c9bf 100%);
+        border-radius: 40px;
+        padding: 40px;
+    }
+
+    .contact-card h2 {
+        font-size: 36px;
+        font-weight: 400;
+        margin-bottom: 24px;
+        color: white;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        background-color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-family: inherit;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: #999;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        border-radius: 20px;
+    }
+
+    .submit-btn {
+        background-color: white;
+        color: #2d5a3d;
+        border: none;
+        border-radius: 25px;
+        padding: 14px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .treatments-row,
+        .bottom-row {
+            grid-template-columns: 1fr;
+        }
+
+        .hair-content {
+            grid-template-columns: 1fr;
+        }
+
+        .hair-products {
+            justify-content: center;
+        }
+
+        .mission-image {
+            width: 200px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .additional-sections {
+            padding: 24px;
+        }
+
+        .treatment-card,
+        .regrow-hair-card,
+        .mission-card,
+        .contact-card {
+            padding: 30px;
+        }
+
+        .regrow-hair-card h2 {
+            font-size: 36px;
+        }
+
+        .regrow-hair-card h3 {
+            font-size: 24px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .mission-image {
+            position: relative;
+            right: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+</style>

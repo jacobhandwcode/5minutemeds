@@ -1,0 +1,129 @@
+---
+const services = [
+    {
+        title: "Lose Weight",
+        image: "/images/lose-weight.png",
+        alt: "Weight loss products",
+    },
+    {
+        title: "Support Longevity",
+        image: "/images/longevity.png",
+        alt: "Longevity support products",
+    },
+    {
+        title: "Regrow Hair",
+        images: ["/images/regrow-hair1.png", "/images/regrow-hair2.png"],
+        alt: "Hair regrowth products",
+    },
+    {
+        title: "Improve Your Sex Life",
+        image: "/images/improve.png",
+        alt: "Sexual health products",
+    },
+];
+---
+
+<main class="hero-section">
+    <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="rotating-text">
+                <span class="text-item active" data-color="#00295F"
+                    >Weight Loss</span
+                >
+                <span class="text-item" data-color="#2d5a3d">Longevity</span>
+                <span class="text-item" data-color="#6b4e71">Hair Growth</span>
+                <span class="text-item" data-color="#c64c0b">Better Sex</span>
+            </span>
+            <br />
+            <span class="static-text">designed for you</span>
+        </h1>
+        <p class="hero-subtitle">Same day prescriptions</p>
+
+        <div class="rating">
+            <div class="stars">
+                <span class="stars-top">★★★</span>
+                <span class="stars-bottom">★★</span>
+            </div>
+            <p class="rating-text">
+                4.9/5 Based on 46,392 monthly active users<sup>1</sup>
+            </p>
+        </div>
+    </div>
+
+    <div class="services-grid">
+        {
+            services.map((service) => (
+                <a href="#" class="service-card">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <h2 class="card-title">{service.title}</h2>
+                            <svg
+                                class="card-arrow"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M9 18l6-6-6-6"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        {service.images ? (
+                            <div class="card-images-dual">
+                                <img
+                                    src={service.images[0]}
+                                    alt={service.alt}
+                                    class="card-image"
+                                />
+                                <img
+                                    src={service.images[1]}
+                                    alt={service.alt}
+                                    class="card-image"
+                                />
+                            </div>
+                        ) : (
+                            <img
+                                src={service.image}
+                                alt={service.alt}
+                                class="card-image"
+                            />
+                        )}
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</main>
+
+<script>
+    const textItems = document.querySelectorAll(".text-item");
+    let currentIndex = 0;
+
+    function rotateText() {
+        const current = textItems[currentIndex];
+        const nextIndex = (currentIndex + 1) % textItems.length;
+        const next = textItems[nextIndex];
+
+        current.classList.remove("active");
+        current.classList.add("exit");
+
+        setTimeout(() => {
+            current.classList.remove("exit");
+            next.classList.add("active");
+            currentIndex = nextIndex;
+        }, 500);
+    }
+
+    setInterval(rotateText, 3000);
+</script>

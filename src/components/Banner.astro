@@ -1,0 +1,34 @@
+---
+const features = [
+    "100% Online Process",
+    "Affordable Pricing with no hidden fees",
+    "Free & Discreet Shipping",
+    "Direct Doctor Messaging",
+    "100% Online Process",
+    "Affordable Pricing with no hidden fees",
+];
+---
+
+<div class="top-banner">
+    <div class="logo-container">
+        <img src="/images/logo.svg" alt="5minutemeds" class="logo" />
+    </div>
+    <div class="banner-scroll-wrapper">
+        <div class="banner-scroll">
+            <div class="banner-content">
+                {
+                    features.map((feature) => (
+                        <span class="feature-item">{feature}</span>
+                    ))
+                }
+            </div>
+            <div class="banner-content" aria-hidden="true">
+                {
+                    features.map((feature) => (
+                        <span class="feature-item">{feature}</span>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
