@@ -469,8 +469,8 @@ body {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
