@@ -24,7 +24,7 @@ const sexLifeTestimonials = [
 
             <div class="product-showcase">
                 <img
-                    src="/images/pill-blue.png"
+                    src="/images/improve.png"
                     alt="5MinuteMeds Pill"
                     class="product-image"
                 />
@@ -70,11 +70,10 @@ const sexLifeTestimonials = [
             </p>
 
             <div class="product-showcase">
-                <img src="/images/nad-box.png" alt="NAD+ Box" class="nad-box" />
                 <img
-                    src="/images/nad-vial.png"
-                    alt="NAD+ Vial"
-                    class="nad-vial"
+                    src="/images/longevity.png"
+                    alt="NAD+ Box"
+                    class="nad-box"
                 />
             </div>
 
@@ -112,8 +111,8 @@ const sexLifeTestimonials = [
         <div class="hair-content">
             <div class="hair-info">
                 <p class="pricing-info">
-                    <strong
-                        >Separate formulations: Starting at $30/month</strong>
+                    <strong>Separate formulations: Starting at $30/month</strong
+                    >
                 </p>
                 <p class="pricing-info">
                     <strong>Combo formulations: Starting at $35/month</strong>
@@ -136,12 +135,12 @@ const sexLifeTestimonials = [
 
             <div class="hair-products">
                 <img
-                    src="/images/hair-pill.png"
+                    src="/images/regrow-hair3.png"
                     alt="Hair Growth Pill"
                     class="hair-pill"
                 />
                 <img
-                    src="/images/hair-spray.png"
+                    src="/images/regrow-hair4.png"
                     alt="Hair Growth Spray"
                     class="hair-spray"
                 />
@@ -153,15 +152,18 @@ const sexLifeTestimonials = [
     <div class="bottom-row">
         <!-- Our Outstanding Mission -->
         <div class="mission-card">
-            <h2>Our Outstanding Mission</h2>
-            <p>
-                Get the treatments you need in minutes, not weeks. At
-                5MinuteMeds, our mission is simple: make quality medication fast
-                and affordable. No long waits, no inflated prices—just quick,
-                convenient access to trusted treatments when you need them.
-            </p>
+            <div class="mission-card-text">
+                <h2>Our Outstanding Mission</h2>
+                <p>
+                    Get the treatments you need in minutes, not weeks. At
+                    5MinuteMeds, our mission is simple: make quality medication
+                    fast and affordable. No long waits, no inflated prices—just
+                    quick, convenient access to trusted treatments when you need
+                    them.
+                </p>
+            </div>
             <div class="mission-image">
-                <img src="/images/happy-person.png" alt="Happy Customer" />
+                <img src="/images/guy.png" alt="Happy Customer" />
             </div>
         </div>
 
@@ -186,40 +188,42 @@ const sexLifeTestimonials = [
 
 <style>
     .additional-sections {
-        max-width: 1400px;
         margin: 0 auto;
         padding: 40px;
-        background-color: #bcdeff;
+        background-color:#FAF8F2;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 20px;
     }
 
     /* Treatments Row */
     .treatments-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .treatment-card {
-        border-radius: 40px;
+        border-radius: 60px;
         padding: 40px;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .treatment-card h2 {
-        font-size: 28px;
-        font-weight: 600;
+        font-size: 48px;
+        font-weight: 400;
         margin-bottom: 12px;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Sofia", sans-serif;
+        color: #030303;
     }
 
     .subtitle {
-        font-size: 16px;
-        margin-bottom: 24px;
+        font-size: 18px;
+        margin-bottom: 20px;
         line-height: 1.4;
+        font-family: "Inter", sans-serif;
     }
 
     /* Sex Life Card */
@@ -232,7 +236,7 @@ const sexLifeTestimonials = [
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 30px 0;
+        margin: 20px 0;
         min-height: 150px;
     }
 
@@ -249,7 +253,8 @@ const sexLifeTestimonials = [
 
     .pricing p {
         margin: 4px 0;
-        font-size: 15px;
+        font-size: 16px;
+        font-family: "Inter", sans-serif;
     }
 
     .pricing strong {
@@ -260,25 +265,32 @@ const sexLifeTestimonials = [
         background-color: white;
         color: #1a1a1a;
         border: none;
-        border-radius: 25px;
-        padding: 12px 32px;
+        border-radius: 50px;
+        padding: 16px 32px;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        margin: 0 auto 24px;
+        width: 200px;
+        margin: 20px 0 0 0;
         display: block;
+        font-family: "Inter", sans-serif;
+    }
+
+    .treatment-card .get-started-btn {
+        margin: 20px auto;
     }
 
     .get-started-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .product-info {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.6;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
+        font-family: "Inter", sans-serif;
     }
 
     .product-info p {
@@ -288,7 +300,7 @@ const sexLifeTestimonials = [
     .testimonials {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
 
     .testimonial-box {
@@ -300,13 +312,15 @@ const sexLifeTestimonials = [
     .testimonial-name {
         font-weight: 600;
         margin-bottom: 8px;
-        font-size: 14px;
+        font-size: 16px;
+        font-family: "Inter", sans-serif;
     }
 
     .testimonial-text {
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.5;
         font-style: italic;
+        font-family: "Inter", sans-serif;
     }
 
     /* Longevity Card */
@@ -328,29 +342,31 @@ const sexLifeTestimonials = [
     /* Regrow Hair Card */
     .regrow-hair-card {
         background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-        border-radius: 40px;
+        border-radius: 60px;
         padding: 50px;
         color: #1a1a1a;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .regrow-hair-card h2 {
-        font-size: 48px;
-        font-weight: 700;
+        font-size: 56px;
+        font-weight: 400;
         margin-bottom: 8px;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Sofia", sans-serif;
     }
 
     .regrow-hair-card h3 {
-        font-size: 32px;
+        font-size: 36px;
         font-weight: 400;
-        margin-bottom: 24px;
-        font-family: Georgia, "Times New Roman", serif;
+        margin-bottom: 20px;
+        font-family: "Sofia", sans-serif;
     }
 
     .description {
-        font-size: 16px;
-        margin-bottom: 24px;
+        font-size: 18px;
+        margin-bottom: 20px;
         line-height: 1.6;
+        font-family: "Inter", sans-serif;
     }
 
     .hair-content {
@@ -363,37 +379,44 @@ const sexLifeTestimonials = [
     .hair-info {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
 
     .pricing-info {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
+        font-family: "Inter", sans-serif;
     }
 
     .clinical-info {
-        font-size: 14px;
-        margin-top: 8px;
+        font-size: 16px;
+        margin-top: 0;
+        font-family: "Inter", sans-serif;
     }
 
     .better-together {
+        font-size: 18px;
+        margin-top: 0;
+        font-family: "Inter", sans-serif;
+    }
+
+    .hair-info p {
+        font-family: "Inter", sans-serif;
         font-size: 16px;
-        margin-top: 16px;
     }
 
     .hair-products {
         display: flex;
-        gap: 20px;
         align-items: center;
     }
 
     .hair-pill {
-        width: 120px;
+        width: 220px;
         height: auto;
     }
 
     .hair-spray {
-        width: 100px;
+        width: 200px;
         height: auto;
     }
 
@@ -401,30 +424,32 @@ const sexLifeTestimonials = [
     .bottom-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     /* Mission Card */
     .mission-card {
         background: linear-gradient(135deg, #6b7280 0%, #5a6169 100%);
-        border-radius: 40px;
+        border-radius: 60px;
         padding: 40px;
         color: white;
         position: relative;
         overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .mission-card h2 {
-        font-size: 36px;
+        font-size: 48px;
         font-weight: 400;
-        margin-bottom: 24px;
-        font-family: Georgia, "Times New Roman", serif;
+        margin-bottom: 20px;
+        font-family: "Sofia", sans-serif;
     }
 
     .mission-card p {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.6;
         max-width: 500px;
+        font-family: "Inter", sans-serif;
     }
 
     .mission-image {
@@ -436,46 +461,50 @@ const sexLifeTestimonials = [
     }
 
     .mission-image img {
-        width: 100%;
+        width: 350px;
         height: auto;
         object-fit: contain;
+        height: 100%;
+        bottom: -1rem;
+        position: relative;
     }
 
     /* Contact Card */
     .contact-card {
-        background: linear-gradient(135deg, #a8d8cd 0%, #95c9bf 100%);
-        border-radius: 40px;
+        background: linear-gradient(135deg, #c5ddc9 0%, #b5cdb9 100%);
+        border-radius: 60px;
         padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .contact-card h2 {
-        font-size: 36px;
+        font-size: 48px;
         font-weight: 400;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         color: white;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Sofia", sans-serif;
     }
 
     .contact-form {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
 
     .form-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        gap: 20px;
     }
 
     .contact-form input,
     .contact-form textarea {
         background-color: white;
         border: none;
-        border-radius: 25px;
-        padding: 14px 20px;
-        font-size: 15px;
-        font-family: inherit;
+        border-radius: 50px;
+        padding: 16px 24px;
+        font-size: 16px;
+        font-family: "Inter", sans-serif;
     }
 
     .contact-form input::placeholder,
@@ -485,25 +514,27 @@ const sexLifeTestimonials = [
 
     .contact-form textarea {
         resize: vertical;
-        border-radius: 20px;
+        border-radius: 24px;
     }
 
     .submit-btn {
         background-color: white;
         color: #2d5a3d;
         border: none;
-        border-radius: 25px;
-        padding: 14px 32px;
+        border-radius: 50px;
+        padding: 16px 32px;
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
         align-self: flex-start;
+        margin: 0 auto;
+        font-family: "Inter", sans-serif;
     }
 
     .submit-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 20px rgba(45, 90, 61, 0.3);
     }
 
     /* Responsive Design */
@@ -535,15 +566,32 @@ const sexLifeTestimonials = [
         .regrow-hair-card,
         .mission-card,
         .contact-card {
-            padding: 30px;
+            padding: 32px;
+            border-radius: 40px;
         }
 
-        .regrow-hair-card h2 {
+        .treatment-card h2 {
             font-size: 36px;
         }
 
+        .regrow-hair-card h2 {
+            font-size: 42px;
+        }
+
         .regrow-hair-card h3 {
-            font-size: 24px;
+            font-size: 28px;
+        }
+
+        .mission-card h2 {
+            font-size: 36px;
+        }
+
+        .contact-card h2 {
+            font-size: 36px;
+        }
+
+        .subtitle {
+            font-size: 16px;
         }
 
         .form-row {
@@ -555,6 +603,10 @@ const sexLifeTestimonials = [
             right: 0;
             width: 100%;
             margin-top: 20px;
+        }
+
+        .testimonials {
+            gap: 16px;
         }
     }
 </style>

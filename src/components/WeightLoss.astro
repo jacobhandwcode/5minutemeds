@@ -29,14 +29,19 @@ const features = [
     "FSA/HSA Eligible",
 ];
 
-const competitors = [
-    { name: "Wegovy ®", price: "$1,999/mo" },
-    { name: "Mounjaro®", price: "$1,899/mo" },
-    { name: "Ozempic®", price: "$1,799/mo" },
+const testimonials = [
+    { name: "Daryl", pounds: "72 POUNDS", image: "/images/slide2.jpg" },
+    { name: "Sarah", pounds: "58 POUNDS", image: "/images/slide1.jpg" },
+    { name: "Mary", pounds: "65 POUNDS", image: "/images/slide3.jpg" },
 ];
+
+import BmiCalc from "./BmiCalc.astro";
+import WeightModal from "./WeightModal.astro";
 ---
 
 <section class="weight-loss-section">
+    <BmiCalc />
+    <WeightModal />
     <!-- Top Row -->
     <div class="top-row">
         <!-- Trust Badge Card -->
@@ -76,35 +81,78 @@ const competitors = [
                 <img src="/images/doctor.png" alt="Doctor" />
             </div>
         </div>
-
-        <!-- Placeholder Card -->
-        <div class="placeholder-card">
-            <p>Awaiting content</p>
-        </div>
     </div>
 
     <!-- Main Content Card -->
     <div class="main-card">
         <div class="main-header">
             <h2>Lose Weight</h2>
-            <span class="glass-effect">MAKE BOXES<br />GLASS EFFECT</span>
         </div>
 
         <div class="main-content">
-            <!-- Info Box -->
-            <div class="info-box">
-                <h3>5 MinuteMeds GLP-1</h3>
-                <p>
-                    Experience a customized weight loss solution that is as much
-                    as 10x less expensive than the leading name brands with the
-                    same Same active Ingredient as Ozempic® and Wegovy®.
+            <!-- Weight Loss Stats Card -->
+            <div class="stats-card">
+                <h3 class="stats-heading">Lose up to</h3>
+                <div class="stats-number">
+                    <span class="big-number">20</span>
+                    <div class="stats-side">
+                        <span class="percent">%</span>
+                        <span class="bodyweight">bodyweight</span>
+                        <svg
+                            class="arrow-down"
+                            width="60"
+                            height="60"
+                            viewBox="0 0 60 60"
+                            fill="none"
+                        >
+                            <path
+                                d="M30 10 L30 40 M30 40 L20 30 M30 40 L40 30"
+                                stroke="currentColor"
+                                stroke-width="4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+                <p class="stats-description">
+                    People lost an average of <strong>15%</strong> (up to 20%) bodyweight
+                    in a 68-week clinical study of 5 Minute Meds
                 </p>
-                <p class="quality-text">Get the same quality for less.</p>
+                <a href="#" class="get-started-btn-dark">
+                    Get Started
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M7 4l6 6-6 6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </a>
+                <p class="disclaimer">
+                    *In a 68- and 72-week clinical trial studying 5 Minute Meds (2.4
+                    mg) and Zepbound (15 mg) in patients without diabetes and
+                    with BMI ≥30, or BMI ≥27 with a weight-related condition,
+                    the average weight loss was 15% and 20%, when paired with
+                    diet and exercise changes (compared to 2.4% and 3.1%,
+                    respectively, with diet and exercise alone).
+                </p>
             </div>
 
-            <!-- Product Image -->
-            <div class="product-hero">
-                <img src="/images/glp1-product.png" alt="5 MinuteMeds GLP-1" />
+            <!-- Info Box with Product Image -->
+            <div class="info-product-container">
+                <div class="info-box">
+                    <h3>5 MinuteMeds GLP-1</h3>
+                    <p>
+                        Experience a customized weight loss solution that is as much
+                        as 10x less expensive than the leading name brands with the
+                        same Same active Ingredient as Ozempic® and Wegovy®.
+                    </p>
+                    <p class="quality-text">Get the same quality for less.</p>
+                </div>
+                <div class="product-hero">
+                    <img src="/images/lose-weight.png" alt="5 MinuteMeds GLP-1" />
+                </div>
             </div>
         </div>
 
@@ -135,50 +183,87 @@ const competitors = [
 
         <!-- Competitor Comparison -->
         <div class="competitor-comparison">
-            {
-                competitors.map((comp) => (
-                    <div class="competitor-item">
-                        <span class="competitor-name">{comp.name}</span>
-                        <span class="competitor-price">{comp.price}</span>
-                    </div>
-                ))
-            }
-            <div class="competitor-images">
-                <img src="/images/wegovy.png" alt="Wegovy" />
-                <img src="/images/mounjaro.png" alt="Mounjaro" />
-                <img src="/images/ozempic.png" alt="Ozempic" />
-            </div>
+            <p>Competitors</p>
         </div>
     </div>
 </section>
 
+<script>
+    // Testimonial slideshow
+    let currentSlideWeight = 0;
+    let isPausedWeight = false;
+    let slideIntervalWeight;
+
+    function showSlideWeight(index) {
+        const slides = document.querySelectorAll(".slide-weight");
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add("active");
+            } else {
+                slide.classList.remove("active");
+            }
+        });
+    }
+
+    function nextSlideWeight() {
+        if (!isPausedWeight) {
+            const slides = document.querySelectorAll(".slide-weight");
+            currentSlideWeight = (currentSlideWeight + 1) % slides.length;
+            showSlideWeight(currentSlideWeight);
+        }
+    }
+
+    function startSlideshowWeight() {
+        slideIntervalWeight = setInterval(nextSlideWeight, 5000);
+    }
+
+    function stopSlideshowWeight() {
+        clearInterval(slideIntervalWeight);
+    }
+
+    const slideshowWeight = document.querySelector(".testimonial-slideshow-weight");
+
+    if (slideshowWeight) {
+        startSlideshowWeight();
+
+        slideshowWeight.addEventListener("mouseenter", () => {
+            isPausedWeight = true;
+        });
+
+        slideshowWeight.addEventListener("mouseleave", () => {
+            isPausedWeight = false;
+        });
+    }
+</script>
+
 <style>
     .weight-loss-section {
-        max-width: 1400px;
         margin: 0 auto;
         padding: 40px;
-        background-color: #bcdeff;
+        background-color: #faf8f2;
+        border-radius: 24px;
+        border-top: 1px solid rgb(0, 112, 218);
     }
 
     /* Top Row */
     .top-row {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        margin-bottom: 24px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
     }
 
     /* Trust Card */
     .trust-card {
-        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
         border-radius: 40px;
         padding: 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: white;
+        color: #030303;
         position: relative;
         overflow: hidden;
+        box-shadow: 2px 4px 12px #00000045;
     }
 
     .trust-content {
@@ -202,91 +287,190 @@ const competitors = [
 
     .trust-list svg {
         width: 28px;
-        height: 28px;
+        height: 30px;
         stroke: white;
         flex-shrink: 0;
     }
 
     .doctor-image {
         position: relative;
-        width: 200px;
         height: 250px;
     }
 
     .doctor-image img {
-        width: 100%;
-        height: 100%;
         object-fit: contain;
-    }
-
-    /* Placeholder Card */
-    .placeholder-card {
-        background-color: #d1d1d1;
-        border-radius: 40px;
-        padding: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #666;
-        font-size: 18px;
     }
 
     /* Main Card */
     .main-card {
-        background: linear-gradient(135deg, #c5ddc9 0%, #b5cdb9 100%);
-        border-radius: 40px;
-        padding: 60px;
+        background-color: #FAF8F2;
+        border-radius: 60px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .main-header {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .main-header h2 {
         font-size: 56px;
-        font-weight: 300;
-        color: white;
-        font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .glass-effect {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.8);
-        text-align: right;
-        line-height: 1.4;
-        text-transform: uppercase;
+        font-weight: 400;
+        color: #030303;
+        font-family: "Sofia";
     }
 
     /* Main Content */
     .main-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        margin-bottom: 60px;
-        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        align-items: stretch;
     }
 
-    .info-box {
+    /* Stats Card */
+    .stats-card {
+        background: rgb(34 147 255 / 50%);
+        border-radius: 60px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: #2d2d2d;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .stats-heading {
+        font-size: 28px;
+        font-weight: 400;
+        color: #2d2d2d;
+        margin: 0;
+        font-family: "Sofia";
+    }
+
+    .stats-number {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .big-number {
+        font-size: 180px;
+        font-weight: 700;
+        line-height: 0.85;
+        background: linear-gradient(
+            135deg,
+            rgb(0, 92, 179) 0%,
+            rgb(64, 156, 255) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .stats-side {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-top: 20px;
+    }
+
+    .percent {
+        font-size: 48px;
+        font-weight: 700;
+        color: rgb(0, 92, 179);
+    }
+
+    .bodyweight {
+        font-size: 18px;
+        font-weight: 500;
+        color: rgb(0, 92, 179);
+    }
+
+    .arrow-down {
+        width: 50px;
+        height: 50px;
+        stroke: #007e3e;
+        margin-top: 8px;
+    }
+
+    .stats-description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #2a2a2a;
+        margin: 0;
+        font-family: "Inter";
+    }
+
+    .stats-description strong {
+        font-weight: 700;
+    }
+
+    .get-started-btn-dark {
+        background-color: #ffffff;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 50px;
+        padding: 16px 32px;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        align-self: flex-start;
+        font-family: "Inter";
+    }
+
+    .get-started-btn-dark:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .get-started-btn-dark svg {
+        stroke: #1a1a1a;
+    }
+
+    .disclaimer {
+        font-size: 11px;
+        line-height: 1.5;
+        color: #2a2a2a;
+        margin: 0;
+        margin-top: auto;
+        font-family: "Inter";
+    }
+
+    /* Info Product Container */
+    .info-product-container {
         background-color: rgba(50, 70, 80, 0.95);
-        border-radius: 40px;
+        border-radius: 60px;
         padding: 40px;
         color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .info-box h3 {
         font-size: 32px;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         font-weight: 400;
+        font-family: "Sofia";
     }
 
     .info-box p {
         font-size: 16px;
         line-height: 1.6;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         color: rgba(255, 255, 255, 0.9);
+        font-family: "Inter";
     }
 
     .quality-text {
@@ -301,38 +485,96 @@ const competitors = [
     }
 
     .product-hero img {
-        max-width: 100%;
+        width: 60%;
         height: auto;
         filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+    }
+
+    /* Testimonial Slideshow */
+    .testimonial-slideshow-weight {
+        background: linear-gradient(135deg, #00295f 0%, #004080 100%);
+        border-radius: 60px;
+        position: relative;
+        overflow: hidden;
+        min-height: 400px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .slide-weight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slide-weight.active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .testimonial-image-weight {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+    }
+
+    .testimonial-info-weight {
+        background: linear-gradient(135deg, #278fc3 0%, #00295f 100%);
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+    }
+
+    .testimonial-name-weight {
+        font-family: "Sofia";
+        font-size: 32px;
+        font-weight: 400;
+        color: white;
+        margin: 0;
+    }
+
+    .testimonial-weight-weight {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+        font-family: "Inter";
     }
 
     /* Treatments Grid */
     .treatments-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-bottom: 40px;
-        background-color: rgba(134, 171, 142, 0.5);
-        border-radius: 40px;
-        padding: 40px;
+        gap: 20px;
+        margin-bottom: 20px;
+        padding: 0;
     }
 
     .treatment-card {
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 30px;
-        padding: 30px;
+        background-color: #FAF8F2;
+        border-radius: 60px;
+        padding: 40px;
         text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .treatment-card h4 {
-        font-size: 18px;
-        font-weight: 500;
+        font-size: 20px;
+        font-weight: 400;
         color: #2d5a3d;
-        margin-bottom: 10px;
+        margin-bottom: 0;
         min-height: 50px;
+        font-family: "Sofia";
     }
 
     .treatment-image {
@@ -354,6 +596,7 @@ const competitors = [
         font-size: 16px;
         color: #2d5a3d;
         margin: 8px 0;
+        font-family: "Inter";
     }
 
     .treatment-price strong {
@@ -364,64 +607,48 @@ const competitors = [
         font-size: 14px;
         color: #2d5a3d;
         margin-bottom: 8px;
+        font-family: "Inter";
     }
 
     .get-started-btn {
         background-color: white;
         color: #2d5a3d;
         border: 2px solid #2d5a3d;
-        border-radius: 25px;
-        padding: 12px 24px;
+        border-radius: 50px;
+        padding: 16px 32px;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
         text-decoration: none;
         transition: all 0.3s ease;
         display: inline-block;
+        font-family: "Inter";
     }
 
     .get-started-btn:hover {
         background-color: #2d5a3d;
         color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(45, 90, 61, 0.3);
     }
 
     /* Competitor Comparison */
     .competitor-comparison {
         background-color: rgba(134, 171, 142, 0.5);
-        border-radius: 40px;
-        padding: 40px;
+        border-radius: 60px;
+        padding: 60px 40px;
+        position: relative;
+        min-height: 400px;
         display: flex;
         align-items: center;
-        gap: 30px;
-        flex-wrap: wrap;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .competitor-item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .competitor-name {
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.7);
-    }
-
-    .competitor-price {
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.6);
-    }
-
-    .competitor-images {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        margin-left: auto;
-    }
-
-    .competitor-images img {
-        height: 60px;
-        width: auto;
-        object-fit: contain;
+    .competitor-comparison p {
+        font-size: 48px;
+        font-weight: 400;
+        color: #030303;
+        font-family: "Sofia";
     }
 
     /* Responsive Design */
@@ -433,6 +660,10 @@ const competitors = [
         .main-content {
             grid-template-columns: 1fr;
         }
+
+        .stats-card {
+            order: -1;
+        }
     }
 
     @media (max-width: 768px) {
@@ -440,22 +671,19 @@ const competitors = [
             padding: 24px;
         }
 
-        .top-row {
-            grid-template-columns: 1fr;
-        }
-
         .trust-card {
             flex-direction: column;
             text-align: center;
+            border-radius: 40px;
         }
 
         .doctor-image {
-            width: 150px;
             height: 200px;
         }
 
         .main-card {
-            padding: 30px;
+            padding: 24px;
+            border-radius: 40px;
         }
 
         .main-header h2 {
@@ -466,19 +694,60 @@ const competitors = [
             font-size: 24px;
         }
 
+        .big-number {
+            font-size: 120px;
+        }
+
+        .percent {
+            font-size: 36px;
+        }
+
+        .stats-heading {
+            font-size: 24px;
+        }
+
         .treatments-grid {
-            padding: 24px;
+            padding: 0;
+        }
+
+        .treatment-card {
+            border-radius: 40px;
+            padding: 32px;
         }
 
         .competitor-comparison {
-            flex-direction: column;
-            align-items: flex-start;
+            padding: 40px 24px;
+            min-height: 300px;
+            border-radius: 40px;
         }
 
-        .competitor-images {
-            margin-left: 0;
-            width: 100%;
-            justify-content: center;
+        .competitor-comparison p {
+            font-size: 36px;
+        }
+
+        .testimonial-slideshow-weight {
+            min-height: 350px;
+            border-radius: 40px;
+        }
+
+        .testimonial-name-weight {
+            font-size: 24px;
+        }
+
+        .testimonial-info-weight {
+            padding: 24px 32px;
+        }
+
+        .product-hero img {
+            width: 80%;
+        }
+
+        .stats-card {
+            border-radius: 40px;
+        }
+
+        .info-product-container {
+            border-radius: 40px;
         }
     }
 </style>

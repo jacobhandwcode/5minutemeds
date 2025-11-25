@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia&display=swap');
+
+@font-face {
+    font-family: 'Sofia';
+    src: url('/fonts/sofia.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 * {
     margin: 0;
@@ -9,20 +17,20 @@
 :root {
     --banner-blue: #BCDEFF;
     --text-navy: #00295F;
-    --card-green: #c5ddc9;
+    --card-green: #AEC8AE;
     --white: #ffffff;
     --static-text: #030303;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: "Inter" !important;
     background-color: var(--white);
     overflow-x: hidden;
 }
 
 /* Top Banner Styles */
 .top-banner {
-    background-color: var(--banner-blue);
+    background-color: #FAF8F2;
     padding: 12px 0;
     overflow: hidden;
     position: relative;
@@ -80,8 +88,9 @@ body {
 
 .feature-item {
     font-size: 14px;
-    color: var(--text-navy);
+    color: var(--static-text);
     font-weight: 400;
+    font-family: "Sofia";
 }
 
 @keyframes scroll {
@@ -96,7 +105,7 @@ body {
 
 /* Hero Section Styles */
 .hero-section {
-    padding: 60px 40px 80px;
+    padding: 20px 40px 80px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
@@ -132,7 +141,6 @@ body {
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 16px;
-    font-family: Georgia, 'Times New Roman', serif;
     position: relative;
     min-height: 160px;
 }
@@ -145,6 +153,7 @@ body {
 }
 
 .text-item {
+    font-family: "Sofia";
     position: absolute;
     left: 0;
     top: 0;
@@ -165,20 +174,20 @@ body {
     transform: translateY(-30px);
 }
 
-.text-item[data-color="#2d5a3d"] {
-    --item-color: #2d5a3d;
+.text-item[data-color="#4e9a69"] {
+    --item-color: #4e9a69;
 }
 
 .text-item[data-color="#c64c0b"] {
     --item-color: #c64c0b;
 }
 
-.text-item[data-color="#6b4e71"] {
-    --item-color: #6b4e71;
+.text-item[data-color="#9571a0"] {
+    --item-color: #9571a0;
 }
 
-.text-item[data-color="#00295F"] {
-    --item-color: #00295F;
+.text-item[data-color="#0070da"] {
+    --item-color: #0070da;
 }
 
 .text-item.active {
@@ -187,6 +196,7 @@ body {
 
 .static-text {
     color: var(--static-text);
+    font-family: "Sofia";
 }
 
 .hero-subtitle {
@@ -235,27 +245,77 @@ body {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    gap: 10px;
     margin-top: 60px;
 }
 
+/* here */
+/* Service Card Base Styles */
 .service-card {
-    background-color: var(--card-green);
+    background-color: #FAF8F2;
     border-radius: 60px;
-    padding: 40px;
+    padding: 20px 40px;
     text-decoration: none;
     display: flex;
     align-items: stretch;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-image 0.4s ease;
     min-height: 200px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .service-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
+
+/* Weight Loss - Blue Gradient */
+.service-card:nth-child(1):hover {
+    background-image: linear-gradient(162deg, rgb(0, 92, 179) 9.21%, rgb(0, 112, 218) 38.52%, rgb(64, 156, 255) 74.59%, rgb(0, 92, 179) 87.36%);
+}
+
+.service-card:nth-child(1):hover .card-title,
+.service-card:nth-child(1):hover .card-arrow {
+    color: #ffffff;
+}
+
+/* Longevity - Green Gradient */
+.service-card:nth-child(2):hover {
+    background-image: linear-gradient(162deg, rgb(56, 118, 79) 9.21%, rgb(78, 154, 105) 38.52%, rgb(108, 186, 139) 74.59%, rgb(56, 118, 79) 87.36%);
+}
+
+.service-card:nth-child(2):hover .card-title,
+.service-card:nth-child(2):hover .card-arrow {
+    color: #ffffff;
+}
+
+/* Hair Growth - Purple Gradient */
+.service-card:nth-child(3):hover {
+    background-image: linear-gradient(162deg, rgb(107, 78, 119) 9.21%, rgb(149, 113, 160) 38.52%, rgb(182, 151, 192) 74.59%, rgb(107, 78, 119) 87.36%);
+}
+
+.service-card:nth-child(3):hover .card-title,
+.service-card:nth-child(3):hover .card-arrow {
+    color: #ffffff;
+}
+
+/* Sexual Health - Orange Gradient */
+.service-card:nth-child(4):hover {
+    background-image: linear-gradient(162deg, rgb(163, 62, 11) 9.21%, rgb(198, 76, 11) 38.52%, rgb(235, 110, 40) 74.59%, rgb(163, 62, 11) 87.36%);
+}
+
+.service-card:nth-child(4):hover .card-title,
+.service-card:nth-child(4):hover .card-arrow {
+    color: #ffffff;
+}
+
+/* Smooth transition for text color */
+.card-title,
+.card-arrow {
+    transition: color 0.4s ease;
+}
+/*  */
 
 .card-inner {
     flex: 1;
@@ -269,15 +329,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 20px;
 }
 
 .card-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
     color: var(--static-text);
     margin: 0;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: "Sofia";
+    line-height: 30px;
     flex: 1;
 }
 
@@ -292,6 +352,7 @@ body {
     height: auto;
     object-fit: contain;
     margin-top: auto;
+    margin: 0 auto;
 }
 
 .card-images-dual {
@@ -315,7 +376,7 @@ body {
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 40px 24px 60px;
+        padding: 20px 24px 60px;
     }
 
     .hamburger {
@@ -334,11 +395,10 @@ body {
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
     }
 
     .service-card {
-        padding: 32px;
+        padding: 20px 40px;
         border-radius: 40px;
         min-height: 160px;
     }
@@ -395,5 +455,258 @@ body {
 
     .card-images-dual .card-image {
         width: 70px;
+    }
+}
+
+/* ===== MOBILE MENU STYLES ===== */
+/* Add these styles to your existing base.css file */
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menu Container */
+.menu-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(400px, 85vw);
+    background-color: #f5f5f5;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-overlay.active .menu-container {
+    transform: translateX(0);
+}
+
+/* Close Button */
+.menu-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--static-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.menu-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Menu Navigation */
+.menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 40px 40px;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    text-decoration: none;
+    color: var(--static-text);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(30px);
+    box-shadow: -4px 0 24px rgb(0 0 0 / 10%);
+}
+
+.menu-overlay.active .menu-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-overlay.active .menu-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.menu-overlay.active .menu-item:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.menu-overlay.active .menu-item:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.menu-overlay.active .menu-item:nth-child(4) {
+    transition-delay: 0.25s;
+}
+
+.menu-overlay.active .menu-item:nth-child(5) {
+    transition-delay: 0.3s;
+}
+
+.menu-overlay.active .menu-item:nth-child(6) {
+    transition-delay: 0.35s;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateX(-4px);
+}
+
+.menu-item:active {
+    transform: translateX(-2px) scale(0.98);
+}
+
+.menu-item-text {
+    font-family: "Sofia";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.menu-item-arrow {
+    color: var(--static-text);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover .menu-item-arrow {
+    transform: translateX(4px);
+}
+
+/* Menu Footer */
+.menu-footer {
+    padding: 32px 40px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-footer-text {
+    font-size: 16px;
+    color: var(--static-text);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.menu-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-stars {
+    font-size: 20px;
+    color: var(--static-text);
+    letter-spacing: -1px;
+}
+
+.menu-rating-text {
+    font-size: 16px;
+    color: var(--static-text);
+    font-weight: 600;
+}
+
+/* Hamburger Animation */
+.hamburger {
+    transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
+    transform: scale(1.05);
+}
+
+.hamburger span {
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+    background-color: var(--text-navy);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 100%;
+    }
+
+    .menu-close {
+        top: 24px;
+        right: 24px;
+    }
+
+    .menu-nav {
+        padding: 80px 24px 24px;
+    }
+
+    .menu-item {
+        padding: 18px 20px;
+    }
+
+    .menu-item-text {
+        font-size: 22px;
+    }
+
+    .menu-footer {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-nav {
+        gap: 2px;
+    }
+
+    .menu-item {
+        padding: 16px 18px;
+        border-radius: 12px;
+    }
+
+    .menu-item-text {
+        font-size: 20px;
+    }
+
+    .menu-item-arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    .menu-footer-text {
+        font-size: 14px;
+    }
+
+    .menu-stars {
+        font-size: 18px;
+    }
+
+    .menu-rating-text {
+        font-size: 14px;
     }
 }

@@ -30,14 +30,113 @@ const services = [
         <span></span>
     </button>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay">
+        <div class="menu-container">
+            <button class="menu-close" aria-label="Close menu">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M18 6L6 18M6 6l12 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    />
+                </svg>
+            </button>
+
+            <nav class="menu-nav">
+                <a href="#weight-loss" class="menu-item">
+                    <span class="menu-item-text">Weight Loss</span>
+                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+                <a href="#longevity" class="menu-item">
+                    <span class="menu-item-text">Longevity</span>
+                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+                <a href="#hair-growth" class="menu-item">
+                    <span class="menu-item-text">Hair Growth</span>
+                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+                <a href="#sexual-health" class="menu-item">
+                    <span class="menu-item-text">Sexual Health</span>
+                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+                <a href="#about" class="menu-item">
+                    <span class="menu-item-text">About Us</span>
+                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+                <a href="#contact" class="menu-item">
+                    <span class="menu-item-text">Contact</span>
+                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+            </nav>
+
+            <div class="menu-footer">
+                <p class="menu-footer-text">Same day prescriptions</p>
+                <div class="menu-rating">
+                    <span class="menu-stars">★★★★★</span>
+                    <span class="menu-rating-text">4.9/5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="hero-content">
         <h1 class="hero-title">
             <span class="rotating-text">
-                <span class="text-item active" data-color="#00295F"
+                <span class="text-item active" data-color="#0070da"
                     >Weight Loss</span
                 >
-                <span class="text-item" data-color="#2d5a3d">Longevity</span>
-                <span class="text-item" data-color="#6b4e71">Hair Growth</span>
+                <span class="text-item" data-color="#4e9a69">Longevity</span>
+                <span class="text-item" data-color="#9571a0">Hair Growth</span>
                 <span class="text-item" data-color="#c64c0b">Better Sex</span>
             </span>
             <br />
@@ -107,6 +206,7 @@ const services = [
 </main>
 
 <script>
+    // Text rotation functionality
     const textItems = document.querySelectorAll(".text-item");
     let currentIndex = 0;
 
@@ -126,4 +226,42 @@ const services = [
     }
 
     setInterval(rotateText, 3000);
+
+    // Menu functionality
+    const hamburger = document.querySelector(".hamburger");
+    const menuOverlay = document.querySelector(".menu-overlay");
+    const menuClose = document.querySelector(".menu-close");
+    const menuItems = document.querySelectorAll(".menu-item");
+
+    function openMenu() {
+        menuOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+        menuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    hamburger?.addEventListener("click", openMenu);
+    menuClose?.addEventListener("click", closeMenu);
+
+    // Close menu when clicking on a menu item
+    menuItems.forEach((item) => {
+        item.addEventListener("click", closeMenu);
+    });
+
+    // Close menu when clicking outside the menu container
+    menuOverlay?.addEventListener("click", (e) => {
+        if (e.target === menuOverlay) {
+            closeMenu();
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menuOverlay?.classList.contains("active")) {
+            closeMenu();
+        }
+    });
 </script>
