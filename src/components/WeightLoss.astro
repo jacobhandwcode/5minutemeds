@@ -98,7 +98,11 @@ import WeightModal from "./WeightModal.astro";
 
             <!-- Woman Image Card -->
             <div class="woman-image-card">
-                <img src="/images/woman.png" alt="Happy Woman" class="woman-image" />
+                <img
+                    src="/images/woman.png"
+                    alt="Happy Woman"
+                    class="woman-image"
+                />
             </div>
         </div>
     </div>
@@ -143,37 +147,64 @@ import WeightModal from "./WeightModal.astro";
                 <img src="/images/doctor.png" alt="Doctor" />
             </div>
         </div>
-    </div>
 
-        <!-- Treatment Options -->
-        <div class="treatments-grid">
+        <!-- Testimonial Slideshow -->
+        <div class="testimonial-slideshow-weight">
             {
-                treatments.map((treatment) => (
-                    <div class="treatment-card">
-                        <h4>{treatment.name}</h4>
-                        <div class="treatment-image">
-                            <img src={treatment.image} alt={treatment.name} />
-                        </div>
-                        <p class="treatment-price">
-                            Our Price: <strong>{treatment.price}</strong>
-                        </p>
-                        {treatment.competitor && (
-                            <p class="competitor-price">
-                                Our Competitors: {treatment.competitor}
+                testimonials.map((testimonial, index) => (
+                    <div class={`slide-weight ${index === 0 ? "active" : ""}`}>
+                        <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            class="testimonial-image-weight"
+                        />
+                        <div class="testimonial-info-weight">
+                            <p class="testimonial-name-weight">
+                                {testimonial.name}
                             </p>
-                        )}
-                        <a href={treatment.link} class="get-started-btn">
-                            Get Started
-                        </a>
+                            <p class="testimonial-weight-weight">
+                                Lost {testimonial.pounds}
+                            </p>
+                        </div>
                     </div>
                 ))
             }
         </div>
+    </div>
 
-        <!-- Competitor Comparison -->
-        <div class="competitor-comparison">
-            <p>Competitors</p>
-        </div>
+    <!-- Treatment Options -->
+    <div class="treatments-grid">
+        {
+            treatments.map((treatment) => (
+                <div class="treatment-card">
+                    <h4>{treatment.name}</h4>
+                    <div class="treatment-image">
+                        <img src={treatment.image} alt={treatment.name} />
+                    </div>
+                    <p class="treatment-price">
+                        Our Price: <strong>{treatment.price}</strong>
+                    </p>
+                    {treatment.competitor && (
+                        <p class="competitor-price">
+                            Our Competitors: {treatment.competitor}
+                        </p>
+                    )}
+                    <a href={treatment.link} class="get-started-btn">
+                        Get Started
+                    </a>
+                </div>
+            ))
+        }
+    </div>
+
+    <!-- Competitor Comparison -->
+    <div class="competitor-comparison">
+        <img
+            src="/images/competition.png"
+            alt="Competitor Pricing Comparison"
+            class="competitor-image"
+        />
+    </div>
 </section>
 
 <script>
@@ -238,7 +269,7 @@ import WeightModal from "./WeightModal.astro";
     /* Top Row */
     .top-row {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
         margin-bottom: 20px;
     }
@@ -295,6 +326,7 @@ import WeightModal from "./WeightModal.astro";
     /* Main Card */
     .main-card {
         border-radius: 60px;
+        padding: 40px;
     }
 
     .main-header {
@@ -302,6 +334,7 @@ import WeightModal from "./WeightModal.astro";
         justify-content: center;
         align-items: center;
         margin-bottom: 20px;
+        max-width: 800px;
     }
 
     .main-header h2 {
@@ -427,6 +460,7 @@ import WeightModal from "./WeightModal.astro";
         line-height: 1.5;
         color: #2a2a2a;
         margin: 0;
+        margin-top: auto;
         font-family: "Inter";
     }
 
@@ -559,14 +593,11 @@ import WeightModal from "./WeightModal.astro";
     }
 
     .treatment-card {
-        background-color: #faf8f2;
         border-radius: 60px;
         padding: 40px;
         text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .treatment-card h4 {
@@ -583,7 +614,6 @@ import WeightModal from "./WeightModal.astro";
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px 0;
     }
 
     .treatment-image img {
@@ -632,24 +662,31 @@ import WeightModal from "./WeightModal.astro";
         box-shadow: 0 8px 20px rgba(45, 90, 61, 0.3);
     }
 
-    /* Competitor Comparison */
     .competitor-comparison {
-        background-color: rgba(134, 171, 142, 0.5);
         border-radius: 60px;
-        padding: 60px 40px;
+        padding: 20px;
         position: relative;
         min-height: 400px;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
+    }
+
+    .competitor-image {
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 60px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .competitor-comparison p {
-        font-size: 48px;
-        font-weight: 400;
-        color: #030303;
-        font-family: "Sofia";
+    @media (max-width: 768px) {
+        .competitor-comparison {
+            padding: 24px;
+            min-height: 300px;
+            border-radius: 40px;
+        }
     }
 
     /* Responsive Design */
