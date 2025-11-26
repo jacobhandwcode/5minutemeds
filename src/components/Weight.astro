@@ -18,7 +18,7 @@ const sexLifeTestimonials = [
         <!-- Improve Sex Life Card -->
         <div class="treatment-card sex-life-card">
             <h2>Improve Sex Life</h2>
-            
+
             <div class="top-section">
                 <div class="left-content">
                     <p class="subtitle">
@@ -53,24 +53,56 @@ const sexLifeTestimonials = [
             </div>
 
             <div class="testimonials">
-                <button class="testimonial-nav prev" aria-label="Previous testimonial">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <button
+                    class="testimonial-nav prev"
+                    aria-label="Previous testimonial"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M15 18L9 12L15 6"
+                            stroke="#3a3a3a"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
                     </svg>
                 </button>
                 <div class="testimonials-scroll">
                     {
                         sexLifeTestimonials.map((testimonial) => (
                             <div class="testimonial-box">
-                                <p class="testimonial-name">{testimonial.name}</p>
-                                <p class="testimonial-text">{testimonial.text}</p>
+                                <p class="testimonial-name">
+                                    {testimonial.name}
+                                </p>
+                                <p class="testimonial-text">
+                                    {testimonial.text}
+                                </p>
                             </div>
                         ))
                     }
                 </div>
-                <button class="testimonial-nav next" aria-label="Next testimonial">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <button
+                    class="testimonial-nav next"
+                    aria-label="Next testimonial"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M9 18L15 12L9 6"
+                            stroke="#3a3a3a"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
                     </svg>
                 </button>
             </div>
@@ -164,25 +196,8 @@ const sexLifeTestimonials = [
         </div>
     </div>
 
-    <!-- Bottom Row: Mission & Contact -->
+    <!-- Bottom Row: Contact -->
     <div class="bottom-row">
-        <!-- Our Outstanding Mission -->
-        <div class="mission-card">
-            <div class="mission-card-text">
-                <h2>Our Outstanding Mission</h2>
-                <p>
-                    Get the treatments you need in minutes, not weeks. At
-                    5MinuteMeds, our mission is simple: make quality medication
-                    fast and affordable. No long waits, no inflated prices—just
-                    quick, convenient access to trusted treatments when you need
-                    them.
-                </p>
-            </div>
-            <div class="mission-image">
-                <img src="/images/guy.png" alt="Happy Customer" />
-            </div>
-        </div>
-
         <!-- Contact Us -->
         <div class="contact-card">
             <h2>Contact Us</h2>
@@ -203,44 +218,48 @@ const sexLifeTestimonials = [
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const testimonialContainer = document.querySelector('.testimonials');
+    document.addEventListener("DOMContentLoaded", () => {
+        const testimonialContainer = document.querySelector(".testimonials");
         if (!testimonialContainer) return;
 
-        const scrollContainer = testimonialContainer.querySelector('.testimonials-scroll');
-        const prevBtn = testimonialContainer.querySelector('.prev');
-        const nextBtn = testimonialContainer.querySelector('.next');
+        const scrollContainer = testimonialContainer.querySelector(
+            ".testimonials-scroll",
+        );
+        const prevBtn = testimonialContainer.querySelector(".prev");
+        const nextBtn = testimonialContainer.querySelector(".next");
 
         if (!scrollContainer || !prevBtn || !nextBtn) return;
 
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener("click", () => {
             const scrollAmount = scrollContainer.clientWidth;
             scrollContainer.scrollBy({
                 left: -scrollAmount,
-                behavior: 'smooth'
+                behavior: "smooth",
             });
         });
 
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener("click", () => {
             const scrollAmount = scrollContainer.clientWidth;
             scrollContainer.scrollBy({
                 left: scrollAmount,
-                behavior: 'smooth'
+                behavior: "smooth",
             });
         });
 
         // Update button visibility based on scroll position
         const updateButtonVisibility = () => {
             const isAtStart = scrollContainer.scrollLeft <= 0;
-            const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
+            const isAtEnd =
+                scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+                scrollContainer.scrollWidth - 1;
 
-            prevBtn.style.opacity = isAtStart ? '0.3' : '1';
-            prevBtn.style.cursor = isAtStart ? 'default' : 'pointer';
-            nextBtn.style.opacity = isAtEnd ? '0.3' : '1';
-            nextBtn.style.cursor = isAtEnd ? 'default' : 'pointer';
+            prevBtn.style.opacity = isAtStart ? "0.3" : "1";
+            prevBtn.style.cursor = isAtStart ? "default" : "pointer";
+            nextBtn.style.opacity = isAtEnd ? "0.3" : "1";
+            nextBtn.style.cursor = isAtEnd ? "default" : "pointer";
         };
 
-        scrollContainer.addEventListener('scroll', updateButtonVisibility);
+        scrollContainer.addEventListener("scroll", updateButtonVisibility);
         updateButtonVisibility();
     });
 </script>
@@ -366,13 +385,21 @@ const sexLifeTestimonials = [
     .sex-life-card .get-started-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        background: linear-gradient(135deg, rgb(235, 110, 40) 0%, rgb(163, 62, 11) 100%);
+        background: linear-gradient(
+            135deg,
+            rgb(235, 110, 40) 0%,
+            rgb(163, 62, 11) 100%
+        );
     }
 
     .longevity-card .get-started-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        background: linear-gradient(135deg, rgb(78, 154, 105) 0%, rgb(56, 118, 79) 100%);
+        background: linear-gradient(
+            135deg,
+            rgb(78, 154, 105) 0%,
+            rgb(56, 118, 79) 100%
+        );
     }
 
     .product-info {
@@ -490,39 +517,42 @@ const sexLifeTestimonials = [
     /* Regrow Hair Card */
     .regrow-hair-card {
         border-radius: 60px;
-        padding: 60px;
-        color: #1a1a1a;
+        padding: 50px;
+        color: #3a3a3a;
+        background-color: #ffffff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .regrow-hair-card h2 {
-        font-size: 64px;
+        font-size: 56px;
         font-weight: 400;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
         font-family: "Sofia", sans-serif;
         line-height: 1.1;
     }
 
     .regrow-hair-card h3 {
-        font-size: 40px;
+        font-size: 28px;
         font-weight: 400;
-        margin-bottom: 28px;
+        margin-bottom: 20px;
         font-family: "Sofia", sans-serif;
         line-height: 1.2;
+        color: #3a3a3a;
     }
 
     .description {
-        font-size: 20px;
-        margin-bottom: 32px;
+        font-size: 18px;
+        margin-bottom: 24px;
         line-height: 1.6;
         font-family: "Inter", sans-serif;
         max-width: 800px;
+        color: #3a3a3a;
     }
 
     .hair-content {
         display: grid;
         grid-template-columns: 1fr auto;
-        gap: 40px;
+        gap: 30px;
         align-items: center;
     }
 
@@ -533,34 +563,38 @@ const sexLifeTestimonials = [
     .hair-info {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 16px;
     }
 
     .pricing-info {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 700;
         font-family: "Inter", sans-serif;
         line-height: 1.4;
+        color: #3a3a3a;
     }
 
     .clinical-info {
-        font-size: 18px;
+        font-size: 17px;
         margin-top: 0;
         font-family: "Inter", sans-serif;
         line-height: 1.6;
+        color: #3a3a3a;
     }
 
     .better-together {
-        font-size: 20px;
+        font-size: 18px;
         margin-top: 0;
         font-family: "Inter", sans-serif;
         font-weight: 700;
+        color: #3a3a3a;
     }
 
     .hair-info p {
         font-family: "Inter", sans-serif;
-        font-size: 18px;
+        font-size: 17px;
         line-height: 1.6;
+        color: #3a3a3a;
     }
 
     .hair-info .get-started-btn {
@@ -586,56 +620,13 @@ const sexLifeTestimonials = [
     /* Bottom Row */
     .bottom-row {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 20px;
-    }
-
-    /* Mission Card */
-    .mission-card {
-        background: linear-gradient(135deg, #6b7280 0%, #5a6169 100%);
-        border-radius: 60px;
-        padding: 50px;
-        color: white;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .mission-card h2 {
-        font-size: 56px;
-        font-weight: 400;
-        margin-bottom: 24px;
-        font-family: "Sofia", sans-serif;
-        line-height: 1.1;
-    }
-
-    .mission-card p {
-        font-size: 20px;
-        line-height: 1.7;
-        max-width: 520px;
-        font-family: "Inter", sans-serif;
-    }
-
-    .mission-image {
-        position: absolute;
-        right: -20px;
-        bottom: 0;
-        width: 300px;
-        height: auto;
-    }
-
-    .mission-image img {
-        width: 350px;
-        height: auto;
-        object-fit: contain;
-        height: 100%;
-        bottom: -1rem;
-        position: relative;
     }
 
     /* Contact Card */
     .contact-card {
-        background: linear-gradient(135deg, #c5ddc9 0%, #b5cdb9 100%);
+        background-color: #ffffff;
         border-radius: 60px;
         padding: 50px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -644,8 +635,8 @@ const sexLifeTestimonials = [
     .contact-card h2 {
         font-size: 56px;
         font-weight: 400;
-        margin-bottom: 28px;
-        color: white;
+        margin-bottom: 24px;
+        color: #3a3a3a;
         font-family: "Sofia", sans-serif;
         line-height: 1.1;
     }
@@ -664,18 +655,19 @@ const sexLifeTestimonials = [
 
     .contact-form input,
     .contact-form textarea {
-        background-color: white;
+        background-color: #f5f5f5;
         border: none;
         border-radius: 50px;
         padding: 18px 28px;
         font-size: 17px;
         font-family: "Inter", sans-serif;
         transition: all 0.3s ease;
+        color: #3a3a3a;
     }
 
     .contact-form input:focus,
     .contact-form textarea:focus {
-        outline: 2px solid #2d5a3d;
+        outline: 2px solid #3a3a3a;
         outline-offset: 2px;
     }
 
@@ -691,8 +683,8 @@ const sexLifeTestimonials = [
     }
 
     .submit-btn {
-        background-color: white;
-        color: #2d5a3d;
+        background-color: #3a3a3a;
+        color: #ffffff;
         border: none;
         border-radius: 50px;
         padding: 18px 40px;
@@ -703,14 +695,13 @@ const sexLifeTestimonials = [
         align-self: flex-start;
         margin: 8px auto 0;
         font-family: "Inter", sans-serif;
-        box-shadow: 0 4px 12px rgba(45, 90, 61, 0.2);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .submit-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(45, 90, 61, 0.35);
-        background-color: #2d5a3d;
-        color: white;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        background-color: #2a2a2a;
     }
 
     /* Responsive Design */
@@ -726,10 +717,6 @@ const sexLifeTestimonials = [
 
         .hair-products {
             justify-content: center;
-        }
-
-        .mission-image {
-            width: 200px;
         }
 
         .top-section {
@@ -777,27 +764,23 @@ const sexLifeTestimonials = [
         }
 
         .regrow-hair-card h2 {
-            font-size: 48px;
-        }
-
-        .regrow-hair-card h3 {
-            font-size: 32px;
-        }
-
-        .description {
-            font-size: 18px;
-        }
-
-        .pricing-info {
-            font-size: 20px;
-        }
-
-        .mission-card h2 {
             font-size: 42px;
         }
 
-        .mission-card p {
-            font-size: 18px;
+        .regrow-hair-card h3 {
+            font-size: 24px;
+        }
+
+        .description {
+            font-size: 17px;
+        }
+
+        .pricing-info {
+            font-size: 17px;
+        }
+
+        .contact-card {
+            padding: 40px;
         }
 
         .contact-card h2 {
@@ -806,13 +789,6 @@ const sexLifeTestimonials = [
 
         .form-row {
             grid-template-columns: 1fr;
-        }
-
-        .mission-image {
-            position: relative;
-            right: 0;
-            width: 100%;
-            margin-top: 20px;
         }
 
         .testimonial-box {

@@ -39,82 +39,111 @@ const services = [
                         d="M18 6L6 18M6 6l12 12"
                         stroke="currentColor"
                         stroke-width="2"
-                        stroke-linecap="round"
-                    />
+                        stroke-linecap="round"></path>
                 </svg>
             </button>
 
             <nav class="menu-nav">
                 <a href="#weight-loss" class="menu-item">
                     <span class="menu-item-text">Weight Loss</span>
-                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
                         <path
                             d="M9 18l6-6-6-6"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                            stroke-linejoin="round"></path>
                     </svg>
                 </a>
                 <a href="#longevity" class="menu-item">
                     <span class="menu-item-text">Longevity</span>
-                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
                         <path
                             d="M9 18l6-6-6-6"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                            stroke-linejoin="round"></path>
                     </svg>
                 </a>
                 <a href="#hair-growth" class="menu-item">
                     <span class="menu-item-text">Hair Growth</span>
-                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
                         <path
                             d="M9 18l6-6-6-6"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                            stroke-linejoin="round"></path>
                     </svg>
                 </a>
                 <a href="#sexual-health" class="menu-item">
                     <span class="menu-item-text">Sexual Health</span>
-                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
                         <path
                             d="M9 18l6-6-6-6"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                            stroke-linejoin="round"></path>
                     </svg>
                 </a>
-                <a href="#about" class="menu-item">
+                <a href="#about" class="menu-item" id="aboutMenuItem">
                     <span class="menu-item-text">About Us</span>
-                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
                         <path
                             d="M9 18l6-6-6-6"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                            stroke-linejoin="round"></path>
                     </svg>
                 </a>
                 <a href="#contact" class="menu-item">
                     <span class="menu-item-text">Contact</span>
-                    <svg class="menu-item-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
                         <path
                             d="M9 18l6-6-6-6"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                            stroke-linejoin="round"></path>
                     </svg>
                 </a>
             </nav>
@@ -124,6 +153,70 @@ const services = [
                 <div class="menu-rating">
                     <span class="menu-stars">★★★★★</span>
                     <span class="menu-rating-text">4.9/5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Modal -->
+    <div class="about-modal-overlay" id="aboutModal">
+        <div class="about-modal-container">
+            <button
+                class="about-modal-close"
+                id="closeAboutModal"
+                aria-label="Close"
+            >
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M18 6L6 18M6 6l12 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"></path>
+                </svg>
+            </button>
+
+            <div class="about-modal-content">
+                <h2 class="about-modal-title">Our Outstanding Mission</h2>
+
+                <div class="about-modal-grid">
+                    <div class="about-modal-text">
+                        <p>
+                            Get the treatments you need in minutes, not weeks.
+                            At 5MinuteMeds, our mission is simple: make quality
+                            medication fast and affordable.
+                        </p>
+                        <p>
+                            No long waits, no inflated prices—just quick,
+                            convenient access to trusted treatments when you
+                            need them.
+                        </p>
+                        <p>
+                            We believe healthcare should be accessible,
+                            efficient, and designed around your life. That's why
+                            we've streamlined the entire process—from
+                            consultation to delivery—so you can focus on what
+                            matters most: your health and wellbeing.
+                        </p>
+                    </div>
+
+                    <div class="about-modal-image">
+                        <img src="/images/guy.png" alt="Happy Customer" />
+                    </div>
+                </div>
+
+                <div class="about-modal-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">46K+</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">Customer Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Same Day</div>
+                        <div class="stat-label">Prescriptions</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,6 +298,185 @@ const services = [
     </div>
 </main>
 
+<style>
+    /* About Us Modal Styles */
+    .about-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .about-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .about-modal-container {
+        background-color: #ffffff;
+        border-radius: 48px;
+        max-width: 1000px;
+        width: 100%;
+        padding: 60px;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .about-modal-overlay.active .about-modal-container {
+        transform: scale(1);
+    }
+
+    .about-modal-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        color: #3a3a3a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+        z-index: 10;
+    }
+
+    .about-modal-close:hover {
+        transform: rotate(90deg);
+    }
+
+    .about-modal-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-modal-title {
+        font-family: "Sofia", sans-serif;
+        font-size: 56px;
+        font-weight: 400;
+        color: #3a3a3a;
+        margin: 0;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    .about-modal-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: stretch;
+        margin-bottom: 20px;
+    }
+
+    .about-modal-text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-modal-text p {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #3a3a3a;
+        margin: 0;
+    }
+
+    .about-modal-image {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        bottom: -2.5rem;
+        position: relative;
+    }
+
+    .about-modal-image img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .about-modal-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #f0f0f0;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: #3a3a3a;
+        margin-bottom: 8px;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .about-modal-container {
+            padding: 40px 32px;
+            border-radius: 32px;
+        }
+
+        .about-modal-title {
+            font-size: 36px;
+        }
+
+        .about-modal-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .about-modal-text p {
+            font-size: 16px;
+        }
+
+        .about-modal-stats {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+        }
+    }
+</style>
+
 <script>
     // Text rotation functionality
     const textItems = document.querySelectorAll(".text-item");
@@ -232,6 +504,9 @@ const services = [
     const menuOverlay = document.querySelector(".menu-overlay");
     const menuClose = document.querySelector(".menu-close");
     const menuItems = document.querySelectorAll(".menu-item");
+    const aboutMenuItem = document.getElementById("aboutMenuItem");
+    const aboutModal = document.getElementById("aboutModal");
+    const closeAboutModal = document.getElementById("closeAboutModal");
 
     function openMenu() {
         menuOverlay.classList.add("active");
@@ -243,12 +518,43 @@ const services = [
         document.body.style.overflow = "";
     }
 
+    function openAboutModal() {
+        closeMenu(); // Close the menu first
+        setTimeout(() => {
+            aboutModal?.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }, 300); // Wait for menu to close
+    }
+
+    function closeAboutModalFunc() {
+        aboutModal?.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
     hamburger?.addEventListener("click", openMenu);
     menuClose?.addEventListener("click", closeMenu);
 
-    // Close menu when clicking on a menu item
+    // About menu item opens modal
+    aboutMenuItem?.addEventListener("click", (e) => {
+        e.preventDefault();
+        openAboutModal();
+    });
+
+    // Close about modal
+    closeAboutModal?.addEventListener("click", closeAboutModalFunc);
+
+    // Close about modal when clicking outside
+    aboutModal?.addEventListener("click", (e) => {
+        if (e.target === aboutModal) {
+            closeAboutModalFunc();
+        }
+    });
+
+    // Close menu when clicking on other menu items
     menuItems.forEach((item) => {
-        item.addEventListener("click", closeMenu);
+        if (item.id !== "aboutMenuItem") {
+            item.addEventListener("click", closeMenu);
+        }
     });
 
     // Close menu when clicking outside the menu container
@@ -258,10 +564,15 @@ const services = [
         }
     });
 
-    // Close menu on escape key
+    // Close modals on escape key
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && menuOverlay?.classList.contains("active")) {
-            closeMenu();
+        if (e.key === "Escape") {
+            if (menuOverlay?.classList.contains("active")) {
+                closeMenu();
+            }
+            if (aboutModal?.classList.contains("active")) {
+                closeAboutModalFunc();
+            }
         }
     });
 </script>
