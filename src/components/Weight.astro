@@ -51,20 +51,14 @@ const sexLifeTestimonials = [
             </div>
 
             <div class="testimonials">
-                <div class="testimonials-scroll">
-                    {
-                        sexLifeTestimonials.map((testimonial) => (
-                            <div class="testimonial-box">
-                                <p class="testimonial-name">
-                                    {testimonial.name}
-                                </p>
-                                <p class="testimonial-text">
-                                    {testimonial.text}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
+                {
+                    sexLifeTestimonials.map((testimonial) => (
+                        <div class="testimonial-box">
+                            <p class="testimonial-name">{testimonial.name}</p>
+                            <p class="testimonial-text">{testimonial.text}</p>
+                        </div>
+                    ))
+                }
             </div>
         </div>
 
@@ -196,7 +190,7 @@ const sexLifeTestimonials = [
     .additional-sections {
         margin: 0 auto;
         padding: 40px;
-        background-color: #faf8f2;
+        background-color:#FAF8F2;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -211,25 +205,28 @@ const sexLifeTestimonials = [
 
     .treatment-card {
         border-radius: 60px;
-        padding: 40px;
+        padding: 50px;
         display: flex;
         flex-direction: column;
+        gap: 24px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .treatment-card h2 {
-        font-size: 48px;
+        font-size: 56px;
         font-weight: 400;
-        margin-bottom: 12px;
+        margin-bottom: 0;
         font-family: "Sofia", sans-serif;
         color: #030303;
+        line-height: 1.1;
     }
 
     .subtitle {
-        font-size: 18px;
-        margin-bottom: 20px;
+        font-size: 20px;
+        margin-bottom: 0;
         line-height: 1.4;
         font-family: "Inter", sans-serif;
+        color: rgba(0, 0, 0, 0.8);
     }
 
     /* Sex Life Card */
@@ -242,29 +239,31 @@ const sexLifeTestimonials = [
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 20px 0;
-        min-height: 150px;
+        margin: 32px 0;
+        min-height: 180px;
     }
 
     .product-image {
-        max-width: 200px;
+        max-width: 220px;
         height: auto;
         filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
     }
 
     .pricing {
-        margin: 20px 0;
+        margin: 24px 0;
         text-align: center;
     }
 
     .pricing p {
-        margin: 4px 0;
-        font-size: 16px;
+        margin: 8px 0;
+        font-size: 18px;
         font-family: "Inter", sans-serif;
+        line-height: 1.5;
     }
 
     .pricing strong {
         font-weight: 700;
+        font-size: 20px;
     }
 
     .get-started-btn {
@@ -272,41 +271,43 @@ const sexLifeTestimonials = [
         color: #1a1a1a;
         border: none;
         border-radius: 50px;
-        padding: 16px 32px;
-        font-size: 16px;
+        padding: 18px 40px;
+        font-size: 18px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        width: 200px;
-        margin: 20px 0 0 0;
+        width: 220px;
+        margin: 24px auto;
         display: block;
         font-family: "Inter", sans-serif;
-    }
-
-    .treatment-card .get-started-btn {
-        margin: 20px auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .get-started-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        background-color: #f8f8f8;
     }
 
     .product-info {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 24px;
         font-family: "Inter", sans-serif;
     }
 
     .product-info p {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
+    }
+
+    .product-info strong {
+        font-weight: 700;
     }
 
     .testimonials {
         position: relative;
         overflow: hidden;
-        margin-top: 20px;
+        margin-top: 24px;
     }
 
     .testimonials-scroll {
@@ -314,7 +315,7 @@ const sexLifeTestimonials = [
         gap: 20px;
         overflow-x: auto;
         scroll-behavior: smooth;
-        padding-bottom: 10px;
+        padding-bottom: 12px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
@@ -340,30 +341,27 @@ const sexLifeTestimonials = [
 
     .testimonial-box {
         background-color: rgba(255, 255, 255, 0.3);
-        border-radius: 20px;
-        padding: 20px;
+        border-radius: 24px;
+        padding: 24px;
         flex-shrink: 0;
-        max-width: 400px;
-    }
-
-    @media (max-width: 768px) {
-        .testimonial-box {
-            min-width: 250px;
-        }
+        max-width: 420px;
+        min-width: 300px;
     }
 
     .testimonial-name {
-        font-weight: 600;
-        margin-bottom: 8px;
-        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        font-size: 18px;
         font-family: "Inter", sans-serif;
+        color: #030303;
     }
 
     .testimonial-text {
-        font-size: 14px;
-        line-height: 1.5;
+        font-size: 16px;
+        line-height: 1.6;
         font-style: italic;
         font-family: "Inter", sans-serif;
+        color: rgba(0, 0, 0, 0.85);
     }
 
     /* Longevity Card */
@@ -372,9 +370,13 @@ const sexLifeTestimonials = [
         color: white;
     }
 
+    .longevity-card .subtitle {
+        color: rgba(255, 255, 255, 0.95);
+    }
+
     .nad-box,
     .nad-vial {
-        max-width: 150px;
+        max-width: 180px;
         height: auto;
     }
 
@@ -386,30 +388,33 @@ const sexLifeTestimonials = [
     .regrow-hair-card {
         background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
         border-radius: 60px;
-        padding: 50px;
+        padding: 60px;
         color: #1a1a1a;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .regrow-hair-card h2 {
-        font-size: 56px;
+        font-size: 64px;
         font-weight: 400;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
         font-family: "Sofia", sans-serif;
+        line-height: 1.1;
     }
 
     .regrow-hair-card h3 {
-        font-size: 36px;
+        font-size: 40px;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin-bottom: 28px;
         font-family: "Sofia", sans-serif;
+        line-height: 1.2;
     }
 
     .description {
-        font-size: 18px;
-        margin-bottom: 20px;
+        font-size: 20px;
+        margin-bottom: 32px;
         line-height: 1.6;
         font-family: "Inter", sans-serif;
+        max-width: 800px;
     }
 
     .hair-content {
@@ -422,30 +427,39 @@ const sexLifeTestimonials = [
     .hair-info {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
     }
 
     .pricing-info {
-        font-size: 20px;
-        font-weight: 600;
+        font-size: 22px;
+        font-weight: 700;
         font-family: "Inter", sans-serif;
+        line-height: 1.4;
     }
 
     .clinical-info {
-        font-size: 16px;
-        margin-top: 0;
-        font-family: "Inter", sans-serif;
-    }
-
-    .better-together {
         font-size: 18px;
         margin-top: 0;
         font-family: "Inter", sans-serif;
+        line-height: 1.6;
+    }
+
+    .better-together {
+        font-size: 20px;
+        margin-top: 0;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
     }
 
     .hair-info p {
         font-family: "Inter", sans-serif;
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .hair-info .get-started-btn {
+        margin-top: 8px;
+        align-self: flex-start;
     }
 
     .hair-products {
@@ -474,7 +488,7 @@ const sexLifeTestimonials = [
     .mission-card {
         background: linear-gradient(135deg, #6b7280 0%, #5a6169 100%);
         border-radius: 60px;
-        padding: 40px;
+        padding: 50px;
         color: white;
         position: relative;
         overflow: hidden;
@@ -482,16 +496,17 @@ const sexLifeTestimonials = [
     }
 
     .mission-card h2 {
-        font-size: 48px;
+        font-size: 56px;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         font-family: "Sofia", sans-serif;
+        line-height: 1.1;
     }
 
     .mission-card p {
-        font-size: 18px;
-        line-height: 1.6;
-        max-width: 500px;
+        font-size: 20px;
+        line-height: 1.7;
+        max-width: 520px;
         font-family: "Inter", sans-serif;
     }
 
@@ -516,16 +531,17 @@ const sexLifeTestimonials = [
     .contact-card {
         background: linear-gradient(135deg, #c5ddc9 0%, #b5cdb9 100%);
         border-radius: 60px;
-        padding: 40px;
+        padding: 50px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .contact-card h2 {
-        font-size: 48px;
+        font-size: 56px;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin-bottom: 28px;
         color: white;
         font-family: "Sofia", sans-serif;
+        line-height: 1.1;
     }
 
     .contact-form {
@@ -545,9 +561,16 @@ const sexLifeTestimonials = [
         background-color: white;
         border: none;
         border-radius: 50px;
-        padding: 16px 24px;
-        font-size: 16px;
+        padding: 18px 28px;
+        font-size: 17px;
         font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: 2px solid #2d5a3d;
+        outline-offset: 2px;
     }
 
     .contact-form input::placeholder,
@@ -557,7 +580,8 @@ const sexLifeTestimonials = [
 
     .contact-form textarea {
         resize: vertical;
-        border-radius: 24px;
+        border-radius: 28px;
+        padding: 18px 28px;
     }
 
     .submit-btn {
@@ -565,19 +589,22 @@ const sexLifeTestimonials = [
         color: #2d5a3d;
         border: none;
         border-radius: 50px;
-        padding: 16px 32px;
-        font-size: 16px;
+        padding: 18px 40px;
+        font-size: 18px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
         align-self: flex-start;
-        margin: 0 auto;
+        margin: 8px auto 0;
         font-family: "Inter", sans-serif;
+        box-shadow: 0 4px 12px rgba(45, 90, 61, 0.2);
     }
 
     .submit-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(45, 90, 61, 0.3);
+        box-shadow: 0 8px 24px rgba(45, 90, 61, 0.35);
+        background-color: #2d5a3d;
+        color: white;
     }
 
     /* Responsive Design */
@@ -609,32 +636,52 @@ const sexLifeTestimonials = [
         .regrow-hair-card,
         .mission-card,
         .contact-card {
-            padding: 32px;
+            padding: 40px;
             border-radius: 40px;
         }
 
-        .treatment-card h2 {
-            font-size: 36px;
+        .treatment-card {
+            gap: 20px;
         }
 
-        .regrow-hair-card h2 {
+        .treatment-card h2 {
             font-size: 42px;
         }
 
+        .subtitle {
+            font-size: 18px;
+        }
+
+        .regrow-hair-card {
+            padding: 40px;
+        }
+
+        .regrow-hair-card h2 {
+            font-size: 48px;
+        }
+
         .regrow-hair-card h3 {
-            font-size: 28px;
+            font-size: 32px;
+        }
+
+        .description {
+            font-size: 18px;
+        }
+
+        .pricing-info {
+            font-size: 20px;
         }
 
         .mission-card h2 {
-            font-size: 36px;
+            font-size: 42px;
+        }
+
+        .mission-card p {
+            font-size: 18px;
         }
 
         .contact-card h2 {
-            font-size: 36px;
-        }
-
-        .subtitle {
-            font-size: 16px;
+            font-size: 42px;
         }
 
         .form-row {
@@ -648,8 +695,21 @@ const sexLifeTestimonials = [
             margin-top: 20px;
         }
 
-        .testimonials {
-            gap: 16px;
+        .testimonial-box {
+            min-width: 280px;
+            padding: 20px;
+        }
+
+        .testimonial-name {
+            font-size: 17px;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+        }
+
+        .product-info {
+            font-size: 16px;
         }
     }
 </style>
