@@ -189,8 +189,22 @@ import WeightModal from "./WeightModal.astro";
                             Our Competitors: {treatment.competitor}
                         </p>
                     )}
-                    <a href={treatment.link} class="get-started-btn">
+                    <a href={treatment.link} class="get-started-btn-gradient">
                         Get Started
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                        >
+                            <path
+                                d="M7 4l6 6-6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </a>
                 </div>
             ))
@@ -198,13 +212,13 @@ import WeightModal from "./WeightModal.astro";
     </div>
 
     <!-- Competitor Comparison -->
-    <div class="competitor-comparison">
+    <!-- <div class="competitor-comparison">
         <img
             src="/images/competition.png"
             alt="Competitor Pricing Comparison"
             class="competitor-image"
         />
-    </div>
+    </div> -->
 </section>
 
 <script>
@@ -596,6 +610,7 @@ import WeightModal from "./WeightModal.astro";
         text-align: center;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .treatment-card h4 {

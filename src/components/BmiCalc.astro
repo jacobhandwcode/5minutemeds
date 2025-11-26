@@ -1,5 +1,5 @@
 ---
-// BmiCalc.astro - Updated without testimonial slideshow
+// BmiCalc.astro - Updated with separate slider functionality
 ---
 
 <section class="bmi-calculator-section">
@@ -60,12 +60,13 @@
             </form>
         </div>
 
-        <!-- Right Panel: Results -->
-        <div class="bmi-results-panel">
-            <div class="results-content" id="resultsContent">
-                <p class="results-label">You could lose:</p>
+        <!-- Right Panel: Weight Loss Slider -->
+        <div class="weight-slider-panel">
+            <div class="slider-content">
+                <p class="slider-label">You could lose:</p>
+
                 <div class="weight-loss-display">
-                    <span class="weight-number" id="weightLoss">0</span>
+                    <span class="weight-number" id="sliderWeightLoss">30</span>
                     <span class="weight-unit">lbs</span>
                 </div>
 
@@ -76,36 +77,122 @@
                     <div class="chart-marker">▼</div>
                 </div>
 
-                <div class="weight-slider-section">
+                <div class="starting-weight-section">
+                    <p class="starting-label">Starting weight:</p>
                     <div class="starting-weight-badge">
-                        <span class="badge-label">Starting weight:</span>
-                        <span class="badge-value" id="startingWeight">0</span>
+                        <span class="badge-value" id="sliderStartingWeight"
+                            >200</span
+                        >
                         <span class="badge-unit">lbs</span>
                     </div>
+                </div>
 
-                    <div class="weight-slider">
-                        <div class="slider-track">
-                            <div class="slider-gradient"></div>
-                            <div class="slider-thumb" id="sliderThumb"></div>
-                        </div>
-                    </div>
+                <div class="weight-slider-container">
+                    <input
+                        type="range"
+                        id="weightSlider"
+                        class="weight-slider"
+                        min="140"
+                        max="400"
+                        value="200"
+                        step="1"
+                    />
+                    <div class="slider-gradient-bg"></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- BMI Results Modal -->
-<div class="bmi-results-modal-overlay" id="bmiResultsModal">
-    <div class="bmi-results-modal-container">
-        <button class="bmi-results-modal-close" id="closeBMIResultsModal" aria-label="Close">
+<!-- Weight Loss Results Modal -->
+<div class="weight-modal-overlay" id="weightModal">
+    <div class="weight-modal-container">
+        <button
+            class="weight-modal-close"
+            id="closeWeightModal"
+            aria-label="Close"
+        >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
                 <path
                     d="M18 6L6 18M6 6l12 12"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                />
+                    stroke-linecap="round"></path>
+            </svg>
+        </button>
+
+        <div class="weight-modal-content">
+            <!-- Left Side: 15% Info -->
+            <div class="weight-modal-left">
+                <p class="modal-average-label">Lose on average:</p>
+                <div class="modal-percentage">
+                    15<span class="percent-symbol">%</span>
+                </div>
+                <p class="modal-percentage-text">
+                    of your body weight with 5 Minute Meds
+                </p>
+
+                <button class="modal-get-started-btn">Get started</button>
+
+                <p class="modal-disclaimer">
+                    *In a clinical trial, adults taking FDA-approved 5 Minute
+                    Meds lost an average of 15% body weight. Some lost up to
+                    20%. Results vary. Side effects may include nausea or
+                    diarrhea. Only a licensed provider can decide if it's
+                    appropriate. Compounded GLP-1s are not FDA-approved.
+                </p>
+            </div>
+
+            <!-- Right Side: Weight Loss Visual -->
+            <div class="weight-modal-right">
+                <div class="modal-weight-card">
+                    <div class="modal-starting-badge">
+                        <span class="modal-badge-label">Starting weight:</span>
+                        <span class="modal-badge-value" id="modalStartingWeight"
+                            >200</span
+                        >
+                        <span class="modal-badge-unit">lbs</span>
+                    </div>
+
+                    <p class="modal-lose-label">You could lose:</p>
+
+                    <div class="modal-weight-loss">
+                        <span class="modal-loss-number" id="modalWeightLoss"
+                            >30</span
+                        >
+                        <span class="modal-loss-unit">lbs</span>
+                    </div>
+
+                    <div class="modal-bar-chart">
+                        <div class="modal-chart-bars" id="modalChartBars">
+                            <!-- Bars generated dynamically -->
+                        </div>
+                        <div class="modal-chart-marker">▼</div>
+                    </div>
+
+                    <div class="modal-slider-container">
+                        <div class="modal-slider-gradient"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BMI Results Modal -->
+<div class="bmi-results-modal-overlay" id="bmiResultsModal">
+    <div class="bmi-results-modal-container">
+        <button
+            class="bmi-results-modal-close"
+            id="closeBMIResultsModal"
+            aria-label="Close"
+        >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M18 6L6 18M6 6l12 12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
             </svg>
         </button>
 
@@ -122,8 +209,7 @@
                             r="80"
                             fill="none"
                             stroke="#f0f0f0"
-                            stroke-width="16"
-                        />
+                            stroke-width="16"></circle>
                         <circle
                             id="bmiResultsArc"
                             cx="100"
@@ -135,54 +221,74 @@
                             stroke-dasharray="502"
                             stroke-dashoffset="125"
                             stroke-linecap="round"
-                            transform="rotate(-90 100 100)"
-                        />
+                            transform="rotate(-90 100 100)"></circle>
                     </svg>
                     <div class="bmi-results-value-container">
-                        <div class="bmi-results-value" id="bmiResultsValue">0</div>
+                        <div class="bmi-results-value" id="bmiResultsValue">
+                            0
+                        </div>
                         <div class="bmi-results-label">Your BMI</div>
                     </div>
                 </div>
 
                 <div class="bmi-results-explanation">
                     <p>
-                        Body Mass Index (BMI) is a measurement tool that uses your height and
-                        weight to estimate if your weight is in a healthy range for your height.*
+                        Body Mass Index (BMI) is a measurement tool that uses
+                        your height and weight to estimate if your weight is in
+                        a healthy range for your height.*
                     </p>
                 </div>
             </div>
 
             <!-- Right Side: Category Info -->
             <div class="bmi-results-modal-right">
-                <div class="bmi-results-category-alert" id="categoryResultsAlert">
+                <div
+                    class="bmi-results-category-alert"
+                    id="categoryResultsAlert"
+                >
                     <div class="bmi-results-alert-header">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
                             <path
                                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                                 stroke="currentColor"
                                 stroke-width="2"
                                 stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
+                                stroke-linejoin="round"></path>
                         </svg>
-                        <span class="bmi-results-alert-category" id="alertResultsCategory">Underweight</span>
-                        <span class="bmi-results-alert-range" id="alertResultsRange">&lt; 18.5</span>
+                        <span
+                            class="bmi-results-alert-category"
+                            id="alertResultsCategory">Underweight</span
+                        >
+                        <span
+                            class="bmi-results-alert-range"
+                            id="alertResultsRange">&lt; 18.5</span
+                        >
                     </div>
                     <p class="bmi-results-alert-text" id="alertResultsText">
                         Your BMI is below the healthy range.
                     </p>
-                    <button class="bmi-results-consultation-btn">Start Consultation</button>
+                    <button class="bmi-results-consultation-btn"
+                        >Start Consultation</button
+                    >
                 </div>
 
                 <div class="bmi-results-categories">
                     <div class="bmi-results-category-item">
                         <div class="bmi-results-category-dot healthy"></div>
-                        <span class="bmi-results-category-name">Healthy Weight</span>
+                        <span class="bmi-results-category-name"
+                            >Healthy Weight</span
+                        >
                         <span class="bmi-results-category-range">18.5+</span>
                     </div>
                     <div class="bmi-results-category-item">
                         <div class="bmi-results-category-dot overweight"></div>
-                        <span class="bmi-results-category-name">Overweight</span>
+                        <span class="bmi-results-category-name">Overweight</span
+                        >
                         <span class="bmi-results-category-range">25+</span>
                     </div>
                     <div class="bmi-results-category-item">
@@ -194,13 +300,15 @@
 
                 <div class="bmi-results-disclaimers">
                     <p>
-                        *BMI doesn't directly measure body fat and may not accurately reflect health
-                        for people with high muscle mass, pregnant women, children, older adults,
-                        certain ethnic groups, or those with medical conditions.
+                        *BMI doesn't directly measure body fat and may not
+                        accurately reflect health for people with high muscle
+                        mass, pregnant women, children, older adults, certain
+                        ethnic groups, or those with medical conditions.
                     </p>
                     <p>
-                        The BMI calculator does not determine eligibility for weight loss treatments. A
-                        healthcare provider must evaluate your overall health and history to decide if
+                        The BMI calculator does not determine eligibility for
+                        weight loss treatments. A healthcare provider must
+                        evaluate your overall health and history to decide if
                         treatment is right for you.
                     </p>
                 </div>
@@ -220,11 +328,11 @@
     .bmi-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 20px;
         align-items: stretch;
     }
 
-    /* Left Panel: Input Form */
+    /* Left Panel: BMI Input Form */
     .bmi-input-panel {
         background-color: #ffffff;
         border-radius: 60px;
@@ -245,6 +353,7 @@
         color: #666;
         margin-bottom: 40px;
         font-weight: 400;
+        font-family: "Inter";
     }
 
     .bmi-display {
@@ -265,6 +374,7 @@
         color: #030303;
         margin-bottom: 12px;
         font-weight: 500;
+        font-family: "Inter";
     }
 
     .input-row {
@@ -298,6 +408,7 @@
         background: transparent;
         outline: none;
         color: #030303;
+        font-family: "Inter";
     }
 
     .form-input::placeholder {
@@ -312,6 +423,7 @@
         font-size: 16px;
         color: #666;
         pointer-events: none;
+        font-family: "Inter";
     }
 
     .calculate-btn {
@@ -326,7 +438,7 @@
         border: 2px solid transparent;
         border-radius: 50px;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 600;
         color: #030303;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -343,29 +455,32 @@
         transform: translateY(0);
     }
 
-    /* Right Panel: Results */
-    .bmi-results-panel {
+    /* Right Panel: Weight Slider */
+    .weight-slider-panel {
         background-color: #ffffff;
         border-radius: 60px;
         padding: 60px 50px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
     }
 
-    .results-content {
+    .slider-content {
         display: flex;
         flex-direction: column;
         height: 100%;
     }
 
-    .results-label {
-        font-size: 16px;
+    .slider-label {
+        font-size: 20px;
         color: #666;
-        margin-bottom: 16px;
-        text-align: right;
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: "Inter";
     }
 
     .weight-loss-display {
-        text-align: right;
+        text-align: center;
         margin-bottom: 40px;
     }
 
@@ -385,106 +500,409 @@
     /* Bar Chart */
     .bar-chart {
         position: relative;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
     }
 
     .chart-bars {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        gap: 4px;
-        height: 120px;
+        gap: 6px;
+        height: 140px;
         padding: 0 20px;
     }
 
     .chart-bar {
         flex: 1;
-        background: linear-gradient(to top, #4e9a69, #aec8ae);
-        border-radius: 4px 4px 0 0;
+        background: #4e9a69;
+        border-radius: 8px 8px 0 0;
         transition: all 0.3s ease;
-        min-width: 8px;
+        min-width: 10px;
     }
 
     .chart-marker {
         position: absolute;
-        right: 20px;
-        top: -24px;
-        font-size: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -32px;
+        font-size: 32px;
         color: #4e9a69;
     }
 
-    /* Weight Slider */
-    .weight-slider-section {
-        margin-top: auto;
+    /* Starting Weight Section */
+    .starting-weight-section {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .starting-label {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 12px;
+        font-family: "Inter";
     }
 
     .starting-weight-badge {
         display: inline-flex;
-        align-items: center;
-        gap: 8px;
+        align-items: baseline;
+        gap: 6px;
         background-color: #00875a;
         color: #ffffff;
-        padding: 12px 24px;
-        border-radius: 12px;
-        margin-bottom: 20px;
-        font-weight: 500;
-    }
-
-    .badge-label {
-        font-size: 14px;
+        padding: 16px 32px;
+        border-radius: 16px;
+        font-weight: 600;
     }
 
     .badge-value {
-        font-size: 24px;
+        font-size: 32px;
         font-weight: 700;
     }
 
     .badge-unit {
-        font-size: 16px;
+        font-size: 20px;
+    }
+
+    /* Weight Slider */
+    .weight-slider-container {
+        position: relative;
+        padding: 30px 0;
+        margin-top: auto;
+    }
+
+    .slider-gradient-bg {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 12px;
+        transform: translateY(-50%);
+        background: linear-gradient(
+            to right,
+            #ffa06b 0%,
+            #fb6fec 25%,
+            #84a9fa 50%,
+            #90dcf7 75%,
+            #c7e9ab 100%
+        );
+        border-radius: 20px;
+        pointer-events: none;
     }
 
     .weight-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 12px;
+        background: transparent;
+        outline: none;
         position: relative;
-        padding: 20px 0;
+        z-index: 2;
+        cursor: pointer;
     }
 
-    .slider-track {
+    .weight-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        background-color: #ffffff;
+        border: 4px solid #4e9a69;
+        border-radius: 50%;
+        cursor: grab;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+
+    .weight-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .weight-slider::-webkit-slider-thumb:active {
+        cursor: grabbing;
+        transform: scale(1.05);
+    }
+
+    .weight-slider::-moz-range-thumb {
+        width: 40px;
+        height: 40px;
+        background-color: #ffffff;
+        border: 4px solid #4e9a69;
+        border-radius: 50%;
+        cursor: grab;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+
+    .weight-slider::-moz-range-thumb:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .weight-slider::-moz-range-thumb:active {
+        cursor: grabbing;
+        transform: scale(1.05);
+    }
+
+    /* Weight Loss Modal */
+    .weight-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .weight-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .weight-modal-container {
+        background-color: #f5f5f5;
+        border-radius: 48px;
+        max-width: 1200px;
+        width: 100%;
+        padding: 60px;
         position: relative;
-        height: 16px;
-        background-color: #f0f0f0;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .weight-modal-overlay.active .weight-modal-container {
+        transform: scale(1);
+    }
+
+    .weight-modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 38px;
+        height: 38px;
+        background-color: #030303;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        z-index: 10;
+    }
+
+    .weight-modal-close:hover {
+        transform: rotate(90deg);
+        background-color: #333;
+    }
+
+    .weight-modal-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+
+    /* Modal Left Side */
+    .weight-modal-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal-average-label {
+        font-size: 20px;
+        color: #030303;
+        margin-bottom: 20px;
+        font-family: "Inter";
+    }
+
+    .modal-percentage {
+        font-size: 140px;
+        font-weight: 700;
+        color: #030303;
+        line-height: 1;
+        margin-bottom: 16px;
+    }
+
+    .percent-symbol {
+        font-size: 80px;
+    }
+
+    .modal-percentage-text {
+        font-size: 20px;
+        color: #030303;
+        margin-bottom: 40px;
+        font-family: "Inter";
+    }
+
+    .modal-get-started-btn {
+        width: 100%;
+        padding: 20px 40px;
+        background-color: #030303;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 32px;
+        font-family: "Inter";
+    }
+
+    .modal-get-started-btn:hover {
+        background-color: #333;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-disclaimer {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+        font-family: "Inter";
+    }
+
+    /* Modal Right Side */
+    .weight-modal-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-weight-card {
+        background: linear-gradient(
+            135deg,
+            #e8f4ff 0%,
+            #f8f4ff 50%,
+            #fff8f4 100%
+        );
+        border: 3px solid;
+        border-image: linear-gradient(135deg, #84a9fa, #fb6fec, #ffa06b) 1;
+        border-radius: 40px;
+        padding: 50px 40px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .modal-starting-badge {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 8px;
+        background-color: #00875a;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 12px;
+        margin-bottom: 32px;
+        font-family: "Inter";
+    }
+
+    .modal-badge-label {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .modal-badge-value {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .modal-badge-unit {
+        font-size: 18px;
+    }
+
+    .modal-lose-label {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 16px;
+        text-align: center;
+        font-family: "Inter";
+    }
+
+    .modal-weight-loss {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .modal-loss-number {
+        font-size: 100px;
+        font-weight: 700;
+        color: #030303;
+        line-height: 1;
+    }
+
+    .modal-loss-unit {
+        font-size: 40px;
+        font-weight: 400;
+        color: #030303;
+    }
+
+    .modal-bar-chart {
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .modal-chart-bars {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 4px;
+        height: 120px;
+        padding: 0 10px;
+    }
+
+    .modal-chart-bar {
+        flex: 1;
+        background: #4e9a69;
+        border-radius: 6px 6px 0 0;
+        min-width: 8px;
+    }
+
+    .modal-chart-marker {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -28px;
+        font-size: 28px;
+        color: #4e9a69;
+    }
+
+    .modal-slider-container {
+        height: 12px;
         border-radius: 20px;
-        border: 3px solid #0070da;
-        overflow: visible;
+        overflow: hidden;
     }
 
-    .slider-gradient {
+    .modal-slider-gradient {
         height: 100%;
         background: linear-gradient(
             to right,
-            #ff6b6b 0%,
-            #ffa06b 25%,
-            #ffd56b 50%,
-            #89cff0 75%,
-            #4e9a69 100%
+            #ffa06b 0%,
+            #fb6fec 25%,
+            #84a9fa 50%,
+            #90dcf7 75%,
+            #c7e9ab 100%
         );
-        border-radius: 20px;
     }
 
-    .slider-thumb {
-        position: absolute;
-        top: 50%;
-        left: 20%;
-        transform: translate(-50%, -50%);
-        width: 28px;
-        height: 28px;
-        background-color: #ffffff;
-        border: 3px solid #666;
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        transition: left 0.3s ease;
-    }
-
-    /* Modal Styles */
+    /* BMI Results Modal (keep existing styles) */
     .bmi-results-modal-overlay {
         position: fixed;
         top: 0;
@@ -501,7 +919,9 @@
         padding: 20px;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
     }
 
     .bmi-results-modal-overlay.active {
@@ -529,8 +949,8 @@
 
     .bmi-results-modal-close {
         position: absolute;
-        top: 32px;
-        right: 32px;
+        top: 12px;
+        right: 12px;
         background: none;
         border: none;
         cursor: pointer;
@@ -604,6 +1024,7 @@
     .bmi-results-label {
         font-size: 16px;
         color: #666;
+        font-family: "Inter";
     }
 
     .bmi-results-explanation {
@@ -611,6 +1032,7 @@
         color: #666;
         line-height: 1.6;
         text-align: center;
+        font-family: "Inter";
     }
 
     .bmi-results-modal-right {
@@ -643,12 +1065,14 @@
         font-weight: 600;
         color: #030303;
         flex: 1;
+        font-family: "Inter";
     }
 
     .bmi-results-alert-range {
         font-size: 16px;
         color: #666;
         font-weight: 500;
+        font-family: "Inter";
     }
 
     .bmi-results-alert-text {
@@ -656,6 +1080,7 @@
         color: #030303;
         line-height: 1.6;
         margin-bottom: 24px;
+        font-family: "Inter";
     }
 
     .bmi-results-consultation-btn {
@@ -717,12 +1142,14 @@
         font-size: 16px;
         color: #030303;
         font-weight: 500;
+        font-family: "Inter";
     }
 
     .bmi-results-category-range {
         font-size: 16px;
         color: #666;
         font-weight: 600;
+        font-family: "Inter";
     }
 
     .bmi-results-disclaimers {
@@ -735,6 +1162,7 @@
         font-size: 12px;
         color: #666;
         line-height: 1.6;
+        font-family: "Inter";
     }
 
     /* Responsive Design */
@@ -744,7 +1172,8 @@
             gap: 24px;
         }
 
-        .bmi-results-modal-grid {
+        .bmi-results-modal-grid,
+        .weight-modal-content {
             grid-template-columns: 1fr;
             gap: 40px;
         }
@@ -756,7 +1185,7 @@
         }
 
         .bmi-input-panel,
-        .bmi-results-panel {
+        .weight-slider-panel {
             padding: 40px 32px;
             border-radius: 40px;
         }
@@ -778,14 +1207,16 @@
             height: 100px;
         }
 
-        .bmi-results-modal-container {
+        .bmi-results-modal-container,
+        .weight-modal-container {
             padding: 40px 32px;
             border-radius: 32px;
         }
 
-        .bmi-results-modal-close {
-            top: 20px;
-            right: 20px;
+        .bmi-results-modal-close,
+        .weight-modal-close {
+            top: 2px;
+            right: 2px;
         }
 
         .bmi-results-modal-title {
@@ -808,79 +1239,196 @@
         .bmi-results-category-alert {
             padding: 24px;
         }
+
+        .modal-percentage {
+            font-size: 100px;
+        }
+
+        .percent-symbol {
+            font-size: 60px;
+        }
+
+        .modal-loss-number {
+            font-size: 80px;
+        }
+
+        .modal-loss-unit {
+            font-size: 32px;
+        }
+
+        .modal-weight-card {
+            padding: 40px 32px;
+        }
     }
 </style>
 
 <script>
-    const feetInput = document.getElementById("feet");
-    const inchesInput = document.getElementById("inches");
-    const weightInput = document.getElementById("weight");
+    // BMI Calculator
+    const feetInput = document.getElementById("feet") as HTMLInputElement;
+    const inchesInput = document.getElementById("inches") as HTMLInputElement;
+    const weightInput = document.getElementById("weight") as HTMLInputElement;
     const calculateBtn = document.getElementById("calculateBtn");
-    const bmiDisplay = document.querySelector(".bmi-display");
-    const weightLossDisplay = document.getElementById("weightLoss");
-    const startingWeightDisplay = document.getElementById("startingWeight");
-    const sliderThumb = document.getElementById("sliderThumb");
-    const chartBarsContainer = document.querySelector(".chart-bars");
+    const bmiDisplay = document.querySelector(".bmi-display") as HTMLElement;
     const bmiResultsModal = document.getElementById("bmiResultsModal");
-    const closeBMIResultsModalBtn = document.getElementById("closeBMIResultsModal");
+    const closeBMIResultsModalBtn = document.getElementById(
+        "closeBMIResultsModal",
+    );
 
-    // Generate initial bar chart
-    function generateBarChart(weeks = 24) {
-        chartBarsContainer.innerHTML = "";
-        for (let i = 0; i < weeks; i++) {
+    // Weight Slider Elements
+    const weightSlider = document.getElementById(
+        "weightSlider",
+    ) as HTMLInputElement;
+    const sliderWeightLoss = document.getElementById(
+        "sliderWeightLoss",
+    ) as HTMLElement;
+    const sliderStartingWeight = document.getElementById(
+        "sliderStartingWeight",
+    ) as HTMLElement;
+    const chartBarsContainer = document.querySelector(
+        ".chart-bars",
+    ) as HTMLElement;
+    const weightModal = document.getElementById("weightModal");
+    const closeWeightModalBtn = document.getElementById("closeWeightModal");
+    const modalStartingWeight = document.getElementById(
+        "modalStartingWeight",
+    ) as HTMLElement;
+    const modalWeightLoss = document.getElementById(
+        "modalWeightLoss",
+    ) as HTMLElement;
+    const modalChartBars = document.getElementById(
+        "modalChartBars",
+    ) as HTMLElement;
+
+    let isSliding = false;
+
+    // Generate bar chart
+    function generateBarChart(container: HTMLElement, bars = 24) {
+        container.innerHTML = "";
+        for (let i = 0; i < bars; i++) {
             const bar = document.createElement("div");
-            bar.className = "chart-bar";
-            const height = 100 - i * 3.5;
-            bar.style.height = Math.max(height, 20) + "%";
-            chartBarsContainer.appendChild(bar);
+            bar.className =
+                container === chartBarsContainer
+                    ? "chart-bar"
+                    : "modal-chart-bar";
+            const heightPercent = Math.random() * 60 + 40;
+            bar.style.height = heightPercent + "%";
+            container.appendChild(bar);
         }
     }
 
-    generateBarChart();
+    // Initialize bar charts
+    generateBarChart(chartBarsContainer);
+    generateBarChart(modalChartBars);
 
-    function updateModalBMI(bmi) {
-        const bmiResultsValue = document.getElementById("bmiResultsValue");
-        const categoryResultsAlert = document.getElementById("categoryResultsAlert");
-        const alertResultsCategory = document.getElementById("alertResultsCategory");
-        const alertResultsRange = document.getElementById("alertResultsRange");
-        const alertResultsText = document.getElementById("alertResultsText");
-        const bmiResultsArc = document.getElementById("bmiResultsArc");
+    // Update weight loss based on slider
+    function updateWeightLoss() {
+        const currentWeight = parseInt(weightSlider.value);
+        const weightLoss = Math.round(currentWeight * 0.15);
+
+        sliderWeightLoss.textContent = weightLoss.toString();
+        sliderStartingWeight.textContent = currentWeight.toString();
+    }
+
+    // Weight slider input event
+    weightSlider.addEventListener("input", () => {
+        isSliding = true;
+        updateWeightLoss();
+    });
+
+    // Weight slider change event (when user releases)
+    weightSlider.addEventListener("change", () => {
+        if (isSliding) {
+            isSliding = false;
+            const currentWeight = parseInt(weightSlider.value);
+            const weightLoss = Math.round(currentWeight * 0.15);
+
+            // Update modal values
+            modalStartingWeight.textContent = currentWeight.toString();
+            modalWeightLoss.textContent = weightLoss.toString();
+
+            // Regenerate modal bar chart
+            generateBarChart(modalChartBars);
+
+            // Show modal
+            weightModal?.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+    });
+
+    // Close weight modal
+    function closeWeightModal() {
+        weightModal?.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    closeWeightModalBtn?.addEventListener("click", closeWeightModal);
+
+    weightModal?.addEventListener("click", (e) => {
+        if (e.target === weightModal) {
+            closeWeightModal();
+        }
+    });
+
+    // BMI Calculator
+    function updateModalBMI(bmi: number) {
+        const bmiResultsValue = document.getElementById(
+            "bmiResultsValue",
+        ) as HTMLElement;
+        const categoryResultsAlert = document.getElementById(
+            "categoryResultsAlert",
+        ) as HTMLElement;
+        const alertResultsCategory = document.getElementById(
+            "alertResultsCategory",
+        ) as HTMLElement;
+        const alertResultsRange = document.getElementById(
+            "alertResultsRange",
+        ) as HTMLElement;
+        const alertResultsText = document.getElementById(
+            "alertResultsText",
+        ) as HTMLElement;
+        const bmiResultsArc = document.getElementById(
+            "bmiResultsArc",
+        ) as SVGCircleElement;
 
         bmiResultsValue.textContent = bmi.toFixed(1);
 
-        let category, color, range, text;
+        let category: string, color: string, range: string, text: string;
 
         if (bmi < 18.5) {
-            category = 'Underweight';
-            color = '#89cff0';
-            range = '< 18.5';
-            text = 'Your BMI is below the healthy range. A licensed provider can help explore the underlying causes and guide you toward a safe, sustainable plan for reaching a healthier weight.';
+            category = "Underweight";
+            color = "#89cff0";
+            range = "< 18.5";
+            text =
+                "Your BMI is below the healthy range. A licensed provider can help explore the underlying causes and guide you toward a safe, sustainable plan for reaching a healthier weight.";
         } else if (bmi < 25) {
-            category = 'Healthy Weight';
-            color = '#4e9a69';
-            range = '18.5+';
-            text = 'Your BMI is within the healthy range. Maintaining a balanced diet and regular exercise can help you stay healthy.';
+            category = "Healthy Weight";
+            color = "#4e9a69";
+            range = "18.5+";
+            text =
+                "Your BMI is within the healthy range. Maintaining a balanced diet and regular exercise can help you stay healthy.";
         } else if (bmi < 30) {
-            category = 'Overweight';
-            color = '#ffa06b';
-            range = '25+';
-            text = 'Your BMI indicates you are overweight. A licensed provider can help you develop a personalized plan to reach a healthier weight.';
+            category = "Overweight";
+            color = "#ffa06b";
+            range = "25+";
+            text =
+                "Your BMI indicates you are overweight. A licensed provider can help you develop a personalized plan to reach a healthier weight.";
         } else {
-            category = 'Obesity';
-            color = '#ff6b6b';
-            range = '30+';
-            text = 'Your BMI indicates obesity. We recommend consulting with a licensed provider to explore treatment options that may be right for you.';
+            category = "Obesity";
+            color = "#ff6b6b";
+            range = "30+";
+            text =
+                "Your BMI indicates obesity. We recommend consulting with a licensed provider to explore treatment options that may be right for you.";
         }
 
         alertResultsCategory.textContent = category;
         alertResultsRange.textContent = range;
         alertResultsText.textContent = text;
         categoryResultsAlert.style.borderColor = color;
-        bmiResultsArc.setAttribute('stroke', color);
+        bmiResultsArc.setAttribute("stroke", color);
 
         const percentage = Math.min(bmi / 40, 1);
-        const dashOffset = 502 - (502 * percentage * 0.75);
-        bmiResultsArc.setAttribute('stroke-dashoffset', dashOffset.toString());
+        const dashOffset = 502 - 502 * percentage * 0.75;
+        bmiResultsArc.setAttribute("stroke-dashoffset", dashOffset.toString());
     }
 
     function calculateBMI() {
@@ -897,74 +1445,44 @@
         const bmi = (weight / (totalInches * totalInches)) * 703;
         bmiDisplay.textContent = bmi.toFixed(1);
 
-        const minHealthyWeight = (18.5 * totalInches * totalInches) / 703;
-        const maxHealthyWeight = (24.9 * totalInches * totalInches) / 703;
-
-        let targetWeight = maxHealthyWeight;
-        if (weight > maxHealthyWeight) {
-            targetWeight = maxHealthyWeight;
-        } else if (weight < minHealthyWeight) {
-            targetWeight = minHealthyWeight;
-        }
-
-        const weightLoss = Math.abs(weight - targetWeight);
-        weightLossDisplay.textContent = Math.round(weightLoss);
-        startingWeightDisplay.textContent = Math.round(weight);
-
-        let sliderPosition = 50;
-        if (bmi < 18.5) {
-            sliderPosition = 10;
-        } else if (bmi < 25) {
-            sliderPosition = 50;
-        } else if (bmi < 30) {
-            sliderPosition = 70;
-        } else {
-            sliderPosition = 85;
-        }
-
-        sliderThumb.style.left = sliderPosition + "%";
-
-        const bars = document.querySelectorAll(".chart-bar");
-        bars.forEach((bar, index) => {
-            setTimeout(() => {
-                const newHeight = 100 - index * (weightLoss / 10);
-                bar.style.height = Math.max(newHeight, 20) + "%";
-            }, index * 30);
-        });
-
-        // Update modal and show it
         updateModalBMI(bmi);
-        bmiResultsModal.classList.add("active");
+        bmiResultsModal?.classList.add("active");
         document.body.style.overflow = "hidden";
     }
 
     function closeBMIResultsModal() {
-        bmiResultsModal.classList.remove("active");
+        bmiResultsModal?.classList.remove("active");
         document.body.style.overflow = "";
     }
 
-    calculateBtn.addEventListener("click", calculateBMI);
-    closeBMIResultsModalBtn.addEventListener("click", closeBMIResultsModal);
+    calculateBtn?.addEventListener("click", calculateBMI);
+    closeBMIResultsModalBtn?.addEventListener("click", closeBMIResultsModal);
 
     [feetInput, inchesInput, weightInput].forEach((input) => {
-        input.addEventListener("keypress", (e) => {
+        input?.addEventListener("keypress", (e) => {
             if (e.key === "Enter") {
                 calculateBMI();
             }
         });
     });
 
-    // Close modal on overlay click
-    bmiResultsModal.addEventListener("click", (e) => {
+    bmiResultsModal?.addEventListener("click", (e) => {
         if (e.target === bmiResultsModal) {
             closeBMIResultsModal();
         }
     });
 
-    // Close modal on escape key
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && bmiResultsModal.classList.contains("active")) {
-            closeBMIResultsModal();
+        if (e.key === "Escape") {
+            if (bmiResultsModal?.classList.contains("active")) {
+                closeBMIResultsModal();
+            }
+            if (weightModal?.classList.contains("active")) {
+                closeWeightModal();
+            }
         }
     });
+
+    // Initialize weight loss display
+    updateWeightLoss();
 </script>
