@@ -43,7 +43,7 @@ import WeightModal from "./WeightModal.astro";
     <!-- Main Content Card -->
     <div class="main-card">
         <div class="main-header">
-            <h2>Lose Weight</h2>
+            <h2>Lose weight with a plan made just for you.</h2>
         </div>
 
         <div class="main-content">
@@ -94,6 +94,11 @@ import WeightModal from "./WeightModal.astro";
                     paired with diet and exercise changes (compared to 2.4% and
                     3.1%, respectively, with diet and exercise alone).
                 </p>
+            </div>
+
+            <!-- Woman Image Card -->
+            <div class="woman-image-card">
+                <img src="/images/woman.png" alt="Happy Woman" class="woman-image" />
             </div>
         </div>
     </div>
@@ -284,12 +289,12 @@ import WeightModal from "./WeightModal.astro";
 
     .doctor-image img {
         object-fit: contain;
+        width: 300px;
     }
 
     /* Main Card */
     .main-card {
         border-radius: 60px;
-        padding: 40px;
     }
 
     .main-header {
@@ -306,9 +311,10 @@ import WeightModal from "./WeightModal.astro";
         font-family: "Sofia";
     }
 
-    /* Main Content */
+    /* Main Content - 2 column grid for stats and woman */
     .main-content {
         display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
         margin-bottom: 20px;
         align-items: stretch;
@@ -316,14 +322,11 @@ import WeightModal from "./WeightModal.astro";
 
     /* Stats Card */
     .stats-card {
-        background: rgb(34 147 255 / 50%);
         border-radius: 60px;
-        padding: 40px;
         display: flex;
         flex-direction: column;
         gap: 20px;
         color: #2d2d2d;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .stats-heading {
@@ -424,8 +427,24 @@ import WeightModal from "./WeightModal.astro";
         line-height: 1.5;
         color: #2a2a2a;
         margin: 0;
-        margin-top: auto;
         font-family: "Inter";
+    }
+
+    /* Woman Image Card */
+    .woman-image-card {
+        position: relative;
+        overflow: visible;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .woman-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: bottom;
+        max-height: 600px;
     }
 
     /* Info Product Container */
@@ -646,6 +665,14 @@ import WeightModal from "./WeightModal.astro";
         .stats-card {
             order: -1;
         }
+
+        .woman-image-card {
+            max-height: 400px;
+        }
+
+        .woman-image {
+            max-height: 400px;
+        }
     }
 
     @media (max-width: 768px) {
@@ -730,6 +757,14 @@ import WeightModal from "./WeightModal.astro";
 
         .info-product-container {
             border-radius: 40px;
+        }
+
+        .woman-image-card {
+            max-height: 300px;
+        }
+
+        .woman-image {
+            max-height: 300px;
         }
     }
 </style>
