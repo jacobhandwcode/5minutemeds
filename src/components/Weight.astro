@@ -18,24 +18,26 @@ const sexLifeTestimonials = [
         <!-- Improve Sex Life Card -->
         <div class="treatment-card sex-life-card">
             <h2>Improve Sex Life</h2>
-            <p class="subtitle">
-                Easy on the go solutions for improved sexual performance
-            </p>
-
-            <div class="product-showcase">
-                <img
-                    src="/images/improve.png"
-                    alt="5MinuteMeds Pill"
-                    class="product-image"
-                />
+            
+            <div class="top-section">
+                <div class="left-content">
+                    <p class="subtitle">
+                        Easy on the go solutions for improved sexual performance
+                    </p>
+                    <div class="pricing">
+                        <p>Our Price: <strong>$18.99/month</strong></p>
+                        <p>Our Competitors: $39/month</p>
+                    </div>
+                    <button class="get-started-btn">Get Started</button>
+                </div>
+                <div class="product-showcase">
+                    <img
+                        src="/images/improve.png"
+                        alt="5MinuteMeds Pill"
+                        class="product-image"
+                    />
+                </div>
             </div>
-
-            <div class="pricing">
-                <p>Our Price: <strong>$18.99/month</strong></p>
-                <p>Our Competitors: $39/month</p>
-            </div>
-
-            <button class="get-started-btn">Get Started</button>
 
             <div class="product-info">
                 <p>
@@ -53,7 +55,7 @@ const sexLifeTestimonials = [
             <div class="testimonials">
                 <button class="testimonial-nav prev" aria-label="Previous testimonial">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15 18L9 12L15 6" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
                 <div class="testimonials-scroll">
@@ -68,7 +70,7 @@ const sexLifeTestimonials = [
                 </div>
                 <button class="testimonial-nav next" aria-label="Next testimonial">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 18L15 12L9 6" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
@@ -81,20 +83,22 @@ const sexLifeTestimonials = [
                 Support Healthy Aging Through Cellular Renewal
             </p>
 
-            <div class="product-showcase">
-                <img
-                    src="/images/longevity.png"
-                    alt="NAD+ Box"
-                    class="nad-box"
-                />
+            <div class="top-section">
+                <div class="product-showcase">
+                    <img
+                        src="/images/longevity.png"
+                        alt="NAD+ Box"
+                        class="nad-box"
+                    />
+                </div>
+                <div class="right-content">
+                    <div class="pricing">
+                        <p>Our Price: <strong>$119.99/month</strong></p>
+                        <p>Our Competitors: $159.99/month</p>
+                    </div>
+                    <button class="get-started-btn">Get Started</button>
+                </div>
             </div>
-
-            <div class="pricing">
-                <p>Our Price: <strong>$119.99/month</strong></p>
-                <p>Our Competitors: $159.99/month</p>
-            </div>
-
-            <button class="get-started-btn">Get Started</button>
 
             <div class="product-info">
                 <p>
@@ -264,7 +268,9 @@ const sexLifeTestimonials = [
         display: flex;
         flex-direction: column;
         gap: 24px;
+        background-color: #ffffff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        color: #3a3a3a;
     }
 
     .treatment-card h2 {
@@ -272,9 +278,9 @@ const sexLifeTestimonials = [
         font-weight: 400;
         margin-bottom: 0;
         font-family: "Sofia", sans-serif;
-        color: #ffffff;
+        color: #3a3a3a;
         line-height: 1.1;
-        text-align: center;
+        text-align: left;
     }
 
     .subtitle {
@@ -282,20 +288,40 @@ const sexLifeTestimonials = [
         margin-bottom: 0;
         line-height: 1.4;
         font-family: "Inter", sans-serif;
-        color: rgba(255, 255, 255, 0.8);
-        text-align: center;
+        color: #3a3a3a;
+        text-align: left;
     }
 
     .sex-life-card {
-        background: linear-gradient(135deg, rgb(235, 110, 40) 0%, rgb(163, 62, 11) 100%);
-        color: #ffffff;
+        background-color: #ffffff;
+        color: #3a3a3a;
+    }
+
+    .top-section {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .left-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .right-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
     }
 
     .product-showcase {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 180px;
     }
 
     .product-image {
@@ -305,8 +331,7 @@ const sexLifeTestimonials = [
     }
 
     .pricing {
-        margin: 24px 0;
-        text-align: center;
+        text-align: left;
     }
 
     .pricing p {
@@ -314,6 +339,7 @@ const sexLifeTestimonials = [
         font-size: 18px;
         font-family: "Inter", sans-serif;
         line-height: 1.5;
+        color: #3a3a3a;
     }
 
     .pricing strong {
@@ -322,8 +348,8 @@ const sexLifeTestimonials = [
     }
 
     .get-started-btn {
-        background-color: white;
-        color: #1a1a1a;
+        background-color: #3a3a3a;
+        color: #ffffff;
         border: none;
         border-radius: 50px;
         padding: 18px 40px;
@@ -332,23 +358,30 @@ const sexLifeTestimonials = [
         cursor: pointer;
         transition: all 0.3s ease;
         width: 220px;
-        margin: 24px auto;
         display: block;
         font-family: "Inter", sans-serif;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .get-started-btn:hover {
+    .sex-life-card .get-started-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        background-color: #f8f8f8;
+        background: linear-gradient(135deg, rgb(235, 110, 40) 0%, rgb(163, 62, 11) 100%);
+    }
+
+    .longevity-card .get-started-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, rgb(78, 154, 105) 0%, rgb(56, 118, 79) 100%);
     }
 
     .product-info {
         font-size: 17px;
         line-height: 1.7;
-        margin-bottom: 24px;
+        margin-top: 24px;
         font-family: "Inter", sans-serif;
+        text-align: left;
+        color: #3a3a3a;
     }
 
     .product-info p {
@@ -390,7 +423,7 @@ const sexLifeTestimonials = [
     }
 
     .testimonial-nav svg {
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
     .testimonials-scroll {
@@ -409,7 +442,7 @@ const sexLifeTestimonials = [
     }
 
     .testimonial-box {
-        background-color: #ffffff;
+        background-color: #f5f5f5;
         border-radius: 24px;
         padding: 24px;
         flex-shrink: 0;
@@ -423,7 +456,7 @@ const sexLifeTestimonials = [
         margin-bottom: 12px;
         font-size: 18px;
         font-family: "Inter", sans-serif;
-        color: #030303;
+        color: #3a3a3a;
     }
 
     .testimonial-text {
@@ -431,17 +464,17 @@ const sexLifeTestimonials = [
         line-height: 1.6;
         font-style: italic;
         font-family: "Inter", sans-serif;
-        color: rgba(0, 0, 0, 0.85);
+        color: #3a3a3a;
     }
 
     /* Longevity Card */
     .longevity-card {
-        background: linear-gradient(135deg, rgb(78, 154, 105) 0%, rgb(56, 118, 79) 100%);
-        color: white;
+        background-color: #ffffff;
+        color: #3a3a3a;
     }
 
     .longevity-card .subtitle {
-        color: rgba(255, 255, 255, 0.95);
+        color: #3a3a3a;
     }
 
     .nad-box,
@@ -698,6 +731,10 @@ const sexLifeTestimonials = [
         .mission-image {
             width: 200px;
         }
+
+        .top-section {
+            flex-direction: column;
+        }
     }
 
     @media (max-width: 768px) {
@@ -723,6 +760,16 @@ const sexLifeTestimonials = [
 
         .subtitle {
             font-size: 18px;
+        }
+
+        .top-section {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .left-content,
+        .right-content {
+            width: 100%;
         }
 
         .regrow-hair-card {
