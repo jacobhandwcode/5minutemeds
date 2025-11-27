@@ -494,7 +494,7 @@
         color: #030303;
     }
 
-    /* Bar Chart */
+    /* Bar Chart - FIXED */
     .bar-chart {
         position: relative;
         margin-bottom: 16px;
@@ -507,6 +507,7 @@
         gap: 4px;
         height: 120px;
         padding: 0 16px;
+        background-color: transparent;
     }
 
     .chart-bar {
@@ -515,6 +516,10 @@
         border-radius: 6px 6px 0 0;
         transition: all 0.3s ease;
         min-width: 8px;
+        max-width: 20px;
+        position: relative;
+        display: block;
+        height: 50%; /* Default height, will be overridden by JS */
     }
 
     .chart-marker {
@@ -863,6 +868,7 @@
         gap: 3px;
         height: 100px;
         padding: 0 8px;
+        background-color: transparent;
     }
 
     .modal-chart-bar {
@@ -870,6 +876,10 @@
         background: #4e9a69;
         border-radius: 5px 5px 0 0;
         min-width: 6px;
+        max-width: 15px;
+        position: relative;
+        display: block;
+        height: 50%; /* Default height, will be overridden by JS */
     }
 
     .modal-chart-marker {
@@ -1387,7 +1397,11 @@
                     ? "chart-bar"
                     : "modal-chart-bar";
             const heightPercent = Math.random() * 60 + 40;
+            // Use setAttribute to ensure height is applied
             bar.style.height = heightPercent + "%";
+            bar.style.width = "100%";
+            bar.style.display = "block";
+            bar.style.backgroundColor = "#4e9a69";
             container.appendChild(bar);
         }
     }

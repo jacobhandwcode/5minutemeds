@@ -73,12 +73,17 @@ import WeightModal from "./WeightModal.astro";
                         </div>
                     </div>
                     <p class="stats-description">
-                        People lost an average of <strong>15%</strong> (up to 20%) bodyweight
-                        in a 68-week clinical study of 5 Minute Meds
+                        People lost an average of <strong>15%</strong> (up to 20%)
+                        bodyweight in a 68-week clinical study of 5 Minute Meds
                     </p>
                     <a href="#" class="get-started-btn-gradient">
                         Get Started
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                        >
                             <path
                                 d="M7 4l6 6-6 6"
                                 stroke="currentColor"
@@ -88,12 +93,13 @@ import WeightModal from "./WeightModal.astro";
                         </svg>
                     </a>
                     <p class="disclaimer">
-                        *In a 68- and 72-week clinical trial studying 5 Minute Meds
-                        (2.4 mg) and Zepbound (15 mg) in patients without diabetes
-                        and with BMI ≥30, or BMI ≥27 with a weight-related
-                        condition, the average weight loss was 15% and 20%, when
-                        paired with diet and exercise changes (compared to 2.4% and
-                        3.1%, respectively, with diet and exercise alone).
+                        *In a 68- and 72-week clinical trial studying 5 Minute
+                        Meds (2.4 mg) and Zepbound (15 mg) in patients without
+                        diabetes and with BMI ≥30, or BMI ≥27 with a
+                        weight-related condition, the average weight loss was
+                        15% and 20%, when paired with diet and exercise changes
+                        (compared to 2.4% and 3.1%, respectively, with diet and
+                        exercise alone).
                     </p>
                 </div>
 
@@ -153,7 +159,9 @@ import WeightModal from "./WeightModal.astro";
             <div class="testimonial-slideshow-weight">
                 {
                     testimonials.map((testimonial, index) => (
-                        <div class={`slide-weight ${index === 0 ? "active" : ""}`}>
+                        <div
+                            class={`slide-weight ${index === 0 ? "active" : ""}`}
+                        >
                             <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
@@ -190,7 +198,10 @@ import WeightModal from "./WeightModal.astro";
                                 Our Competitors: {treatment.competitor}
                             </p>
                         )}
-                        <a href={treatment.link} class="get-started-btn-gradient">
+                        <a
+                            href={treatment.link}
+                            class="get-started-btn-gradient"
+                        >
                             Get Started
                             <svg
                                 width="20"
@@ -330,7 +341,7 @@ import WeightModal from "./WeightModal.astro";
     .doctor-image {
         position: relative;
         height: 160px;
-        margin-bottom: -30px;
+        margin-bottom: -40px;
     }
 
     .doctor-image img {
@@ -764,7 +775,7 @@ import WeightModal from "./WeightModal.astro";
 
         .doctor-image {
             height: 120px;
-            margin-bottom: -20px;
+            margin-bottom: -40px;
         }
 
         .doctor-image img {
