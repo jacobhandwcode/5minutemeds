@@ -40,175 +40,177 @@ import WeightModal from "./WeightModal.astro";
 ---
 
 <section class="weight-loss-section">
-    <!-- Main Content Card -->
-    <div class="main-card">
-        <div class="main-header">
-            <h2>Lose weight with a plan made just for you.</h2>
-        </div>
-
-        <div class="main-content">
-            <!-- Weight Loss Stats Card -->
-            <div class="stats-card">
-                <h3 class="stats-heading">Lose up to</h3>
-                <div class="stats-number">
-                    <span class="big-number">20</span>
-                    <div class="stats-side">
-                        <span class="percent">%</span>
-                        <span class="bodyweight">bodyweight</span>
-                        <svg
-                            class="arrow-down"
-                            width="60"
-                            height="60"
-                            viewBox="0 0 60 60"
-                            fill="none"
-                        >
-                            <path
-                                d="M30 10 L30 40 M30 40 L20 30 M30 40 L40 30"
-                                stroke="currentColor"
-                                stroke-width="4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </svg>
-                    </div>
-                </div>
-                <p class="stats-description">
-                    People lost an average of <strong>15%</strong> (up to 20%) bodyweight
-                    in a 68-week clinical study of 5 Minute Meds
-                </p>
-                <a href="#" class="get-started-btn-gradient">
-                    Get Started
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path
-                            d="M7 4l6 6-6 6"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                    </svg>
-                </a>
-                <p class="disclaimer">
-                    *In a 68- and 72-week clinical trial studying 5 Minute Meds
-                    (2.4 mg) and Zepbound (15 mg) in patients without diabetes
-                    and with BMI ≥30, or BMI ≥27 with a weight-related
-                    condition, the average weight loss was 15% and 20%, when
-                    paired with diet and exercise changes (compared to 2.4% and
-                    3.1%, respectively, with diet and exercise alone).
-                </p>
+    <div class="weight-loss-container">
+        <!-- Main Content Card -->
+        <div class="main-card">
+            <div class="main-header">
+                <h2>Lose weight with a plan made just for you.</h2>
             </div>
 
-            <!-- Woman Image Card -->
-            <div class="woman-image-card">
-                <img
-                    src="/images/woman.png"
-                    alt="Happy Woman"
-                    class="woman-image"
-                />
-            </div>
-        </div>
-    </div>
-    <BmiCalc />
-    <WeightModal />
-    <!-- Top Row -->
-    <div class="top-row">
-        <!-- Trust Badge Card -->
-        <div class="trust-card">
-            <div class="trust-content">
-                <ul class="trust-list">
-                    {
-                        features.map((feature) => (
-                            <li>
-                                <svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                >
-                                    <path
-                                        d="M12 2L4 6v6c0 5.5 3.84 10.74 8 12 4.16-1.26 8-6.5 8-12V6l-8-4z"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        fill="none"
-                                    />
-                                    <path
-                                        d="M9 12l2 2 4-4"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                                <span>{feature}</span>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-            <div class="doctor-image">
-                <img src="/images/doctor.png" alt="Doctor" />
-            </div>
-        </div>
-
-        <!-- Testimonial Slideshow -->
-        <div class="testimonial-slideshow-weight">
-            {
-                testimonials.map((testimonial, index) => (
-                    <div class={`slide-weight ${index === 0 ? "active" : ""}`}>
-                        <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            class="testimonial-image-weight"
-                        />
-                        <div class="testimonial-info-weight">
-                            <p class="testimonial-name-weight">
-                                {testimonial.name}
-                            </p>
-                            <p class="testimonial-weight-weight">
-                                Lost {testimonial.pounds}
-                            </p>
+            <div class="main-content">
+                <!-- Weight Loss Stats Card -->
+                <div class="stats-card">
+                    <h3 class="stats-heading">Lose up to</h3>
+                    <div class="stats-number">
+                        <span class="big-number">20</span>
+                        <div class="stats-side">
+                            <span class="percent">%</span>
+                            <span class="bodyweight">bodyweight</span>
+                            <svg
+                                class="arrow-down"
+                                width="60"
+                                height="60"
+                                viewBox="0 0 60 60"
+                                fill="none"
+                            >
+                                <path
+                                    d="M30 10 L30 40 M30 40 L20 30 M30 40 L40 30"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
                         </div>
                     </div>
-                ))
-            }
-        </div>
-    </div>
-
-    <!-- Treatment Options -->
-    <div class="treatments-grid">
-        {
-            treatments.map((treatment) => (
-                <div class="treatment-card">
-                    <h4>{treatment.name}</h4>
-                    <div class="treatment-image">
-                        <img src={treatment.image} alt={treatment.name} />
-                    </div>
-                    <p class="treatment-price">
-                        Our Price: <strong>{treatment.price}</strong>
+                    <p class="stats-description">
+                        People lost an average of <strong>15%</strong> (up to 20%) bodyweight
+                        in a 68-week clinical study of 5 Minute Meds
                     </p>
-                    {treatment.competitor && (
-                        <p class="competitor-price">
-                            Our Competitors: {treatment.competitor}
-                        </p>
-                    )}
-                    <a href={treatment.link} class="get-started-btn-gradient">
+                    <a href="#" class="get-started-btn-gradient">
                         Get Started
-                        <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                        >
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path
                                 d="M7 4l6 6-6 6"
                                 stroke="currentColor"
                                 stroke-width="2"
                                 stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
+                                stroke-linejoin="round"></path>
                         </svg>
                     </a>
+                    <p class="disclaimer">
+                        *In a 68- and 72-week clinical trial studying 5 Minute Meds
+                        (2.4 mg) and Zepbound (15 mg) in patients without diabetes
+                        and with BMI ≥30, or BMI ≥27 with a weight-related
+                        condition, the average weight loss was 15% and 20%, when
+                        paired with diet and exercise changes (compared to 2.4% and
+                        3.1%, respectively, with diet and exercise alone).
+                    </p>
                 </div>
-            ))
-        }
+
+                <!-- Woman Image Card -->
+                <div class="woman-image-card">
+                    <img
+                        src="/images/woman.png"
+                        alt="Happy Woman"
+                        class="woman-image"
+                    />
+                </div>
+            </div>
+        </div>
+        <BmiCalc />
+        <WeightModal />
+        <!-- Top Row -->
+        <div class="top-row">
+            <!-- Trust Badge Card -->
+            <div class="trust-card">
+                <div class="trust-content">
+                    <ul class="trust-list">
+                        {
+                            features.map((feature) => (
+                                <li>
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M12 2L4 6v6c0 5.5 3.84 10.74 8 12 4.16-1.26 8-6.5 8-12V6l-8-4z"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            fill="none"
+                                        />
+                                        <path
+                                            d="M9 12l2 2 4-4"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                    <span>{feature}</span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div class="doctor-image">
+                    <img src="/images/doctor.png" alt="Doctor" />
+                </div>
+            </div>
+
+            <!-- Testimonial Slideshow -->
+            <div class="testimonial-slideshow-weight">
+                {
+                    testimonials.map((testimonial, index) => (
+                        <div class={`slide-weight ${index === 0 ? "active" : ""}`}>
+                            <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                class="testimonial-image-weight"
+                            />
+                            <div class="testimonial-info-weight">
+                                <p class="testimonial-name-weight">
+                                    {testimonial.name}
+                                </p>
+                                <p class="testimonial-weight-weight">
+                                    Lost {testimonial.pounds}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Treatment Options -->
+        <div class="treatments-grid">
+            {
+                treatments.map((treatment) => (
+                    <div class="treatment-card">
+                        <h4>{treatment.name}</h4>
+                        <div class="treatment-image">
+                            <img src={treatment.image} alt={treatment.name} />
+                        </div>
+                        <p class="treatment-price">
+                            Our Price: <strong>{treatment.price}</strong>
+                        </p>
+                        {treatment.competitor && (
+                            <p class="competitor-price">
+                                Our Competitors: {treatment.competitor}
+                            </p>
+                        )}
+                        <a href={treatment.link} class="get-started-btn-gradient">
+                            Get Started
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                            >
+                                <path
+                                    d="M7 4l6 6-6 6"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                ))
+            }
+        </div>
     </div>
 </section>
 
@@ -264,23 +266,31 @@ import WeightModal from "./WeightModal.astro";
 
 <style>
     .weight-loss-section {
-        margin: 0 auto;
-        padding: 24px;
+        padding-left: 80px;
+        padding-right: 80px;
         background-color: #f9f9fa;
         border-radius: 20px;
         border-top: 1px solid rgb(0, 112, 218);
+    }
+
+    .weight-loss-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 24px;
+        background-color: #f9f9fa;
     }
 
     /* Top Row */
     .top-row {
         display: grid;
         grid-template-columns: 1fr 2fr;
-        gap: 16px;
-        margin-bottom: 16px;
+        gap: 24px;
+        margin-bottom: 24px;
     }
 
     /* Trust Card */
     .trust-card {
+        background-color: #ffffff;
         border-radius: 32px;
         padding: 28px;
         display: flex;
@@ -289,7 +299,7 @@ import WeightModal from "./WeightModal.astro";
         color: #030303;
         position: relative;
         overflow: hidden;
-        box-shadow: 2px 4px 12px #00000045;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .trust-content {
@@ -314,7 +324,7 @@ import WeightModal from "./WeightModal.astro";
     .trust-list svg {
         width: 24px;
         height: 24px;
-        stroke: white;
+        stroke: #030303;
         flex-shrink: 0;
     }
 
@@ -333,6 +343,7 @@ import WeightModal from "./WeightModal.astro";
     .main-card {
         border-radius: 48px;
         padding: 0 28px;
+        margin-bottom: 24px;
     }
 
     .main-header {
@@ -340,6 +351,7 @@ import WeightModal from "./WeightModal.astro";
         justify-content: center;
         align-items: center;
         max-width: 700px;
+        margin-bottom: 24px;
     }
 
     .main-header h2 {
@@ -353,10 +365,9 @@ import WeightModal from "./WeightModal.astro";
     .main-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 16px;
+        gap: 24px;
+        margin-bottom: 24px;
         align-items: center;
-        margin-bottom: -19px;
     }
 
     /* Stats Card */
@@ -364,7 +375,7 @@ import WeightModal from "./WeightModal.astro";
         border-radius: 48px;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
         color: #2d2d2d;
     }
 
@@ -454,7 +465,7 @@ import WeightModal from "./WeightModal.astro";
     .get-started-btn-dark:hover {
         background-color: #f0f0f0;
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .get-started-btn-dark svg {
@@ -494,8 +505,8 @@ import WeightModal from "./WeightModal.astro";
         color: white;
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        gap: 24px;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .info-box h3 {
@@ -537,7 +548,7 @@ import WeightModal from "./WeightModal.astro";
         position: relative;
         overflow: hidden;
         min-height: 320px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .slide-weight {
@@ -592,25 +603,27 @@ import WeightModal from "./WeightModal.astro";
     .treatments-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin-bottom: 16px;
+        gap: 24px;
+        margin-bottom: 24px;
         padding: 0;
     }
 
     .treatment-card {
+        background-color: #ffffff;
         border-radius: 48px;
         padding: 28px;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .treatment-card h4 {
         font-size: 17px;
         font-weight: 400;
         color: #030303;
-        margin-bottom: 0;
+        margin-bottom: 24px;
         min-height: 42px;
         font-family: "Sofia";
     }
@@ -620,6 +633,7 @@ import WeightModal from "./WeightModal.astro";
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 24px;
     }
 
     .treatment-image img {
@@ -632,7 +646,7 @@ import WeightModal from "./WeightModal.astro";
     .treatment-price {
         font-size: 14px;
         color: #030303;
-        margin: 6px 0;
+        margin: 0 0 24px 0;
         font-family: "Inter";
     }
 
@@ -643,7 +657,7 @@ import WeightModal from "./WeightModal.astro";
     .competitor-price {
         font-size: 13px;
         color: #030303;
-        margin-bottom: 6px;
+        margin-bottom: 24px;
         font-family: "Inter";
     }
 
@@ -670,7 +684,7 @@ import WeightModal from "./WeightModal.astro";
         background-color: #030303;
         color: white;
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(45, 90, 61, 0.3);
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .competitor-comparison {
@@ -689,7 +703,7 @@ import WeightModal from "./WeightModal.astro";
         max-width: 100%;
         object-fit: contain;
         border-radius: 48px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     @media (max-width: 768px) {
@@ -725,6 +739,11 @@ import WeightModal from "./WeightModal.astro";
 
     @media (max-width: 768px) {
         .weight-loss-section {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .weight-loss-container {
             padding: 18px;
         }
 
@@ -741,10 +760,20 @@ import WeightModal from "./WeightModal.astro";
         .main-card {
             padding: 0 18px;
             border-radius: 32px;
+            margin-bottom: 20px;
+        }
+
+        .main-header {
+            margin-bottom: 20px;
         }
 
         .main-header h2 {
             font-size: 28px;
+        }
+
+        .main-content {
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .info-box h3 {
@@ -763,13 +792,40 @@ import WeightModal from "./WeightModal.astro";
             font-size: 19px;
         }
 
+        .stats-card {
+            gap: 20px;
+        }
+
+        .top-row {
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
         .treatments-grid {
             padding: 0;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .treatment-card {
             border-radius: 32px;
             padding: 24px;
+        }
+
+        .treatment-card h4 {
+            margin-bottom: 20px;
+        }
+
+        .treatment-image {
+            margin-bottom: 20px;
+        }
+
+        .treatment-price {
+            margin-bottom: 20px;
+        }
+
+        .competitor-price {
+            margin-bottom: 20px;
         }
 
         .competitor-comparison {
@@ -805,6 +861,7 @@ import WeightModal from "./WeightModal.astro";
 
         .info-product-container {
             border-radius: 32px;
+            gap: 20px;
         }
 
         .woman-image-card {
