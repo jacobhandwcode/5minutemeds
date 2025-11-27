@@ -319,16 +319,16 @@
 
 <style>
     .bmi-calculator-section {
-        padding: 20px 0;
+        padding: 0 80px;
         max-width: 1400px;
-        margin: 0 auto;
+        margin: 24px auto;
         background-color: #faf8f2;
     }
 
     .bmi-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 24px;
         align-items: stretch;
     }
 
@@ -336,8 +336,8 @@
     .bmi-input-panel {
         background-color: #ffffff;
         border-radius: 60px;
-        padding: 60px 50px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        padding: 48px 40px;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .bmi-title {
@@ -351,7 +351,7 @@
     .bmi-subtitle {
         font-size: 16px;
         color: #666;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
         font-weight: 400;
         font-family: "Inter";
     }
@@ -360,12 +360,12 @@
         font-size: 120px;
         font-weight: 700;
         color: #030303;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
         line-height: 1;
     }
 
     .form-group {
-        margin-bottom: 32px;
+        margin-bottom: 24px;
     }
 
     .form-label {
@@ -459,8 +459,8 @@
     .weight-slider-panel {
         background-color: #ffffff;
         border-radius: 60px;
-        padding: 60px 50px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        padding: 48px 40px;
+        box-shadow: 2px 4px 12px #00000014;
         display: flex;
         flex-direction: column;
     }
@@ -474,14 +474,14 @@
     .slider-label {
         font-size: 20px;
         color: #666;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         text-align: center;
         font-family: "Inter";
     }
 
     .weight-loss-display {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
     }
 
     .weight-number {
@@ -500,7 +500,7 @@
     /* Bar Chart */
     .bar-chart {
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: 24px;
     }
 
     .chart-bars {
@@ -676,9 +676,9 @@
         border-radius: 48px;
         max-width: 1200px;
         width: 100%;
-        padding: 60px;
+        padding: 48px;
         position: relative;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 4px 12px #00000014;
         transform: scale(0.9);
         transition: transform 0.3s ease;
         max-height: 90vh;
@@ -716,7 +716,7 @@
     .weight-modal-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        gap: 48px;
     }
 
     /* Modal Left Side */
@@ -729,7 +729,7 @@
     .modal-average-label {
         font-size: 20px;
         color: #030303;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         font-family: "Inter";
     }
 
@@ -748,7 +748,7 @@
     .modal-percentage-text {
         font-size: 20px;
         color: #030303;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
         font-family: "Inter";
     }
 
@@ -763,14 +763,14 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
         font-family: "Inter";
     }
 
     .modal-get-started-btn:hover {
         background-color: #333;
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .modal-disclaimer {
@@ -797,9 +797,10 @@
         border: 3px solid;
         border-image: linear-gradient(135deg, #84a9fa, #fb6fec, #ffa06b) 1;
         border-radius: 40px;
-        padding: 50px 40px;
+        padding: 40px 32px;
         width: 100%;
         max-width: 500px;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .modal-starting-badge {
@@ -810,7 +811,7 @@
         color: white;
         padding: 12px 24px;
         border-radius: 12px;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
         font-family: "Inter";
     }
 
@@ -838,7 +839,7 @@
 
     .modal-weight-loss {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
     }
 
     .modal-loss-number {
@@ -856,7 +857,7 @@
 
     .modal-bar-chart {
         position: relative;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
     }
 
     .modal-chart-bars {
@@ -902,7 +903,7 @@
         );
     }
 
-    /* BMI Results Modal (keep existing styles) */
+    /* BMI Results Modal */
     .bmi-results-modal-overlay {
         position: fixed;
         top: 0;
@@ -934,9 +935,9 @@
         border-radius: 48px;
         max-width: 1200px;
         width: 100%;
-        padding: 60px;
+        padding: 48px;
         position: relative;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 4px 12px #00000014;
         transform: scale(0.9);
         transition: transform 0.3s ease;
         max-height: 90vh;
@@ -970,7 +971,7 @@
     .bmi-results-modal-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        gap: 48px;
     }
 
     .bmi-results-modal-left {
@@ -978,10 +979,11 @@
         border: 3px solid;
         border-image: linear-gradient(135deg, #ff6b9d, #ffa06b, #ffd56b) 1;
         border-radius: 32px;
-        padding: 50px 40px;
+        padding: 40px 32px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .bmi-results-modal-title {
@@ -989,7 +991,7 @@
         font-size: 32px;
         font-weight: 400;
         color: #030303;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
         text-align: center;
     }
 
@@ -997,7 +999,7 @@
         position: relative;
         width: 280px;
         height: 280px;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
     }
 
     .bmi-results-circle {
@@ -1038,14 +1040,15 @@
     .bmi-results-modal-right {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 24px;
     }
 
     .bmi-results-category-alert {
         background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%);
         border: 2px solid #89cff0;
         border-radius: 24px;
-        padding: 32px;
+        padding: 24px;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .bmi-results-alert-header {
@@ -1079,7 +1082,7 @@
         font-size: 14px;
         color: #030303;
         line-height: 1.6;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         font-family: "Inter";
     }
 
@@ -1100,7 +1103,7 @@
     .bmi-results-consultation-btn:hover {
         background-color: #0070da;
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.3);
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .bmi-results-categories {
@@ -1116,6 +1119,7 @@
         padding: 16px 20px;
         background-color: #f8f8f8;
         border-radius: 16px;
+        box-shadow: 2px 4px 12px #00000014;
     }
 
     .bmi-results-category-dot {
@@ -1175,18 +1179,23 @@
         .bmi-results-modal-grid,
         .weight-modal-content {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 32px;
         }
     }
 
     @media (max-width: 768px) {
         .bmi-calculator-section {
-            padding: 40px 24px;
+            padding: 0 20px;
+            margin: 20px auto;
+        }
+
+        .bmi-container {
+            gap: 20px;
         }
 
         .bmi-input-panel,
         .weight-slider-panel {
-            padding: 40px 32px;
+            padding: 32px 24px;
             border-radius: 40px;
         }
 
@@ -1194,23 +1203,52 @@
             font-size: 28px;
         }
 
+        .bmi-subtitle {
+            margin-bottom: 20px;
+        }
+
         .bmi-display,
         .weight-number {
             font-size: 80px;
+            margin-bottom: 20px;
         }
 
         .weight-unit {
             font-size: 32px;
         }
 
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .slider-label {
+            margin-bottom: 12px;
+        }
+
+        .weight-loss-display {
+            margin-bottom: 20px;
+        }
+
+        .bar-chart {
+            margin-bottom: 20px;
+        }
+
         .chart-bars {
             height: 100px;
         }
 
+        .starting-weight-section {
+            margin-bottom: 20px;
+        }
+
         .bmi-results-modal-container,
         .weight-modal-container {
-            padding: 40px 32px;
+            padding: 32px 24px;
             border-radius: 32px;
+        }
+
+        .weight-modal-content {
+            gap: 32px;
         }
 
         .bmi-results-modal-close,
@@ -1221,11 +1259,17 @@
 
         .bmi-results-modal-title {
             font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .bmi-results-modal-grid {
+            gap: 32px;
         }
 
         .bmi-results-circle-container {
             width: 240px;
             height: 240px;
+            margin-bottom: 24px;
         }
 
         .bmi-results-value {
@@ -1233,19 +1277,52 @@
         }
 
         .bmi-results-modal-left {
-            padding: 40px 32px;
+            padding: 32px 24px;
+        }
+
+        .bmi-results-modal-right {
+            gap: 20px;
         }
 
         .bmi-results-category-alert {
-            padding: 24px;
+            padding: 20px;
+        }
+
+        .bmi-results-alert-text {
+            margin-bottom: 16px;
+        }
+
+        .modal-average-label {
+            margin-bottom: 12px;
         }
 
         .modal-percentage {
             font-size: 100px;
+            margin-bottom: 12px;
         }
 
         .percent-symbol {
             font-size: 60px;
+        }
+
+        .modal-percentage-text {
+            margin-bottom: 24px;
+        }
+
+        .modal-get-started-btn {
+            margin-bottom: 20px;
+        }
+
+        .modal-starting-badge {
+            margin-bottom: 20px;
+        }
+
+        .modal-lose-label {
+            margin-bottom: 12px;
+        }
+
+        .modal-weight-loss {
+            margin-bottom: 20px;
         }
 
         .modal-loss-number {
@@ -1256,8 +1333,12 @@
             font-size: 32px;
         }
 
+        .modal-bar-chart {
+            margin-bottom: 20px;
+        }
+
         .modal-weight-card {
-            padding: 40px 32px;
+            padding: 32px 24px;
         }
     }
 </style>
