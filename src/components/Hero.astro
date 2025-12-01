@@ -30,6 +30,15 @@ const services = [
         <span></span>
     </button>
 
+    <!-- Login Button with Gradient Border -->
+    <button class="login-btn" aria-label="Login">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Login
+    </button>
+
     <!-- Mobile Menu Overlay -->
     <div class="menu-overlay">
         <div class="menu-container">
@@ -246,6 +255,8 @@ const services = [
                 4.9/5 Based on 46,392 monthly active users<sup>1</sup>
             </p>
         </div>
+        
+        <p class="fha-hsa-text">FHA/HSA eligible</p>
     </div>
 
     <div class="services-grid">
@@ -285,11 +296,13 @@ const services = [
                                 />
                             </div>
                         ) : (
-                            <img
-                                src={service.image}
-                                alt={service.alt}
-                                class="card-image"
-                            />
+                            <div class="card-image-container">
+                                <img
+                                    src={service.image}
+                                    alt={service.alt}
+                                    class="card-image"
+                                />
+                            </div>
                         )}
                     </div>
                 </a>
@@ -305,6 +318,90 @@ const services = [
         padding-right: 80px;
         max-width: 1400px;
         margin: 0 auto;
+        position: relative;
+    }
+
+    /* Login Button with Gradient Border */
+    .login-btn {
+        position: absolute;
+        top: 20px;
+        right: 100px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        z-index: 100;
+        transition: all 0.3s ease;
+    }
+
+    /* Gradient border using pseudo-element */
+    .login-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50px;
+        padding: 2.5px;
+        background: linear-gradient(
+            135deg,
+            #fdd4a3,
+            #fdd4a3 13%,
+            #fba69e 32%,
+            #fb6fec 49%,
+            #84a9fa 68%,
+            #90dcf7 86%,
+            #c7e9ab
+        );
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    .login-btn:hover::before {
+        background: linear-gradient(
+            225deg,
+            #fdd4a3,
+            #fdd4a3 13%,
+            #fba69e 32%,
+            #fb6fec 49%,
+            #84a9fa 68%,
+            #90dcf7 86%,
+            #c7e9ab
+        );
+        padding: 3px;
+    }
+
+    .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(251, 111, 236, 0.3);
+    }
+
+    .login-btn svg {
+        stroke: #1a1a1a;
+    }
+
+    /* FHA/HSA Text - Left aligned under rating */
+    .fha-hsa-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333333;
+        margin-top: 12px;
+        font-family: "Inter", sans-serif;
+        text-align: left;
     }
 
     /* About Us Modal Styles */
@@ -451,10 +548,57 @@ const services = [
         color: #666;
     }
 
+    /* Service Cards with Enhanced Images */
+    .service-card {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .card-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        flex: 1;
+    }
+
+    .card-image {
+        width: 85%;
+        height: auto;
+        max-height: 250px;
+        object-fit: contain;
+        transition: all 0.4s ease;
+        filter: drop-shadow(0 0 0 transparent);
+    }
+
+    .service-card:hover .card-image {
+        transform: rotate(5deg) scale(1.05);
+        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+    }
+
     @media (max-width: 768px) {
         .hero-section {
             padding-left: 20px;
             padding-right: 20px;
+        }
+
+        .login-btn {
+            top: 10px;
+            right: 70px;
+            padding: 10px 20px;
+            font-size: 13px;
+            gap: 6px;
+        }
+
+        .login-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .fha-hsa-text {
+            font-size: 13px;
+            margin-top: 10px;
         }
 
         .about-modal-container {
@@ -489,6 +633,10 @@ const services = [
 
         .stat-label {
             font-size: 13px;
+        }
+
+        .card-image {
+            width: 75%;
         }
     }
 </style>

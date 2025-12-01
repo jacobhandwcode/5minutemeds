@@ -1,5 +1,5 @@
 ---
-// AdditionalSections.astro
+import Testimonials from "./Testimonials.astro";
 const sexLifeTestimonials = [
     {
         name: "Alan, 35",
@@ -178,6 +178,8 @@ const sexLifeTestimonials = [
                     regrowth.
                 </p>
 
+                <p class="hair-disclaimer">*Based on separate individual studies of oral minoxidil and oral finasteride.</p>
+
                 <button class="get-started-btn">Get Started</button>
             </div>
 
@@ -195,6 +197,7 @@ const sexLifeTestimonials = [
             </div>
         </div>
     </div>
+    <Testimonials />
 </section>
 
 <script>
@@ -324,7 +327,7 @@ const sexLifeTestimonials = [
     }
 
     .product-image {
-        max-width: 160px;
+        max-width: 200px;
         height: auto;
         filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
     }
@@ -486,14 +489,9 @@ const sexLifeTestimonials = [
         color: #3a3a3a;
     }
 
-    .nad-box,
-    .nad-vial {
-        max-width: 130px;
+    .nad-box {
+        max-width: 160px;
         height: auto;
-    }
-
-    .nad-vial {
-        margin-left: -14px;
     }
 
     /* Regrow Hair Card */
@@ -579,6 +577,15 @@ const sexLifeTestimonials = [
         color: #3a3a3a;
     }
 
+    .hair-disclaimer {
+        font-size: 10px;
+        line-height: 1.4;
+        color: #666;
+        font-style: italic;
+        margin: 8px 0;
+        font-family: "Inter", sans-serif;
+    }
+
     .hair-info .get-started-btn {
         margin-top: 4px;
         align-self: flex-start;
@@ -587,109 +594,22 @@ const sexLifeTestimonials = [
     .hair-products {
         display: flex;
         align-items: center;
+        gap: 10px;
     }
 
     .hair-pill {
-        width: 160px;
+        width: 180px;
         height: auto;
     }
 
     .hair-spray {
-        width: 140px;
+        width: 160px;
         height: auto;
-    }
-
-    /* Bottom Row */
-    .bottom-row {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    /* Contact Card */
-    .contact-card {
-        background-color: #ffffff;
-        border-radius: 40px;
-        padding: 28px;
-        box-shadow: 2px 4px 12px #00000014;
-    }
-
-    .contact-card h2 {
-        font-size: 36px;
-        font-weight: 400;
-        margin-bottom: 16px;
-        color: #3a3a3a;
-        font-family: "Sofia", sans-serif;
-        line-height: 1.1;
-    }
-
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        background-color: #f5f5f5;
-        border: none;
-        border-radius: 50px;
-        padding: 12px 20px;
-        font-size: 13px;
-        font-family: "Inter", sans-serif;
-        transition: all 0.3s ease;
-        color: #3a3a3a;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        outline: 2px solid #3a3a3a;
-        outline-offset: 2px;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-        color: #999;
-    }
-
-    .contact-form textarea {
-        resize: vertical;
-        border-radius: 20px;
-        padding: 12px 20px;
-    }
-
-    .submit-btn {
-        background-color: #3a3a3a;
-        color: #ffffff;
-        border: none;
-        border-radius: 50px;
-        padding: 12px 28px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        align-self: flex-start;
-        margin: 4px auto 0;
-        font-family: "Inter", sans-serif;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .submit-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-        background-color: #2a2a2a;
     }
 
     /* Responsive Design */
     @media (max-width: 1024px) {
-        .treatments-row,
-        .bottom-row {
+        .treatments-row {
             grid-template-columns: 1fr;
         }
 
@@ -713,9 +633,7 @@ const sexLifeTestimonials = [
         }
 
         .treatment-card,
-        .regrow-hair-card,
-        .mission-card,
-        .contact-card {
+        .regrow-hair-card {
             padding: 20px;
             border-radius: 28px;
         }
@@ -744,11 +662,11 @@ const sexLifeTestimonials = [
         }
 
         .product-image {
-            max-width: 130px;
+            max-width: 160px;
         }
 
         .nad-box {
-            max-width: 110px;
+            max-width: 130px;
         }
 
         .pricing p {
@@ -821,41 +739,16 @@ const sexLifeTestimonials = [
             font-size: 12px;
         }
 
+        .hair-disclaimer {
+            font-size: 9px;
+        }
+
         .hair-pill {
-            width: 130px;
+            width: 150px;
         }
 
         .hair-spray {
-            width: 110px;
-        }
-
-        .contact-card {
-            padding: 20px;
-        }
-
-        .contact-card h2 {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-
-        .contact-form {
-            gap: 10px;
-        }
-
-        .form-row {
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 10px 16px;
-            font-size: 12px;
-        }
-
-        .submit-btn {
-            padding: 10px 24px;
-            font-size: 13px;
+            width: 130px;
         }
 
         .testimonial-box {

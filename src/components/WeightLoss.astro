@@ -6,6 +6,7 @@ const treatments = [
         image: "/images/semaglutide-standard.png",
         price: "$140/month",
         link: "#",
+        brandNote: "Same Active Ingredient as Ozempic® and Wegovy®",
     },
     {
         name: "Tirzepatide Premium Treatment",
@@ -20,6 +21,13 @@ const treatments = [
         competitor: "$1,000+/month",
         link: "#",
     },
+    {
+        name: "Name Brand GIP-1's",
+        image: "/images/shots.avif",
+        price: "$1,600/month",
+        link: "#",
+        isGip: true,
+    },
 ];
 
 const features = [
@@ -27,6 +35,7 @@ const features = [
     "U.S. Based Pharmacies",
     "Licensed Providers",
     "FSA/HSA Eligible",
+    "Prescriptions Shipped straight to your door",
 ];
 
 const testimonials = [
@@ -51,31 +60,31 @@ import WeightModal from "./WeightModal.astro";
                 <!-- Weight Loss Stats Card -->
                 <div class="stats-card">
                     <h3 class="stats-heading">Lose up to</h3>
-                    <div class="stats-number">
+                    <div class="stats-number-container">
                         <span class="big-number">20</span>
                         <div class="stats-side">
                             <span class="percent">%</span>
                             <span class="bodyweight">bodyweight</span>
-                            <svg
-                                class="arrow-down"
-                                width="60"
-                                height="60"
-                                viewBox="0 0 60 60"
-                                fill="none"
-                            >
-                                <path
-                                    d="M30 10 L30 40 M30 40 L20 30 M30 40 L40 30"
-                                    stroke="currentColor"
-                                    stroke-width="4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
                         </div>
                     </div>
+                    <svg
+                        class="arrow-down-centered"
+                        width="60"
+                        height="60"
+                        viewBox="0 0 60 60"
+                        fill="none"
+                    >
+                        <path
+                            d="M30 10 L30 40 M30 40 L20 30 M30 40 L40 30"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
                     <p class="stats-description">
-                        People lost an average of <strong>15%</strong> (up to 20%)
-                        bodyweight in a 68-week clinical study of 5 Minute Meds
+                        People lost an average of <strong>15%</strong> (up to <strong>20%</strong>) bodyweight in a 68-week clinical study of 5 Minute Meds
                     </p>
+                    <p class="fha-text">FHA/HSA eligible</p>
                     <a href="#" class="get-started-btn-gradient">
                         Get Started
                         <svg
@@ -113,6 +122,51 @@ import WeightModal from "./WeightModal.astro";
                 </div>
             </div>
         </div>
+                <!-- Treatment Options - Now includes GIP-1s in same row -->
+        <div class="treatments-grid">
+            {
+                treatments.map((treatment) => (
+                    <div class="treatment-card">
+                        <h4>{treatment.name}</h4>
+                        {treatment.brandNote && (
+                            <p class="brand-note">{treatment.brandNote}</p>
+                        )}
+                        <div class="treatment-image">
+                            <img src={treatment.image} alt={treatment.name} />
+                        </div>
+                        <p class="treatment-price">
+                            {treatment.isGip ? "Starting at: " : "Our Price: "}
+                            <strong>{treatment.price}</strong>
+                        </p>
+                        {treatment.competitor && (
+                            <p class="competitor-price">
+                                Our Competitors: {treatment.competitor}
+                            </p>
+                        )}
+                        <a
+                            href={treatment.link}
+                            class="get-started-btn-gradient"
+                        >
+                            Get Started
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                            >
+                                <path
+                                    d="M7 4l6 6-6 6"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                ))
+            }
+        </div>
         <BmiCalc />
         <WeightModal />
         <!-- Top Row -->
@@ -120,6 +174,7 @@ import WeightModal from "./WeightModal.astro";
             <!-- Trust Badge Card -->
             <div class="trust-card">
                 <div class="trust-content">
+                    <h3 class="trust-title">Trusted Quality</h3>
                     <ul class="trust-list">
                         {
                             features.map((feature) => (
@@ -152,6 +207,7 @@ import WeightModal from "./WeightModal.astro";
                 </div>
                 <div class="doctor-image">
                     <img src="/images/doctor.png" alt="Doctor" />
+                    <div class="doctor-badge">Licensed Providers</div>
                 </div>
             </div>
 
@@ -179,48 +235,6 @@ import WeightModal from "./WeightModal.astro";
                     ))
                 }
             </div>
-        </div>
-
-        <!-- Treatment Options -->
-        <div class="treatments-grid">
-            {
-                treatments.map((treatment) => (
-                    <div class="treatment-card">
-                        <h4>{treatment.name}</h4>
-                        <div class="treatment-image">
-                            <img src={treatment.image} alt={treatment.name} />
-                        </div>
-                        <p class="treatment-price">
-                            Our Price: <strong>{treatment.price}</strong>
-                        </p>
-                        {treatment.competitor && (
-                            <p class="competitor-price">
-                                Our Competitors: {treatment.competitor}
-                            </p>
-                        )}
-                        <a
-                            href={treatment.link}
-                            class="get-started-btn-gradient"
-                        >
-                            Get Started
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                            >
-                                <path
-                                    d="M7 4l6 6-6 6"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </a>
-                    </div>
-                ))
-            }
         </div>
     </div>
 </section>
@@ -298,55 +312,92 @@ import WeightModal from "./WeightModal.astro";
         margin-bottom: 16px;
     }
 
-    /* Trust Card */
+    /* Trust Card - More Interesting */
     .trust-card {
-        background-color: #ffffff;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
         border-radius: 28px;
-        padding: 20px;
+        padding: 24px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
         color: #030303;
         position: relative;
         overflow: hidden;
-        box-shadow: 2px 4px 12px #00000014;
+        box-shadow: 0 8px 24px rgba(0, 112, 218, 0.12);
+        border: 2px solid rgba(0, 112, 218, 0.1);
+    }
+
+    .trust-title {
+        font-family: "Sofia";
+        font-size: 22px;
+        font-weight: 400;
+        color: #0070da;
+        margin: 0 0 16px 0;
     }
 
     .trust-content {
         flex: 1;
+        z-index: 2;
     }
 
     .trust-list {
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        margin-bottom: 16px;
     }
 
     .trust-list li {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         font-size: 14px;
         font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .trust-list li:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateX(4px);
     }
 
     .trust-list svg {
         width: 20px;
         height: 20px;
-        stroke: #030303;
+        stroke: #0070da;
         flex-shrink: 0;
     }
 
     .doctor-image {
         position: relative;
-        height: 160px;
-        margin-bottom: -40px;
+        height: 140px;
+        margin-top: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+            margin-bottom: -24px;
     }
 
     .doctor-image img {
         object-fit: contain;
-        width: 200px;
+        width: 180px;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .doctor-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        color: white;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        font-family: "Inter";
+        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.3);
     }
 
     /* Main Card */
@@ -380,13 +431,14 @@ import WeightModal from "./WeightModal.astro";
         align-items: center;
     }
 
-    /* Stats Card */
+    /* Stats Card - Updated 20% Section */
     .stats-card {
         border-radius: 40px;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         color: #2d2d2d;
+        align-items: flex-start;
     }
 
     .stats-heading {
@@ -397,14 +449,14 @@ import WeightModal from "./WeightModal.astro";
         font-family: "Sofia";
     }
 
-    .stats-number {
+    .stats-number-container {
         display: flex;
         align-items: flex-start;
         gap: 10px;
     }
 
     .big-number {
-        font-size: 120px;
+        font-size: 140px;
         font-weight: 700;
         line-height: 0.85;
         background: linear-gradient(
@@ -425,22 +477,23 @@ import WeightModal from "./WeightModal.astro";
     }
 
     .percent {
-        font-size: 32px;
+        font-size: 36px;
         font-weight: 700;
         color: rgb(0, 92, 179);
     }
 
     .bodyweight {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         color: rgb(0, 92, 179);
     }
 
-    .arrow-down {
-        width: 32px;
-        height: 32px;
+    .arrow-down-centered {
+        width: 40px;
+        height: 40px;
         stroke: #007e3e;
-        margin-top: 4px;
+        margin: 8px 0;
+        align-self: flex-start;
     }
 
     .stats-description {
@@ -453,33 +506,15 @@ import WeightModal from "./WeightModal.astro";
 
     .stats-description strong {
         font-weight: 700;
+        font-size: 14px;
     }
 
-    .get-started-btn-dark {
-        background-color: #ffffff;
-        color: #1a1a1a;
-        border: none;
-        border-radius: 50px;
-        padding: 10px 20px;
+    .fha-text {
         font-size: 14px;
         font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        align-self: flex-start;
+        color: #0070da;
+        margin: 4px 0;
         font-family: "Inter";
-    }
-
-    .get-started-btn-dark:hover {
-        background-color: #f0f0f0;
-        transform: translateY(-2px);
-        box-shadow: 2px 4px 12px #00000014;
-    }
-
-    .get-started-btn-dark svg {
-        stroke: #1a1a1a;
     }
 
     .disclaimer {
@@ -505,60 +540,16 @@ import WeightModal from "./WeightModal.astro";
         object-fit: contain;
         object-position: bottom;
         max-height: 400px;
-        margin-bottom: -16px;
+    margin-bottom: -64px;
     }
 
-    /* Info Product Container */
-    .info-product-container {
-        background-color: rgba(50, 70, 80, 0.95);
-        border-radius: 40px;
-        padding: 20px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        box-shadow: 2px 4px 12px #00000014;
-    }
-
-    .info-box h3 {
-        font-size: 22px;
-        margin-bottom: 10px;
-        font-weight: 400;
-        font-family: "Sofia";
-    }
-
-    .info-box p {
-        font-size: 13px;
-        line-height: 1.5;
-        margin-bottom: 8px;
-        color: rgba(255, 255, 255, 0.9);
-        font-family: "Inter";
-    }
-
-    .quality-text {
-        font-weight: 600;
-        margin-top: 12px;
-    }
-
-    .product-hero {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .product-hero img {
-        width: 60%;
-        height: auto;
-        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
-    }
-
-    /* Testimonial Slideshow */
+    /* Testimonial Slideshow - Updated to show faces */
     .testimonial-slideshow-weight {
         background: linear-gradient(135deg, #00295f 0%, #004080 100%);
         border-radius: 40px;
         position: relative;
         overflow: hidden;
-        min-height: 280px;
+        min-height: 320px;
         box-shadow: 2px 4px 12px #00000014;
     }
 
@@ -581,16 +572,17 @@ import WeightModal from "./WeightModal.astro";
 
     .testimonial-image-weight {
         width: 100%;
-        height: 70%;
+        height: 65%;
         object-fit: cover;
+        object-position: center top;
     }
 
     .testimonial-info-weight {
         background: linear-gradient(135deg, #278fc3 0%, #00295f 100%);
-        padding: 16px 20px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
         flex: 1;
     }
 
@@ -610,33 +602,42 @@ import WeightModal from "./WeightModal.astro";
         font-family: "Inter";
     }
 
-    /* Treatments Grid */
+    /* Treatments Grid - Now 4 columns */
     .treatments-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 16px;
         margin-bottom: 16px;
         padding: 0;
+        background-color: #ffffff;
+    box-shadow: 2px 4px 12px #00000014;
+    border-radius: 40px;
     }
 
     .treatment-card {
-        background-color: #ffffff;
-        border-radius: 40px;
         padding: 20px;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        box-shadow: 2px 4px 12px #00000014;
     }
 
     .treatment-card h4 {
         font-size: 16px;
         font-weight: 400;
         color: #030303;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         min-height: 38px;
         font-family: "Sofia";
+    }
+
+    .brand-note {
+        font-size: 12px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 12px;
+        font-family: "Inter";
+        line-height: 1.4;
     }
 
     .treatment-image {
@@ -645,12 +646,15 @@ import WeightModal from "./WeightModal.astro";
         align-items: center;
         justify-content: center;
         margin-bottom: 16px;
+        width: 100%;
+        padding: 0;
     }
 
     .treatment-image img {
         max-width: 100%;
+        width: 90%;
         height: auto;
-        max-height: 120px;
+        max-height: 160px;
         object-fit: contain;
     }
 
@@ -672,63 +676,9 @@ import WeightModal from "./WeightModal.astro";
         font-family: "Inter";
     }
 
-    .get-started-btn {
-        background: linear-gradient(
-            135deg,
-            #ff6b9d 0%,
-            #ffa06b 50%,
-            #ffd56b 100%
-        );
-        color: #030303;
-        border: 1px solid #030303;
-        border-radius: 50px;
-        padding: 10px 20px;
-        font-size: 13px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
-        font-family: "Inter";
-    }
-
-    .get-started-btn:hover {
-        background-color: #030303;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 2px 4px 12px #00000014;
-    }
-
-    .competitor-comparison {
-        border-radius: 40px;
-        padding: 12px;
-        position: relative;
-        min-height: 280px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .competitor-image {
-        height: auto;
-        max-width: 100%;
-        object-fit: contain;
-        border-radius: 40px;
-        box-shadow: 2px 4px 12px #00000014;
-    }
-
-    @media (max-width: 768px) {
-        .competitor-comparison {
-            padding: 16px;
-            min-height: 200px;
-            border-radius: 28px;
-        }
-    }
-
-    /* Responsive Design */
     @media (max-width: 1024px) {
         .treatments-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .main-content {
@@ -748,6 +698,7 @@ import WeightModal from "./WeightModal.astro";
         }
     }
 
+    /* Responsive Design */
     @media (max-width: 768px) {
         .weight-loss-section {
             padding-left: 20px;
@@ -759,27 +710,36 @@ import WeightModal from "./WeightModal.astro";
         }
 
         .trust-card {
-            flex-direction: column;
-            text-align: center;
             border-radius: 24px;
-            padding: 16px;
+            padding: 20px;
+        }
+
+        .trust-title {
+            font-size: 18px;
+            margin-bottom: 12px;
         }
 
         .trust-list {
-            gap: 8px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
 
         .trust-list li {
             font-size: 13px;
+            padding: 6px 10px;
         }
 
         .doctor-image {
-            height: 120px;
-            margin-bottom: -40px;
+            height: 110px;
         }
 
         .doctor-image img {
-            width: 160px;
+            width: 140px;
+        }
+
+        .doctor-badge {
+            font-size: 10px;
+            padding: 4px 10px;
         }
 
         .main-card {
@@ -801,16 +761,16 @@ import WeightModal from "./WeightModal.astro";
             margin-bottom: 12px;
         }
 
-        .info-box h3 {
-            font-size: 18px;
-        }
-
         .big-number {
-            font-size: 80px;
+            font-size: 100px;
         }
 
         .percent {
-            font-size: 24px;
+            font-size: 28px;
+        }
+
+        .bodyweight {
+            font-size: 13px;
         }
 
         .stats-heading {
@@ -818,7 +778,17 @@ import WeightModal from "./WeightModal.astro";
         }
 
         .stats-card {
-            gap: 12px;
+            gap: 10px;
+        }
+
+        .arrow-down-centered {
+            width: 32px;
+            height: 32px;
+            margin: 4px 0;
+        }
+
+        .fha-text {
+            font-size: 13px;
         }
 
         .top-row {
@@ -827,6 +797,7 @@ import WeightModal from "./WeightModal.astro";
         }
 
         .treatments-grid {
+            grid-template-columns: 1fr;
             padding: 0;
             gap: 12px;
             margin-bottom: 12px;
@@ -838,8 +809,13 @@ import WeightModal from "./WeightModal.astro";
         }
 
         .treatment-card h4 {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-size: 15px;
+        }
+
+        .brand-note {
+            font-size: 11px;
+            margin-bottom: 10px;
         }
 
         .treatment-image {
@@ -847,7 +823,7 @@ import WeightModal from "./WeightModal.astro";
         }
 
         .treatment-image img {
-            max-height: 100px;
+            max-height: 140px;
         }
 
         .treatment-price {
@@ -858,18 +834,8 @@ import WeightModal from "./WeightModal.astro";
             margin-bottom: 12px;
         }
 
-        .competitor-comparison {
-            padding: 20px 12px;
-            min-height: 200px;
-            border-radius: 28px;
-        }
-
-        .competitor-comparison p {
-            font-size: 24px;
-        }
-
         .testimonial-slideshow-weight {
-            min-height: 240px;
+            min-height: 280px;
             border-radius: 28px;
         }
 
@@ -878,21 +844,11 @@ import WeightModal from "./WeightModal.astro";
         }
 
         .testimonial-info-weight {
-            padding: 12px 16px;
-        }
-
-        .product-hero img {
-            width: 80%;
+            padding: 16px;
         }
 
         .stats-card {
             border-radius: 28px;
-        }
-
-        .info-product-container {
-            border-radius: 28px;
-            gap: 12px;
-            padding: 16px;
         }
 
         .woman-image-card {
@@ -907,7 +863,7 @@ import WeightModal from "./WeightModal.astro";
 
     .get-started-btn-gradient {
         position: relative;
-        max-width: 165px;
+        max-width: 145px;
         background-color: #ffffff;
         color: #1a1a1a;
         border: none;
