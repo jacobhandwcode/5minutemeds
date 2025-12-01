@@ -136,9 +136,10 @@
 
                 <p class="modal-disclaimer">
                     *In a clinical trial, adults taking FDA-approved 5 Minute
-                    Meds lost an average of 20% body weight. Results vary. Side effects may include nausea or
-                    diarrhea. Only a licensed provider can decide if it's
-                    appropriate. Compounded GLP-1s are not FDA-approved.
+                    Meds lost an average of 20% body weight. Results vary. Side
+                    effects may include nausea or diarrhea. Only a licensed
+                    provider can decide if it's appropriate. Compounded GLP-1s
+                    are not FDA-approved.
                 </p>
             </div>
 
@@ -326,6 +327,8 @@
         grid-template-columns: 1fr 1fr;
         gap: 16px;
         align-items: stretch;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
     /* Left Panel: BMI Input Form */
@@ -455,7 +458,7 @@
     .weight-slider-panel {
         background-color: #ffffff;
         border-radius: 40px;
-        padding: 32px 28px;
+        padding: 20px 20px;
         box-shadow: 2px 4px 12px #00000014;
         display: flex;
         flex-direction: column;
@@ -570,8 +573,7 @@
     /* Weight Slider */
     .weight-slider-container {
         position: relative;
-        padding: 24px 0;
-        margin-top: auto;
+        margin-top: 16px;
     }
 
     .slider-gradient-bg {
@@ -1207,7 +1209,7 @@
 
         .bmi-input-panel,
         .weight-slider-panel {
-            padding: 24px 20px;
+            padding: 20px 20px;
             border-radius: 32px;
         }
 
@@ -1405,7 +1407,8 @@
                     : "modal-chart-bar";
             const heightPercent = Math.random() * 60 + 40;
             bar.style.height = heightPercent + "%";
-            bar.style.width = container === chartBarsContainer ? "12px" : "10px";
+            bar.style.width =
+                container === chartBarsContainer ? "12px" : "10px";
             bar.style.display = "block";
             bar.style.backgroundColor = "#4e9a69";
             bar.style.flexShrink = "0";
@@ -1424,32 +1427,34 @@
         const sliderValue = parseInt(weightSlider.value);
         const sliderMin = parseInt(weightSlider.min);
         const sliderMax = parseInt(weightSlider.max);
-        
+
         // Calculate slider position as percentage (0 to 1)
-        const sliderPercent = (sliderValue - sliderMin) / (sliderMax - sliderMin);
-        
+        const sliderPercent =
+            (sliderValue - sliderMin) / (sliderMax - sliderMin);
+
         // Get container and bars width
-        const containerWidth = chartBarsContainer.parentElement?.offsetWidth || 0;
+        const containerWidth =
+            chartBarsContainer.parentElement?.offsetWidth || 0;
         const barsWidth = chartBarsContainer.scrollWidth;
-        
+
         // Calculate how much we can scroll
         const maxScroll = barsWidth - containerWidth;
-        
+
         // Map slider position to scroll position
         // We want bars to move from right to left as slider increases
         const scrollPosition = -(sliderPercent * maxScroll);
-        
+
         chartBarsContainer.style.transform = `translateX(${scrollPosition}px)`;
     }
 
     // Update weight loss based on slider (changed to 20%)
     function updateWeightLoss() {
         const currentWeight = parseInt(weightSlider.value);
-        const weightLoss = Math.round(currentWeight * 0.20);
+        const weightLoss = Math.round(currentWeight * 0.2);
 
         sliderWeightLoss.textContent = weightLoss.toString();
         sliderStartingWeight.textContent = currentWeight.toString();
-        
+
         // Update bar chart position based on slider
         updateBarChartPosition();
     }
@@ -1465,7 +1470,7 @@
         if (isSliding) {
             isSliding = false;
             const currentWeight = parseInt(weightSlider.value);
-            const weightLoss = Math.round(currentWeight * 0.20);
+            const weightLoss = Math.round(currentWeight * 0.2);
 
             // Update modal values
             modalStartingWeight.textContent = currentWeight.toString();

@@ -52,10 +52,6 @@ import WeightModal from "./WeightModal.astro";
     <div class="weight-loss-container">
         <!-- Main Content Card -->
         <div class="main-card">
-            <div class="main-header">
-                <h2>Lose weight with a plan made just for you.</h2>
-            </div>
-
             <div class="main-content">
                 <!-- Weight Loss Stats Card -->
                 <div class="stats-card">
@@ -72,7 +68,7 @@ import WeightModal from "./WeightModal.astro";
                         width="60"
                         height="60"
                         viewBox="0 0 60 60"
-                        fill="none"
+                        fill="rgb(0,92,179)"
                     >
                         <path
                             d="M30 10 L30 40 M30 40 L20 30 M30 40 L40 30"
@@ -82,7 +78,10 @@ import WeightModal from "./WeightModal.astro";
                             stroke-linejoin="round"></path>
                     </svg>
                     <p class="stats-description">
-                        People lost an average of <strong>15%</strong> (up to <strong>20%</strong>) bodyweight in a 68-week clinical study of 5 Minute Meds
+                        People lost an average of <strong>15%</strong> (up to <strong
+                            >20%</strong
+                        >) bodyweight in a 68-week clinical study of 5 Minute
+                        Meds
                     </p>
                     <p class="fha-text">FHA/HSA eligible</p>
                     <a href="#" class="get-started-btn-gradient">
@@ -122,7 +121,7 @@ import WeightModal from "./WeightModal.astro";
                 </div>
             </div>
         </div>
-                <!-- Treatment Options - Now includes GIP-1s in same row -->
+        <!-- Treatment Options - Now includes GIP-1s in same row -->
         <div class="treatments-grid">
             {
                 treatments.map((treatment) => (
@@ -377,7 +376,7 @@ import WeightModal from "./WeightModal.astro";
         display: flex;
         align-items: flex-end;
         justify-content: center;
-            margin-bottom: -24px;
+        margin-bottom: -24px;
     }
 
     .doctor-image img {
@@ -405,6 +404,8 @@ import WeightModal from "./WeightModal.astro";
         border-radius: 40px;
         padding: 0 20px;
         margin-bottom: 16px;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
     .main-header {
@@ -428,7 +429,7 @@ import WeightModal from "./WeightModal.astro";
         grid-template-columns: 1fr 1fr;
         gap: 16px;
         margin-bottom: 16px;
-        align-items: center;
+        align-items: end;
     }
 
     /* Stats Card - Updated 20% Section */
@@ -442,8 +443,8 @@ import WeightModal from "./WeightModal.astro";
     }
 
     .stats-heading {
-        font-size: 20px;
-        font-weight: 400;
+        font-size: 32px;
+        font-weight: 700;
         color: #2d2d2d;
         margin: 0;
         font-family: "Sofia";
@@ -456,7 +457,7 @@ import WeightModal from "./WeightModal.astro";
     }
 
     .big-number {
-        font-size: 140px;
+        font-size: 300px;
         font-weight: 700;
         line-height: 0.85;
         background: linear-gradient(
@@ -477,31 +478,37 @@ import WeightModal from "./WeightModal.astro";
     }
 
     .percent {
-        font-size: 36px;
+        font-size: 125px;
         font-weight: 700;
         color: rgb(0, 92, 179);
     }
 
     .bodyweight {
-        font-size: 15px;
+        font-size: 35px;
         font-weight: 500;
         color: rgb(0, 92, 179);
     }
 
     .arrow-down-centered {
-        width: 40px;
-        height: 40px;
-        stroke: #007e3e;
-        margin: 8px 0;
-        align-self: flex-start;
+        width: 100px;
+        height: 100px;
+        align-self: end;
+        filter: brightness(0) saturate(100%) invert(17%) sepia(67%)
+            saturate(3957%) hue-rotate(198deg) brightness(99%) contrast(101%);
+        margin-bottom: -75px;
+        top: -50px;
+        left: -38px;
+        position: relative;
     }
 
     .stats-description {
-        font-size: 13px;
+        font-size: 16px;
         line-height: 1.5;
         color: #2a2a2a;
         margin: 0;
         font-family: "Inter";
+        max-width: 450px;
+        margin-top: -40px;
     }
 
     .stats-description strong {
@@ -540,7 +547,7 @@ import WeightModal from "./WeightModal.astro";
         object-fit: contain;
         object-position: bottom;
         max-height: 400px;
-    margin-bottom: -64px;
+        margin-bottom: -16px;
     }
 
     /* Testimonial Slideshow - Updated to show faces */
@@ -605,13 +612,15 @@ import WeightModal from "./WeightModal.astro";
     /* Treatments Grid - Now 4 columns */
     .treatments-grid {
         display: grid;
+        margin: 0 auto;
+        max-width: 1400px;
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
         margin-bottom: 16px;
         padding: 0;
         background-color: #ffffff;
-    box-shadow: 2px 4px 12px #00000014;
-    border-radius: 40px;
+        box-shadow: 2px 4px 12px #00000014;
+        border-radius: 40px;
     }
 
     .treatment-card {
