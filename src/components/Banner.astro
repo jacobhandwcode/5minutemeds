@@ -1,11 +1,66 @@
 ---
 const features = [
-    "100% Online Process",
-    "Affordable Pricing with no hidden fees",
-    "Free & Discreet Shipping",
-    "Direct Doctor Messaging",
-    "100% Online Process",
-    "Affordable Pricing with no hidden fees",
+    {
+        text: "100% Online Process",
+        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>`
+    },
+    {
+        text: "Affordable Pricing with no hidden fees",
+        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="9"
+          stroke="currentColor" stroke-width="2"/>
+
+  <!-- Dollar sign -->
+  <path d="M12 6v12"
+        stroke="currentColor" stroke-width="2"
+        stroke-linecap="round"/>
+
+  <path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1.1-3 2.5
+           1.3 2.5 3 2.5 3 1.1 3 2.5-1.3 2.5-3 2.5-3-1.1-3-2.5"
+        fill="none"
+        stroke="currentColor" stroke-width="2"
+        stroke-linecap="round"/>
+</svg>
+`
+    },
+    {
+        text: "Free & Discreet Shipping",
+        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 3h15v13H1z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M16 8h2.5l3 3.5V16H16V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="5.5" cy="19.5" r="2.5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18.5" cy="19.5" r="2.5" stroke="currentColor" stroke-width="2"/>
+        </svg>`
+    },
+    {
+        text: "Direct Doctor Messaging",
+        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="10" r="1" fill="currentColor"/>
+            <circle cx="12" cy="10" r="1" fill="currentColor"/>
+            <circle cx="15" cy="10" r="1" fill="currentColor"/>
+        </svg>`
+    },
+    {
+        text: "100% Online Process",
+        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>`
+    },
+    {
+        text: "Affordable Pricing with no hidden fees",
+        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 6v2m0 8v2m0-10c-1.5 0-2.5 1-2.5 2s1 2 2.5 2 2.5 1 2.5 2-1 2-2.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>`
+    },
 ];
 ---
 
@@ -18,17 +73,42 @@ const features = [
             <div class="banner-content">
                 {
                     features.map((feature) => (
-                        <span class="feature-item">{feature}</span>
+                        <span class="feature-item">
+                            <span class="feature-icon" set:html={feature.icon} />
+                            <span class="feature-text">{feature.text}</span>
+                        </span>
                     ))
                 }
             </div>
             <div class="banner-content" aria-hidden="true">
                 {
                     features.map((feature) => (
-                        <span class="feature-item">{feature}</span>
+                        <span class="feature-item">
+                            <span class="feature-icon" set:html={feature.icon} />
+                            <span class="feature-text">{feature.text}</span>
+                        </span>
                     ))
                 }
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .feature-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .feature-text {
+        white-space: nowrap;
+    }
+</style>
