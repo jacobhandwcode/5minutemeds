@@ -155,8 +155,8 @@ const sexLifeTestimonials = [
             <h3>Finasteride & Minoxidil</h3>
 
             <p class="description">
-                Take advantage of the power of both Finasteride and Minoxidil
-                in a single pill or separately. Also available in topical form.
+                Take advantage of the power of both Finasteride and Minoxidil in
+                a single pill or separately. Also available in topical form.
             </p>
 
             <div class="hair-content">
@@ -177,7 +177,9 @@ const sexLifeTestimonials = [
                         hair in 3-6 months.*
                     </p>
 
-                    <p class="better-together"><strong>Better together</strong></p>
+                    <p class="better-together">
+                        <strong>Better together</strong>
+                    </p>
                     <p>
                         Finasteride is clinically proven to give even better
                         results when paired with minoxidil, which helps to
@@ -274,6 +276,7 @@ const sexLifeTestimonials = [
         gap: 16px;
         max-width: 1400px;
         margin: 0 auto;
+        align-items: start;
     }
 
     /* Left Column: Stacked Cards */
@@ -520,10 +523,7 @@ const sexLifeTestimonials = [
         color: #3a3a3a;
         background-color: #ffffff;
         box-shadow: 2px 4px 12px #00000014;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-            max-height: 450px;
+        min-height: 398px;
     }
 
     .regrow-hair-card h2 {
@@ -538,6 +538,7 @@ const sexLifeTestimonials = [
         font-size: 18px;
         font-weight: 400;
         margin-bottom: 6px;
+        margin-top: 10px;
         font-family: "Sofia", sans-serif;
         line-height: 1.2;
         color: #3a3a3a;
@@ -546,6 +547,7 @@ const sexLifeTestimonials = [
     .description {
         font-size: 12px;
         margin-bottom: 10px;
+        margin-top: 10px;
         line-height: 1.4;
         font-family: "Inter", sans-serif;
         color: #3a3a3a;
@@ -555,7 +557,8 @@ const sexLifeTestimonials = [
         display: grid;
         grid-template-columns: 1fr auto;
         gap: 16px;
-        flex: 1;
+        align-items: start;
+        margin-top: 10px;
     }
 
     .hair-content .get-started-btn {
@@ -616,9 +619,7 @@ const sexLifeTestimonials = [
 
     .hair-products {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 8px;
     }
 
     .hair-pill {
@@ -629,6 +630,12 @@ const sexLifeTestimonials = [
     .hair-spray {
         width: 120px;
         height: auto;
+    }
+
+    @media (max-width: 1045px) {
+        .hair-products {
+            flex-direction: column;
+        }
     }
 
     /* Responsive Design */
