@@ -1,11 +1,50 @@
 ---
-// BmiCalc.astro - Updated with -20% and slider-based scrolling bar chart
+// BmiCalc.astro - Updated with testimonials and weight loss slider side by side
+const testimonials = [
+    { name: "Daryl", pounds: "72 POUNDS", image: "/images/slide2.jpg" },
+    { name: "Sarah", pounds: "58 POUNDS", image: "/images/slide1.jpg" },
+    { name: "Mary", pounds: "65 POUNDS", image: "/images/slide3.jpg" },
+];
+
+const features = [
+    "Doctor-Trusted Ingredients",
+    "U.S. Based Pharmacies",
+    "Licensed Providers",
+    "FSA/HSA Eligible",
+    "Prescriptions Shipped straight to your door",
+];
 ---
 
 <section class="bmi-calculator-section">
     <div class="bmi-container">
+        <!-- Left Panel: Testimonials Slideshow -->
+        <div class="testimonial-slider-panel">
+            <div class="testimonial-slideshow-bmi">
+                {
+                    testimonials.map((testimonial, index) => (
+                        <div
+                            class={`slide-bmi ${index === 0 ? "active" : ""}`}
+                        >
+                            <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                class="testimonial-image-bmi"
+                            />
+                            <div class="testimonial-info-bmi">
+                                <p class="testimonial-name-bmi">
+                                    {testimonial.name}
+                                </p>
+                                <p class="testimonial-weight-bmi">
+                                    Lost {testimonial.pounds}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
 
-        <!-- Right Panel: Weight Loss Slider -->
+        <!-- Middle Panel: Weight Loss Slider -->
         <div class="weight-slider-panel">
             <div class="slider-content">
                 <p class="slider-label">You could lose:</p>
@@ -44,6 +83,46 @@
                     />
                     <div class="slider-gradient-bg"></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Trust Card -->
+        <div class="trust-card">
+            <div class="trust-content">
+                <h3 class="trust-title">Trusted Quality</h3>
+                <ul class="trust-list">
+                    {
+                        features.map((feature) => (
+                            <li>
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M12 2L4 6v6c0 5.5 3.84 10.74 8 12 4.16-1.26 8-6.5 8-12V6l-8-4z"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        fill="none"
+                                    />
+                                    <path
+                                        d="M9 12l2 2 4-4"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                                <span>{feature}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div class="doctor-image">
+                <img src="/images/doctor.png" alt="Doctor" />
+                <div class="doctor-badge">Licensed Providers</div>
             </div>
         </div>
     </div>
@@ -268,8 +347,166 @@
     }
 
     .bmi-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+        align-items: stretch;
         max-width: 1400px;
         margin: 0 auto;
+    }
+
+    /* Trust Card */
+    .trust-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        border-radius: 40px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        color: #030303;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 112, 218, 0.12);
+        border: 2px solid rgba(0, 112, 218, 0.1);
+    }
+
+    .trust-title {
+        font-family: "Sofia";
+        font-size: 22px;
+        font-weight: 400;
+        color: #0070da;
+        margin: 0 0 16px 0;
+    }
+
+    .trust-content {
+        flex: 1;
+        z-index: 2;
+    }
+
+    .trust-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding: 0;
+    }
+
+    .trust-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .trust-list li:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateX(4px);
+    }
+
+    .trust-list svg {
+        width: 20px;
+        height: 20px;
+        stroke: #0070da;
+        flex-shrink: 0;
+    }
+
+    .doctor-image {
+        position: relative;
+        height: 140px;
+        margin-top: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        margin-bottom: -24px;
+    }
+
+    .doctor-image img {
+        object-fit: contain;
+        width: 180px;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .doctor-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        color: white;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        font-family: "Inter";
+        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.3);
+    }
+
+    /* Testimonial Slideshow Panel */
+    .testimonial-slider-panel {
+        background-color: #ffffff;
+        border-radius: 40px;
+        box-shadow: 2px 4px 12px #00000014;
+        overflow: hidden;
+    }
+
+    .testimonial-slideshow-bmi {
+        background: linear-gradient(135deg, #00295f 0%, #004080 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: 100%;
+        height: 100%;
+    }
+
+    .slide-bmi {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slide-bmi.active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .testimonial-image-bmi {
+        width: 100%;
+        height: 65%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .testimonial-info-bmi {
+        background: linear-gradient(135deg, #278fc3 0%, #00295f 100%);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+    }
+
+    .testimonial-name-bmi {
+        font-family: "Sofia";
+        font-size: 22px;
+        font-weight: 400;
+        color: white;
+        margin: 0;
+    }
+
+    .testimonial-weight-bmi {
+        font-size: 13px;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+        font-family: "Inter";
     }
 
     /* Left Panel: BMI Input Form */
@@ -1131,6 +1368,39 @@
             gap: 16px;
         }
 
+        .trust-card {
+            border-radius: 32px;
+            padding: 20px;
+        }
+
+        .trust-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .trust-list {
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .trust-list li {
+            font-size: 13px;
+            padding: 6px 10px;
+        }
+
+        .doctor-image {
+            height: 110px;
+        }
+
+        .doctor-image img {
+            width: 140px;
+        }
+
+        .doctor-badge {
+            font-size: 10px;
+            padding: 4px 10px;
+        }
+
         .bmi-results-modal-grid,
         .weight-modal-content {
             grid-template-columns: 1fr;
@@ -1149,9 +1419,14 @@
         }
 
         .bmi-input-panel,
-        .weight-slider-panel {
+        .weight-slider-panel,
+        .testimonial-slider-panel {
             padding: 20px 20px;
             border-radius: 32px;
+        }
+
+        .testimonial-slider-panel {
+            padding: 0;
         }
 
         .bmi-title {
@@ -1295,10 +1570,68 @@
         .modal-weight-card {
             padding: 28px 20px;
         }
+
+        .testimonial-slideshow-bmi {
+            min-height: 320px;
+        }
+
+        .testimonial-name-bmi {
+            font-size: 18px;
+        }
+
+        .testimonial-info-bmi {
+            padding: 16px;
+        }
     }
 </style>
 
 <script>
+    // Testimonial slideshow for BMI section
+    let currentSlideBMI = 0;
+    let isPausedBMI = false;
+    let slideIntervalBMI: number;
+
+    function showSlideBMI(index: number) {
+        const slides = document.querySelectorAll(".slide-bmi");
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add("active");
+            } else {
+                slide.classList.remove("active");
+            }
+        });
+    }
+
+    function nextSlideBMI() {
+        if (!isPausedBMI) {
+            const slides = document.querySelectorAll(".slide-bmi");
+            currentSlideBMI = (currentSlideBMI + 1) % slides.length;
+            showSlideBMI(currentSlideBMI);
+        }
+    }
+
+    function startSlideshowBMI() {
+        slideIntervalBMI = setInterval(nextSlideBMI, 5000);
+    }
+
+    function stopSlideshowBMI() {
+        clearInterval(slideIntervalBMI);
+    }
+
+    const slideshowBMI = document.querySelector(".testimonial-slideshow-bmi");
+
+    if (slideshowBMI) {
+        startSlideshowBMI();
+
+        slideshowBMI.addEventListener("mouseenter", () => {
+            isPausedBMI = true;
+        });
+
+        slideshowBMI.addEventListener("mouseleave", () => {
+            isPausedBMI = false;
+        });
+    }
+
     // BMI Calculator
     const feetInput = document.getElementById("feet") as HTMLInputElement;
     const inchesInput = document.getElementById("inches") as HTMLInputElement;
