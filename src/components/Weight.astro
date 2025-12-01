@@ -147,6 +147,7 @@ const sexLifeTestimonials = [
     </div>
 
     <!-- Regrow Hair Card -->
+     <div class="regrow-hair-wrapper">
     <div class="regrow-hair-card">
         <h2>Regrow Hair</h2>
         <h3>Finasteride & Minoxidil</h3>
@@ -178,7 +179,10 @@ const sexLifeTestimonials = [
                     regrowth.
                 </p>
 
-                <p class="hair-disclaimer">*Based on separate individual studies of oral minoxidil and oral finasteride.</p>
+                <p class="hair-disclaimer">
+                    *Based on separate individual studies of oral minoxidil and
+                    oral finasteride.
+                </p>
 
                 <button class="get-started-btn">Get Started</button>
             </div>
@@ -196,6 +200,7 @@ const sexLifeTestimonials = [
                 />
             </div>
         </div>
+    </div>
     </div>
     <Testimonials />
 </section>
@@ -260,6 +265,8 @@ const sexLifeTestimonials = [
     /* Treatments Row */
     .treatments-row {
         display: grid;
+        max-width: 1400px;
+        margin: 0 auto;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
@@ -496,12 +503,14 @@ const sexLifeTestimonials = [
 
     /* Regrow Hair Card */
     .regrow-hair-card {
-        border-radius: 40px;
-        padding: 28px;
-        color: #3a3a3a;
-        background-color: #ffffff;
-        box-shadow: 2px 4px 12px #00000014;
-    }
+    border-radius: 40px;
+    padding: 28px;
+    color: #3a3a3a;
+    background-color: #ffffff;
+    box-shadow: 2px 4px 12px #00000014;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
     .regrow-hair-card h2 {
         font-size: 36px;
