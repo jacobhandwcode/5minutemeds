@@ -13,194 +13,199 @@ const sexLifeTestimonials = [
 ---
 
 <section class="additional-sections">
-    <!-- Top Row: Sex Life & Longevity -->
-    <div class="treatments-row">
-        <!-- Improve Sex Life Card -->
-        <div class="treatment-card sex-life-card">
-            <h2>Improve Sex Life</h2>
+    <!-- Main Grid: 2 columns -->
+    <div class="treatments-main-grid">
+        <!-- Left Column: Stacked Cards -->
+        <div class="left-column">
+            <!-- Improve Sex Life Card -->
+            <div class="treatment-card sex-life-card">
+                <h2>Improve Sex Life</h2>
 
-            <div class="top-section">
-                <div class="left-content">
-                    <p class="subtitle">
-                        Easy on the go solutions for improved sexual performance
-                    </p>
-                    <div class="pricing">
-                        <p>Our Price: <strong>$18.99/month</strong></p>
-                        <p>Our Competitors: $39/month</p>
+                <div class="top-section">
+                    <div class="left-content">
+                        <p class="subtitle">
+                            Easy on the go solutions for improved sexual
+                            performance
+                        </p>
+                        <div class="pricing">
+                            <p>Our Price: <strong>$18.99/month</strong></p>
+                            <p>Our Competitors: $39/month</p>
+                        </div>
+                        <button class="get-started-btn">Get Started</button>
                     </div>
-                    <button class="get-started-btn">Get Started</button>
+                    <div class="product-showcase">
+                        <img
+                            src="/images/improve.png"
+                            alt="5MinuteMeds Pill"
+                            class="product-image"
+                        />
+                    </div>
                 </div>
-                <div class="product-showcase">
-                    <img
-                        src="/images/improve.png"
-                        alt="5MinuteMeds Pill"
-                        class="product-image"
-                    />
+
+                <div class="product-info">
+                    <p>
+                        Our fast-acting mints use the same ingredients as <strong
+                            >Viagra®</strong
+                        > and <strong>Cialis®</strong> and work in about 30 minutes.
+                    </p>
+                    <p>
+                        They're chewable with no water needed, or you can
+                        swallow them like a pill.
+                    </p>
+                    <p>Get hard and stay hard when you need to.</p>
+                </div>
+
+                <div class="testimonials">
+                    <button
+                        class="testimonial-nav prev"
+                        aria-label="Previous testimonial"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M15 18L9 12L15 6"
+                                stroke="#3a3a3a"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <div class="testimonials-scroll">
+                        {
+                            sexLifeTestimonials.map((testimonial) => (
+                                <div class="testimonial-box">
+                                    <p class="testimonial-name">
+                                        {testimonial.name}
+                                    </p>
+                                    <p class="testimonial-text">
+                                        {testimonial.text}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <button
+                        class="testimonial-nav next"
+                        aria-label="Next testimonial"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M9 18L15 12L9 6"
+                                stroke="#3a3a3a"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            <div class="product-info">
-                <p>
-                    Our fast-acting mints use the same ingredients as <strong
-                        >Viagra®</strong
-                    > and <strong>Cialis®</strong> and work in about 30 minutes.
+            <!-- Support Longevity Card -->
+            <div class="treatment-card longevity-card">
+                <h2>Support Longevity</h2>
+                <p class="subtitle">
+                    Support Healthy Aging Through Cellular Renewal
                 </p>
-                <p>
-                    They're chewable with no water needed, or you can swallow
-                    them like a pill.
-                </p>
-                <p>Get hard and stay hard when you need to.</p>
-            </div>
 
-            <div class="testimonials">
-                <button
-                    class="testimonial-nav prev"
-                    aria-label="Previous testimonial"
-                >
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M15 18L9 12L15 6"
-                            stroke="#3a3a3a"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-                <div class="testimonials-scroll">
-                    {
-                        sexLifeTestimonials.map((testimonial) => (
-                            <div class="testimonial-box">
-                                <p class="testimonial-name">
-                                    {testimonial.name}
-                                </p>
-                                <p class="testimonial-text">
-                                    {testimonial.text}
-                                </p>
-                            </div>
-                        ))
-                    }
+                <div class="top-section">
+                    <div class="product-showcase">
+                        <img
+                            src="/images/longevity.png"
+                            alt="NAD+ Box"
+                            class="nad-box"
+                        />
+                    </div>
+                    <div class="right-content">
+                        <div class="pricing">
+                            <p>Our Price: <strong>$119.99/month</strong></p>
+                            <p>Our Competitors: $159.99/month</p>
+                        </div>
+                        <button class="get-started-btn">Get Started</button>
+                    </div>
                 </div>
-                <button
-                    class="testimonial-nav next"
-                    aria-label="Next testimonial"
-                >
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M9 18L15 12L9 6"
-                            stroke="#3a3a3a"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                    </svg>
-                </button>
+
+                <div class="product-info">
+                    <p>
+                        NAD+ is a key molecule your cells use for energy,
+                        repair, and overall performance — but levels drop as you
+                        age, causing fatigue and slower recovery.
+                    </p>
+                    <p>
+                        NAD+ injections restore these levels directly, bypassing
+                        digestion for faster, more effective cellular support.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- Support Longevity Card -->
-        <div class="treatment-card longevity-card">
-            <h2>Support Longevity</h2>
-            <p class="subtitle">
-                Support Healthy Aging Through Cellular Renewal
+        <!-- Right Column: Regrow Hair Card -->
+        <div class="regrow-hair-card">
+            <h2>Regrow Hair</h2>
+            <h3>Finasteride & Minoxidil</h3>
+
+            <p class="description">
+                Take advantage of the power of both Finasteride and Minoxidil
+                in a single pill or separately. Also available in topical form.
             </p>
 
-            <div class="top-section">
-                <div class="product-showcase">
-                    <img
-                        src="/images/longevity.png"
-                        alt="NAD+ Box"
-                        class="nad-box"
-                    />
-                </div>
-                <div class="right-content">
-                    <div class="pricing">
-                        <p>Our Price: <strong>$119.99/month</strong></p>
-                        <p>Our Competitors: $159.99/month</p>
-                    </div>
+            <div class="hair-content">
+                <div class="hair-info">
+                    <p class="pricing-info">
+                        <strong
+                            >Separate formulations: Starting at $30/month</strong
+                        >
+                    </p>
+                    <p class="pricing-info">
+                        <strong
+                            >Combo formulations: Starting at $35/month</strong
+                        >
+                    </p>
+
+                    <p class="clinical-info">
+                        Finasteride has been clinically proven to help regrow
+                        hair in 3-6 months.*
+                    </p>
+
+                    <p class="better-together"><strong>Better together</strong></p>
+                    <p>
+                        Finasteride is clinically proven to give even better
+                        results when paired with minoxidil, which helps to
+                        kickstart regrowth.
+                    </p>
+
+                    <p class="hair-disclaimer">
+                        *Based on separate individual studies of oral minoxidil
+                        and oral finasteride.
+                    </p>
+
                     <button class="get-started-btn">Get Started</button>
                 </div>
-            </div>
 
-            <div class="product-info">
-                <p>
-                    NAD+ is a key molecule your cells use for energy, repair,
-                    and overall performance — but levels drop as you age,
-                    causing fatigue and slower recovery.
-                </p>
-                <p>
-                    NAD+ injections restore these levels directly, bypassing
-                    digestion for faster, more effective cellular support.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Regrow Hair Card -->
-     <div class="regrow-hair-wrapper">
-    <div class="regrow-hair-card">
-        <h2>Regrow Hair</h2>
-        <h3>Finasteride & Minoxidil</h3>
-
-        <p class="description">
-            Take advantage of the power of both Finasteride and Minoxidil in a
-            single pill or separately. Also available in topical form.
-        </p>
-
-        <div class="hair-content">
-            <div class="hair-info">
-                <p class="pricing-info">
-                    <strong>Separate formulations: Starting at $30/month</strong
-                    >
-                </p>
-                <p class="pricing-info">
-                    <strong>Combo formulations: Starting at $35/month</strong>
-                </p>
-
-                <p class="clinical-info">
-                    Finasteride has been clinically proven to help regrow hair
-                    in 3-6 months.*
-                </p>
-
-                <p class="better-together"><strong>Better together</strong></p>
-                <p>
-                    Finasteride is clinically proven to give even better results
-                    when paired with minoxidil, which helps to kickstart
-                    regrowth.
-                </p>
-
-                <p class="hair-disclaimer">
-                    *Based on separate individual studies of oral minoxidil and
-                    oral finasteride.
-                </p>
-
-                <button class="get-started-btn">Get Started</button>
-            </div>
-
-            <div class="hair-products">
-                <img
-                    src="/images/regrow-hair3.png"
-                    alt="Hair Growth Pill"
-                    class="hair-pill"
-                />
-                <img
-                    src="/images/regrow-hair4.png"
-                    alt="Hair Growth Spray"
-                    class="hair-spray"
-                />
+                <div class="hair-products">
+                    <img
+                        src="/images/regrow-hair3.png"
+                        alt="Hair Growth Pill"
+                        class="hair-pill"
+                    />
+                    <img
+                        src="/images/regrow-hair4.png"
+                        alt="Hair Growth Spray"
+                        class="hair-spray"
+                    />
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <Testimonials />
 </section>
@@ -262,28 +267,35 @@ const sexLifeTestimonials = [
         background: #f9f9fa;
     }
 
-    /* Treatments Row */
-    .treatments-row {
+    /* Main Grid: 2 columns */
+    .treatments-main-grid {
         display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
         max-width: 1400px;
         margin: 0 auto;
-        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Left Column: Stacked Cards */
+    .left-column {
+        display: flex;
+        flex-direction: column;
         gap: 16px;
     }
 
     .treatment-card {
-        border-radius: 40px;
-        padding: 28px;
+        border-radius: 32px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 10px;
         background-color: #ffffff;
         box-shadow: 2px 4px 12px #00000014;
         color: #3a3a3a;
     }
 
     .treatment-card h2 {
-        font-size: 36px;
+        font-size: 28px;
         font-weight: 400;
         margin-bottom: 0;
         font-family: "Sofia", sans-serif;
@@ -293,9 +305,9 @@ const sexLifeTestimonials = [
     }
 
     .subtitle {
-        font-size: 15px;
+        font-size: 13px;
         margin-bottom: 0;
-        line-height: 1.4;
+        line-height: 1.3;
         font-family: "Inter", sans-serif;
         color: #3a3a3a;
         text-align: left;
@@ -308,7 +320,7 @@ const sexLifeTestimonials = [
 
     .top-section {
         display: flex;
-        gap: 20px;
+        gap: 12px;
         align-items: center;
     }
 
@@ -316,14 +328,14 @@ const sexLifeTestimonials = [
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         align-items: flex-start;
     }
 
     .right-content {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         align-items: flex-start;
     }
 
@@ -334,9 +346,9 @@ const sexLifeTestimonials = [
     }
 
     .product-image {
-        max-width: 200px;
+        max-width: 140px;
         height: auto;
-        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
     }
 
     .pricing {
@@ -344,16 +356,16 @@ const sexLifeTestimonials = [
     }
 
     .pricing p {
-        margin: 4px 0;
-        font-size: 14px;
+        margin: 2px 0;
+        font-size: 12px;
         font-family: "Inter", sans-serif;
-        line-height: 1.4;
+        line-height: 1.3;
         color: #3a3a3a;
     }
 
     .pricing strong {
         font-weight: 700;
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .get-started-btn {
@@ -361,12 +373,12 @@ const sexLifeTestimonials = [
         color: #ffffff;
         border: none;
         border-radius: 50px;
-        padding: 12px 28px;
-        font-size: 14px;
+        padding: 10px 20px;
+        font-size: 13px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        width: 170px;
+        width: 150px;
         display: block;
         font-family: "Inter", sans-serif;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -393,16 +405,16 @@ const sexLifeTestimonials = [
     }
 
     .product-info {
-        font-size: 13px;
-        line-height: 1.6;
-        margin-top: 12px;
+        font-size: 11px;
+        line-height: 1.5;
+        margin-top: 6px;
         font-family: "Inter", sans-serif;
         text-align: left;
         color: #3a3a3a;
     }
 
     .product-info p {
-        margin-bottom: 10px;
+        margin-bottom: 6px;
     }
 
     .product-info strong {
@@ -412,10 +424,10 @@ const sexLifeTestimonials = [
     .testimonials {
         position: relative;
         overflow: hidden;
-        margin-top: 12px;
+        margin-top: 8px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
     }
 
     .testimonial-nav {
@@ -441,8 +453,8 @@ const sexLifeTestimonials = [
 
     .testimonial-nav svg {
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 
     .testimonials-scroll {
@@ -462,8 +474,8 @@ const sexLifeTestimonials = [
 
     .testimonial-box {
         background-color: #f5f5f5;
-        border-radius: 18px;
-        padding: 16px;
+        border-radius: 14px;
+        padding: 12px;
         flex-shrink: 0;
         width: 100%;
         min-width: 100%;
@@ -472,15 +484,15 @@ const sexLifeTestimonials = [
 
     .testimonial-name {
         font-weight: 700;
-        margin-bottom: 8px;
-        font-size: 14px;
+        margin-bottom: 6px;
+        font-size: 12px;
         font-family: "Inter", sans-serif;
         color: #3a3a3a;
     }
 
     .testimonial-text {
-        font-size: 13px;
-        line-height: 1.5;
+        font-size: 11px;
+        line-height: 1.4;
         font-style: italic;
         font-family: "Inter", sans-serif;
         color: #3a3a3a;
@@ -497,52 +509,53 @@ const sexLifeTestimonials = [
     }
 
     .nad-box {
-        max-width: 160px;
+        max-width: 120px;
         height: auto;
     }
 
     /* Regrow Hair Card */
     .regrow-hair-card {
-    border-radius: 40px;
-    padding: 28px;
-    color: #3a3a3a;
-    background-color: #ffffff;
-    box-shadow: 2px 4px 12px #00000014;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+        border-radius: 32px;
+        padding: 20px;
+        color: #3a3a3a;
+        background-color: #ffffff;
+        box-shadow: 2px 4px 12px #00000014;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+            max-height: 450px;
+    }
 
     .regrow-hair-card h2 {
-        font-size: 36px;
+        font-size: 28px;
         font-weight: 400;
-        margin-bottom: 4px;
+        margin-bottom: 0;
         font-family: "Sofia", sans-serif;
         line-height: 1.1;
     }
 
     .regrow-hair-card h3 {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
-        margin-bottom: 12px;
+        margin-bottom: 6px;
         font-family: "Sofia", sans-serif;
         line-height: 1.2;
         color: #3a3a3a;
     }
 
     .description {
-        font-size: 14px;
-        margin-bottom: 16px;
-        line-height: 1.5;
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: 1.4;
         font-family: "Inter", sans-serif;
-        max-width: 700px;
         color: #3a3a3a;
     }
 
     .hair-content {
         display: grid;
         grid-template-columns: 1fr auto;
-        gap: 20px;
-        align-items: center;
+        gap: 16px;
+        flex: 1;
     }
 
     .hair-content .get-started-btn {
@@ -552,27 +565,27 @@ const sexLifeTestimonials = [
     .hair-info {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .pricing-info {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 700;
+        font-family: "Inter", sans-serif;
+        line-height: 1.3;
+        color: #3a3a3a;
+    }
+
+    .clinical-info {
+        font-size: 11px;
+        margin-top: 0;
         font-family: "Inter", sans-serif;
         line-height: 1.4;
         color: #3a3a3a;
     }
 
-    .clinical-info {
-        font-size: 13px;
-        margin-top: 0;
-        font-family: "Inter", sans-serif;
-        line-height: 1.5;
-        color: #3a3a3a;
-    }
-
     .better-together {
-        font-size: 14px;
+        font-size: 12px;
         margin-top: 0;
         font-family: "Inter", sans-serif;
         font-weight: 700;
@@ -581,17 +594,18 @@ const sexLifeTestimonials = [
 
     .hair-info p {
         font-family: "Inter", sans-serif;
-        font-size: 13px;
-        line-height: 1.5;
+        font-size: 11px;
+        line-height: 1.4;
         color: #3a3a3a;
+        margin: 0;
     }
 
     .hair-disclaimer {
-        font-size: 10px;
-        line-height: 1.4;
+        font-size: 9px;
+        line-height: 1.3;
         color: #666;
         font-style: italic;
-        margin: 8px 0;
+        margin: 6px 0;
         font-family: "Inter", sans-serif;
     }
 
@@ -602,23 +616,24 @@ const sexLifeTestimonials = [
 
     .hair-products {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
     }
 
     .hair-pill {
-        width: 180px;
+        width: 140px;
         height: auto;
     }
 
     .hair-spray {
-        width: 160px;
+        width: 120px;
         height: auto;
     }
 
     /* Responsive Design */
     @media (max-width: 1024px) {
-        .treatments-row {
+        .treatments-main-grid {
             grid-template-columns: 1fr;
         }
 
@@ -627,6 +642,7 @@ const sexLifeTestimonials = [
         }
 
         .hair-products {
+            flex-direction: row;
             justify-content: center;
         }
 
@@ -643,137 +659,128 @@ const sexLifeTestimonials = [
 
         .treatment-card,
         .regrow-hair-card {
-            padding: 20px;
-            border-radius: 28px;
+            padding: 16px;
+            border-radius: 24px;
         }
 
         .treatment-card {
-            gap: 12px;
+            gap: 8px;
         }
 
-        .treatment-card h2 {
-            font-size: 28px;
+        .treatment-card h2,
+        .regrow-hair-card h2 {
+            font-size: 24px;
+        }
+
+        .regrow-hair-card h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
         }
 
         .subtitle {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .top-section {
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .left-content,
         .right-content {
             width: 100%;
-            gap: 10px;
+            gap: 8px;
         }
 
         .product-image {
-            max-width: 160px;
+            max-width: 120px;
         }
 
         .nad-box {
-            max-width: 130px;
+            max-width: 100px;
         }
 
         .pricing p {
-            font-size: 13px;
+            font-size: 11px;
         }
 
         .pricing strong {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .get-started-btn {
-            padding: 10px 24px;
-            font-size: 13px;
-            width: 150px;
-        }
-
-        .product-info {
+            padding: 8px 18px;
             font-size: 12px;
-            margin-top: 10px;
-        }
-
-        .product-info p {
-            margin-bottom: 8px;
-        }
-
-        .testimonials {
-            margin-top: 10px;
-            gap: 8px;
-        }
-
-        .regrow-hair-card {
-            padding: 20px;
-        }
-
-        .regrow-hair-card h2 {
-            font-size: 28px;
-        }
-
-        .regrow-hair-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .description {
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        .hair-content {
-            gap: 16px;
-        }
-
-        .hair-info {
-            gap: 8px;
-        }
-
-        .pricing-info {
-            font-size: 13px;
-        }
-
-        .clinical-info {
-            font-size: 12px;
-        }
-
-        .better-together {
-            font-size: 13px;
-        }
-
-        .hair-info p {
-            font-size: 12px;
-        }
-
-        .hair-disclaimer {
-            font-size: 9px;
-        }
-
-        .hair-pill {
-            width: 150px;
-        }
-
-        .hair-spray {
             width: 130px;
         }
 
-        .testimonial-box {
-            width: 100%;
-            min-width: 100%;
-            padding: 14px;
-            border-radius: 16px;
+        .product-info {
+            font-size: 10px;
+            margin-top: 6px;
         }
 
-        .testimonial-name {
-            font-size: 13px;
+        .product-info p {
             margin-bottom: 6px;
         }
 
+        .testimonials {
+            margin-top: 8px;
+            gap: 6px;
+        }
+
+        .description {
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .hair-content {
+            gap: 12px;
+        }
+
+        .hair-info {
+            gap: 6px;
+        }
+
+        .pricing-info {
+            font-size: 11px;
+        }
+
+        .clinical-info {
+            font-size: 10px;
+        }
+
+        .better-together {
+            font-size: 11px;
+        }
+
+        .hair-info p {
+            font-size: 10px;
+        }
+
+        .hair-disclaimer {
+            font-size: 8px;
+        }
+
+        .hair-pill {
+            width: 120px;
+        }
+
+        .hair-spray {
+            width: 100px;
+        }
+
+        .testimonial-box {
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        .testimonial-name {
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
         .testimonial-text {
-            font-size: 12px;
+            font-size: 10px;
         }
     }
 </style>
