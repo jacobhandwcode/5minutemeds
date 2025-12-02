@@ -1,0 +1,485 @@
+---
+// weight-loss-eligible.astro - Success page with treatment options
+const treatments = [
+    {
+        name: "Semaglutide Standard",
+        description: "Same Active Ingredient as Ozempic® and Wegovy®",
+        image: "/images/semaglutide-standard.png",
+        price: "$140",
+        period: "/month",
+    },
+    {
+        name: "Tirzepatide Premium",
+        description: "Most effective for significant weight loss",
+        image: "/images/tirzepatide-premium.png",
+        price: "$200",
+        period: "/month",
+    },
+    {
+        name: "Semaglutide Tablets",
+        description: "Oral treatment - no injections needed",
+        image: "/images/semaglutide-tablets.png",
+        price: "$125",
+        period: "/month",
+    },
+    {
+        name: "Name Brand GLP-1's",
+        description: "Ozempic®, Wegovy®, Zepbound®",
+        image: "/images/shots.avif",
+        price: "$1,600",
+        period: "/month",
+    },
+];
+---
+
+<section class="result-page">
+    <!-- Back Button -->
+    <a href="/" class="back-btn" aria-label="Go home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M19 12H5M5 12l7 7M5 12l7-7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+        Home
+    </a>
+
+    <div class="result-container">
+        <!-- Success Message -->
+        <div class="success-card">
+            <div class="success-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#4e9a69"></circle>
+                    <path
+                        d="M8 12l3 3 5-6"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <h1 class="success-title">You're all set! Let's move forward.</h1>
+            <p class="success-message">
+                Thanks for completing the quick screening. Based on your
+                answers, you're eligible to continue with a licensed clinician
+                who can review your case and help determine the best treatment
+                options.
+            </p>
+            <p class="success-submessage">
+                This next step is simple, secure, and only takes a few minutes.
+                We're here to make your experience fast, easy, and stress-free —
+                just like it should be.
+            </p>
+        </div>
+
+        <!-- Treatment Selection -->
+        <div class="treatment-section">
+            <h2 class="treatment-heading">Choose Your Treatment</h2>
+            <p class="treatment-subheading">
+                Select a treatment option to proceed with your consultation
+            </p>
+
+            <div class="treatments-grid">
+                {
+                    treatments.map((treatment) => (
+                        <div class="treatment-card">
+                            <div class="treatment-image">
+                                <img
+                                    src={treatment.image}
+                                    alt={treatment.name}
+                                />
+                            </div>
+                            <h3 class="treatment-name">{treatment.name}</h3>
+                            <p class="treatment-description">
+                                {treatment.description}
+                            </p>
+                            <div class="treatment-price">
+                                <span class="price-amount">
+                                    {treatment.price}
+                                </span>
+                                <span class="price-period">
+                                    {treatment.period}
+                                </span>
+                            </div>
+                            <button class="select-btn">
+                                Select Treatment
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M5 12h14M12 5l7 7-7 7"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-section">
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 2L4 6v6c0 5.5 3.84 10.74 8 12 4.16-1.26 8-6.5 8-12V6l-8-4z"
+                        stroke="#0070da"
+                        stroke-width="2"
+                        fill="none"></path>
+                    <path
+                        d="M9 12l2 2 4-4"
+                        stroke="#0070da"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+                <span>Licensed Providers</span>
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                        stroke="#0070da"
+                        stroke-width="2"
+                        fill="none"></path>
+                </svg>
+                <span>HIPAA Compliant</span>
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect
+                        x="3"
+                        y="11"
+                        width="18"
+                        height="11"
+                        rx="2"
+                        stroke="#0070da"
+                        stroke-width="2"></rect>
+                    <path
+                        d="M7 11V7a5 5 0 0110 0v4"
+                        stroke="#0070da"
+                        stroke-width="2"></path>
+                </svg>
+                <span>Secure & Private</span>
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M20 6L9 17l-5-5"
+                        stroke="#0070da"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+                <span>FSA/HSA Eligible</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .result-page {
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f9f9fa 0%, #ffffff 100%);
+        padding: 80px 20px 60px 20px;
+        position: relative;
+    }
+
+    .back-btn {
+        position: absolute;
+        top: 40px;
+        left: 80px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background-color: #ffffff;
+        border: 2px solid #e8e9ea;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .back-btn:hover {
+        background-color: #f9f9fa;
+        border-color: #0070da;
+        transform: translateX(-4px);
+        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.15);
+    }
+
+    .result-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Success Card */
+    .success-card {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 48px;
+        text-align: center;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 48px;
+        border-top: 4px solid #4e9a69;
+    }
+
+    .success-icon {
+        margin-bottom: 24px;
+        animation: scaleIn 0.5s ease;
+    }
+
+    @keyframes scaleIn {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .success-title {
+        font-family: "Sofia", sans-serif;
+        font-size: 36px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 16px 0;
+        line-height: 1.3;
+    }
+
+    .success-message {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #444;
+        line-height: 1.6;
+        margin: 0 0 12px 0;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .success-submessage {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Treatment Section */
+    .treatment-section {
+        margin-bottom: 48px;
+    }
+
+    .treatment-heading {
+        font-family: "Sofia", sans-serif;
+        font-size: 32px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 8px 0;
+        text-align: center;
+    }
+
+    .treatment-subheading {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #666;
+        margin: 0 0 32px 0;
+        text-align: center;
+    }
+
+    .treatments-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .treatment-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 24px;
+        text-align: center;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid transparent;
+    }
+
+    .treatment-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 32px rgba(0, 112, 218, 0.15);
+        border-color: #0070da;
+    }
+
+    .treatment-image {
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+
+    .treatment-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .treatment-name {
+        font-family: "Sofia", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 8px 0;
+    }
+
+    .treatment-description {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: #666;
+        margin: 0 0 16px 0;
+        line-height: 1.5;
+        flex: 1;
+    }
+
+    .treatment-price {
+        margin-bottom: 16px;
+    }
+
+    .price-amount {
+        font-family: "Inter", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #0070da;
+    }
+
+    .price-period {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .select-btn {
+        width: 100%;
+        padding: 14px 20px;
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        border: none;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .select-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.3);
+    }
+
+    .select-btn svg {
+        transition: transform 0.3s ease;
+    }
+
+    .select-btn:hover svg {
+        transform: translateX(4px);
+    }
+
+    /* Trust Section */
+    .trust-section {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        padding: 32px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: #1a1a1a;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .treatments-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .result-page {
+            padding: 60px 20px 40px 20px;
+        }
+
+        .back-btn {
+            top: 20px;
+            left: 20px;
+            padding: 10px 16px;
+            font-size: 13px;
+        }
+
+        .success-card {
+            padding: 32px 24px;
+        }
+
+        .success-title {
+            font-size: 26px;
+        }
+
+        .success-message {
+            font-size: 14px;
+        }
+
+        .treatment-heading {
+            font-size: 26px;
+        }
+
+        .treatments-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .trust-section {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+</style>

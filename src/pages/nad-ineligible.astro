@@ -1,6 +1,13 @@
 ---
-// weight-loss-ineligible.astro - Ineligible page with other treatment options
+// nad-ineligible.astro - NAD+ Ineligible page with other treatment options
 const otherTreatments = [
+    {
+        name: "Lose Weight",
+        description: "GLP-1 treatments for effective, sustainable weight loss",
+        icon: "⚖️",
+        link: "/weight-loss-form",
+        color: "#0070da",
+    },
     {
         name: "Improve Sex Life",
         description: "Easy on-the-go solutions for improved sexual performance",
@@ -14,13 +21,6 @@ const otherTreatments = [
         icon: "✨",
         link: "/hair-loss-form",
         color: "#9571a0",
-    },
-    {
-        name: "Support Longevity",
-        description: "NAD+ therapy for energy, wellness, and cellular health",
-        icon: "⚡",
-        link: "/nad-form",
-        color: "#4e9a69",
     },
 ];
 ---
@@ -78,7 +78,7 @@ const otherTreatments = [
                 screening again. We're always here to help.
             </p>
 
-            <a href="/weight-loss-form" class="retry-btn">
+            <a href="/nad-form" class="retry-btn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M1 4v6h6M23 20v-6h-6"
@@ -188,9 +188,9 @@ const otherTreatments = [
 
     .back-btn:hover {
         background-color: #f9f9fa;
-        border-color: #0070da;
+        border-color: #4e9a69;
         transform: translateX(-4px);
-        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.15);
+        box-shadow: 0 4px 12px rgba(78, 154, 105, 0.15);
     }
 
     .result-container {
@@ -198,7 +198,6 @@ const otherTreatments = [
         margin: 0 auto;
     }
 
-    /* Ineligible Card */
     .ineligible-card {
         background: #ffffff;
         border-radius: 28px;
@@ -280,12 +279,11 @@ const otherTreatments = [
 
     .retry-btn:hover {
         background: #ffffff;
-        border-color: #0070da;
+        border-color: #4e9a69;
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.15);
+        box-shadow: 0 8px 20px rgba(78, 154, 105, 0.15);
     }
 
-    /* Other Treatments Section */
     .other-treatments-section {
         margin-bottom: 48px;
     }
@@ -366,7 +364,6 @@ const otherTreatments = [
         transform: translateX(4px);
     }
 
-    /* Support Section */
     .support-section {
         text-align: center;
         padding: 32px;
@@ -389,7 +386,7 @@ const otherTreatments = [
         align-items: center;
         gap: 8px;
         padding: 12px 24px;
-        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        background: linear-gradient(135deg, #4e9a69 0%, #6cb88b 100%);
         border-radius: 50px;
         font-family: "Inter", sans-serif;
         font-size: 14px;
@@ -401,10 +398,9 @@ const otherTreatments = [
 
     .support-link:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.3);
+        box-shadow: 0 8px 20px rgba(78, 154, 105, 0.3);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
         .result-page {
             padding: 60px 20px 40px 20px;
