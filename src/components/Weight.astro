@@ -1,211 +1,292 @@
 ---
 import Testimonials from "./Testimonials.astro";
-const sexLifeTestimonials = [
-    {
-        name: "Alan, 35",
-        text: "I couldn't believe how fast I was able to get it up. I have never lasted longer. The convenience of being able to do this online is unbeatable!",
-    },
-    {
-        name: "Daniel, 28",
-        text: "'I wasn't able to maintain an erection and it was destroying my confidence. Thanks to these mints from 5MinuteMeds I don't have to worry anymore'",
-    },
-];
 ---
 
 <section class="additional-sections">
-    <!-- Main Grid: 2 columns -->
+    <!-- Main Grid: 3 columns for all visible at once -->
     <div class="treatments-main-grid">
-        <!-- Left Column: Stacked Cards -->
-        <div class="left-column">
-            <!-- Improve Sex Life Card -->
-            <div class="treatment-card sex-life-card">
+        <!-- Improve Sex Life Card -->
+        <div class="treatment-card sex-life-card">
+            <div class="card-badge orange">Popular</div>
+
+            <div class="card-header">
                 <h2>Improve Sex Life</h2>
+                <p class="subtitle">
+                    Easy on-the-go solutions for improved sexual performance
+                </p>
+            </div>
 
-                <div class="top-section">
-                    <div class="left-content">
-                        <p class="subtitle">
-                            Easy on the go solutions for improved sexual
-                            performance
-                        </p>
-                        <div class="pricing">
-                            <p>Our Price: <strong>$18.99/month</strong></p>
-                            <p>Our Competitors: $39/month</p>
-                        </div>
-                        <button class="get-started-btn">Get Started</button>
-                    </div>
-                    <div class="product-showcase">
-                        <img
-                            src="/images/improve.png"
-                            alt="5MinuteMeds Pill"
-                            class="product-image"
-                        />
+            <div class="product-visual">
+                <img
+                    src="/images/improve.png"
+                    alt="5MinuteMeds Pill"
+                    class="product-image-main"
+                />
+            </div>
+
+            <div class="price-container">
+                <div class="price-main">
+                    <span class="price-label">Our Price</span>
+                    <div class="price-value">
+                        <span class="currency">$</span>
+                        <span class="amount">18.99</span>
+                        <span class="period">/mo</span>
                     </div>
                 </div>
+                <p class="competitor-price">vs. Competitors: $39/mo</p>
+            </div>
 
-                <div class="product-info">
-                    <p>
-                        Our fast-acting mints use the same ingredients as <strong
-                            >Viagra®</strong
-                        > and <strong>Cialis®</strong> and work in about 30 minutes.
-                    </p>
-                    <p>
-                        They're chewable with no water needed, or you can
-                        swallow them like a pill.
-                    </p>
-                    <p>Get hard and stay hard when you need to.</p>
+            <div class="product-features">
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Same ingredients as Viagra® & Cialis®</span>
                 </div>
-
-                <div class="testimonials">
-                    <button
-                        class="testimonial-nav prev"
-                        aria-label="Previous testimonial"
-                    >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M15 18L9 12L15 6"
-                                stroke="#3a3a3a"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </svg>
-                    </button>
-                    <div class="testimonials-scroll">
-                        {
-                            sexLifeTestimonials.map((testimonial) => (
-                                <div class="testimonial-box">
-                                    <p class="testimonial-name">
-                                        {testimonial.name}
-                                    </p>
-                                    <p class="testimonial-text">
-                                        {testimonial.text}
-                                    </p>
-                                </div>
-                            ))
-                        }
-                    </div>
-                    <button
-                        class="testimonial-nav next"
-                        aria-label="Next testimonial"
-                    >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M9 18L15 12L9 6"
-                                stroke="#3a3a3a"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </svg>
-                    </button>
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Works in 30 minutes</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Chewable or swallow</span>
                 </div>
             </div>
 
-            <!-- Support Longevity Card -->
-            <div class="treatment-card longevity-card">
+            <button class="cta-button orange-gradient">
+                Get Started
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M5 12h14M12 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+
+            <div class="review-snippet">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                    "I couldn't believe how fast I was able to get it up."
+                </p>
+                <p class="review-author">— Alan, 35</p>
+            </div>
+        </div>
+
+        <!-- Regrow Hair Card -->
+        <div class="treatment-card hair-card">
+            <div class="card-badge purple">Featured</div>
+
+            <div class="card-header">
+                <h2>Regrow Hair</h2>
+                <p class="subtitle">Finasteride & Minoxidil</p>
+            </div>
+
+            <div class="product-visual dual-products">
+                <img
+                    src="/images/regrow-hair3.png"
+                    alt="Hair Growth Pill"
+                    class="product-image-dual pill"
+                />
+                <img
+                    src="/images/regrow-hair4.png"
+                    alt="Hair Growth Spray"
+                    class="product-image-dual spray"
+                />
+            </div>
+
+            <div class="price-container">
+                <div class="price-main">
+                    <span class="price-label">Starting at</span>
+                    <div class="price-value">
+                        <span class="currency">$</span>
+                        <span class="amount">30</span>
+                        <span class="period">/mo</span>
+                    </div>
+                </div>
+                <p class="competitor-price">Combo: $35/mo</p>
+            </div>
+
+            <div class="product-features">
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Clinically proven in 3-6 months</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Oral & topical options</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Better results when combined</span>
+                </div>
+            </div>
+
+            <button class="cta-button purple-gradient">
+                Get Started
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M5 12h14M12 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+
+            <div class="info-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="2"></circle>
+                    <path
+                        d="M12 16v-4M12 8h.01"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"></path>
+                </svg>
+                <span>Separate or combo formulations available</span>
+            </div>
+        </div>
+
+        <!-- Support Longevity Card -->
+        <div class="treatment-card longevity-card">
+            <div class="card-badge green">Premium</div>
+
+            <div class="card-header">
                 <h2>Support Longevity</h2>
                 <p class="subtitle">
                     Support Healthy Aging Through Cellular Renewal
                 </p>
+            </div>
 
-                <div class="top-section">
-                    <div class="product-showcase">
-                        <img
-                            src="/images/longevity.png"
-                            alt="NAD+ Box"
-                            class="nad-box"
-                        />
-                    </div>
-                    <div class="right-content">
-                        <div class="pricing">
-                            <p>Our Price: <strong>$119.99/month</strong></p>
-                            <p>Our Competitors: $159.99/month</p>
-                        </div>
-                        <button class="get-started-btn">Get Started</button>
+            <div class="product-visual">
+                <img
+                    src="/images/longevity.png"
+                    alt="NAD+ Box"
+                    class="product-image-main nad"
+                />
+            </div>
+
+            <div class="price-container">
+                <div class="price-main">
+                    <span class="price-label">Our Price</span>
+                    <div class="price-value">
+                        <span class="currency">$</span>
+                        <span class="amount">119.99</span>
+                        <span class="period">/mo</span>
                     </div>
                 </div>
+                <p class="competitor-price">vs. Competitors: $159.99/mo</p>
+            </div>
 
-                <div class="product-info">
-                    <p>
-                        NAD+ is a key molecule your cells use for energy,
-                        repair, and overall performance — but levels drop as you
-                        age, causing fatigue and slower recovery.
-                    </p>
-                    <p>
-                        NAD+ injections restore these levels directly, bypassing
-                        digestion for faster, more effective cellular support.
-                    </p>
+            <div class="product-features">
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Direct cellular restoration</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Bypasses digestion</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 13l4 4L19 7"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Fast-acting injections</span>
                 </div>
             </div>
-        </div>
 
-        <!-- Right Column: Regrow Hair Card -->
-        <div class="regrow-hair-card">
-            <h2>Regrow Hair</h2>
-            <h3>Finasteride & Minoxidil</h3>
+            <button class="cta-button green-gradient">
+                Get Started
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M5 12h14M12 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
 
-            <p class="description">
-                Take advantage of the power of both Finasteride and Minoxidil in
-                a single pill or separately. Also available in topical form.
-            </p>
-
-            <div class="hair-content">
-                <div class="hair-info">
-                    <p class="pricing-info">
-                        <strong
-                            >Separate formulations: Starting at $30/month</strong
-                        >
-                    </p>
-                    <p class="pricing-info">
-                        <strong
-                            >Combo formulations: Starting at $35/month</strong
-                        >
-                    </p>
-
-                    <p class="clinical-info">
-                        Finasteride has been clinically proven to help regrow
-                        hair in 3-6 months.*
-                    </p>
-
-                    <p class="better-together">
-                        <strong>Better together</strong>
-                    </p>
-                    <p>
-                        Finasteride is clinically proven to give even better
-                        results when paired with minoxidil, which helps to
-                        kickstart regrowth.
-                    </p>
-
-                    <p class="hair-disclaimer">
-                        *Based on separate individual studies of oral minoxidil
-                        and oral finasteride.
-                    </p>
-
-                    <button class="get-started-btn">Get Started</button>
-                </div>
-
-                <div class="hair-products">
-                    <img
-                        src="/images/regrow-hair3.png"
-                        alt="Hair Growth Pill"
-                        class="hair-pill"
-                    />
-                    <img
-                        src="/images/regrow-hair4.png"
-                        alt="Hair Growth Spray"
-                        class="hair-spray"
-                    />
-                </div>
+            <div class="info-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="2"></circle>
+                    <path
+                        d="M12 16v-4M12 8h.01"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"></path>
+                </svg>
+                <span>Key molecule for energy & repair</span>
             </div>
         </div>
     </div>
@@ -213,581 +294,421 @@ const sexLifeTestimonials = [
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const testimonialContainer = document.querySelector(".testimonials");
-        if (!testimonialContainer) return;
-
-        const scrollContainer = testimonialContainer.querySelector(
-            ".testimonials-scroll",
-        );
-        const prevBtn = testimonialContainer.querySelector(".prev");
-        const nextBtn = testimonialContainer.querySelector(".next");
-
-        if (!scrollContainer || !prevBtn || !nextBtn) return;
-
-        prevBtn.addEventListener("click", () => {
-            const scrollAmount = scrollContainer.clientWidth;
-            scrollContainer.scrollBy({
-                left: -scrollAmount,
-                behavior: "smooth",
-            });
-        });
-
-        nextBtn.addEventListener("click", () => {
-            const scrollAmount = scrollContainer.clientWidth;
-            scrollContainer.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth",
-            });
-        });
-
-        // Update button visibility based on scroll position
-        const updateButtonVisibility = () => {
-            const isAtStart = scrollContainer.scrollLeft <= 0;
-            const isAtEnd =
-                scrollContainer.scrollLeft + scrollContainer.clientWidth >=
-                scrollContainer.scrollWidth - 1;
-
-            prevBtn.style.opacity = isAtStart ? "0.3" : "1";
-            prevBtn.style.cursor = isAtStart ? "default" : "pointer";
-            nextBtn.style.opacity = isAtEnd ? "0.3" : "1";
-            nextBtn.style.cursor = isAtEnd ? "default" : "pointer";
-        };
-
-        scrollContainer.addEventListener("scroll", updateButtonVisibility);
-        updateButtonVisibility();
-    });
+    // No additional scripts needed for this simplified design
 </script>
 
 <style>
     .additional-sections {
         margin: 0 auto;
-        padding: 0 80px 16px 80px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        background: #f9f9fa;
+        padding: 0 80px 40px 80px;
+        background: linear-gradient(180deg, #f9f9fa 0%, #ffffff 100%);
     }
 
-    /* Main Grid: 2 columns */
+    /* Main Grid: 3 columns */
     .treatments-main-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
         max-width: 1400px;
         margin: 0 auto;
-        align-items: start;
+        margin-bottom: 20px;
     }
 
-    /* Left Column: Stacked Cards */
-    .left-column {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
+    /* Treatment Card Base */
     .treatment-card {
-        border-radius: 32px;
-        padding: 20px;
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 32px 24px;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.1);
+        position: relative;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        background-color: #ffffff;
-        box-shadow: 2px 4px 12px #00000014;
-        color: #3a3a3a;
+        gap: 20px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
     }
 
-    .treatment-card h2 {
-        font-size: 28px;
-        font-weight: 400;
-        margin-bottom: 0;
+    .treatment-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, transparent);
+        transition: all 0.4s ease;
+    }
+
+    .sex-life-card::before {
+        background: linear-gradient(90deg, #ff6b6b, #ffa06b);
+    }
+
+    .hair-card::before {
+        background: linear-gradient(90deg, #9571a0, #b59ec8);
+    }
+
+    .longevity-card::before {
+        background: linear-gradient(90deg, #4e9a69, #6cb88b);
+    }
+
+    .treatment-card:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 12px 32px rgba(0, 0, 0, 0.12),
+            0 0 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Badge */
+    .card-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #ffffff;
+    }
+
+    .card-badge.orange {
+        background: linear-gradient(135deg, #ff6b6b, #ffa06b);
+        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+    }
+
+    .card-badge.purple {
+        background: linear-gradient(135deg, #9571a0, #b59ec8);
+        box-shadow: 0 4px 12px rgba(149, 113, 160, 0.3);
+    }
+
+    .card-badge.green {
+        background: linear-gradient(135deg, #4e9a69, #6cb88b);
+        box-shadow: 0 4px 12px rgba(78, 154, 105, 0.3);
+    }
+
+    /* Card Header */
+    .card-header {
+        padding-right: 80px;
+    }
+
+    .card-header h2 {
         font-family: "Sofia", sans-serif;
-        color: #3a3a3a;
-        line-height: 1.1;
-        text-align: left;
+        font-size: 26px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 8px 0;
+        line-height: 1.2;
     }
 
     .subtitle {
-        font-size: 13px;
-        margin-bottom: 0;
-        line-height: 1.3;
         font-family: "Inter", sans-serif;
-        color: #3a3a3a;
-        text-align: left;
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+        line-height: 1.4;
     }
 
-    .sex-life-card {
-        background-color: #ffffff;
-        color: #3a3a3a;
-    }
-
-    .top-section {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-    }
-
-    .left-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        align-items: flex-start;
-    }
-
-    .right-content {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        align-items: flex-start;
-    }
-
-    .product-showcase {
+    /* Product Visual */
+    .product-visual {
         display: flex;
         align-items: center;
         justify-content: center;
+        min-height: 180px;
+        padding: 20px 0;
     }
 
-    .product-image {
-        max-width: 140px;
+    .product-image-main {
+        max-width: 160px;
         height: auto;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+        transition: transform 0.4s ease;
     }
 
-    .pricing {
-        text-align: left;
+    .product-image-main.nad {
+        max-width: 140px;
     }
 
-    .pricing p {
-        margin: 2px 0;
-        font-size: 12px;
-        font-family: "Inter", sans-serif;
-        line-height: 1.3;
-        color: #3a3a3a;
+    .treatment-card:hover .product-image-main {
+        transform: scale(1.05) rotate(2deg);
     }
 
-    .pricing strong {
-        font-weight: 700;
-        font-size: 13px;
+    /* Dual Products */
+    .dual-products {
+        gap: 12px;
+        justify-content: space-around;
     }
 
-    .get-started-btn {
-        background-color: #3a3a3a;
-        color: #ffffff;
-        border: none;
-        border-radius: 50px;
-        padding: 10px 20px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        width: 150px;
+    .product-image-dual {
+        max-width: 100px;
+        height: auto;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+        transition: transform 0.4s ease;
+    }
+
+    .product-image-dual.pill {
+        max-width: 110px;
+    }
+
+    .product-image-dual.spray {
+        max-width: 90px;
+    }
+
+    .treatment-card:hover .product-image-dual.pill {
+        transform: translateY(-4px) rotate(-3deg);
+    }
+
+    .treatment-card:hover .product-image-dual.spray {
+        transform: translateY(-4px) rotate(3deg);
+    }
+
+    /* Price Container */
+    .price-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #f0f1f2 100%);
+        border-radius: 16px;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .price-main {
+        margin-bottom: 6px;
+    }
+
+    .price-label {
         display: block;
         font-family: "Inter", sans-serif;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .sex-life-card .get-started-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        background: linear-gradient(
-            135deg,
-            rgb(235, 110, 40) 0%,
-            rgb(163, 62, 11) 100%
-        );
-    }
-
-    .longevity-card .get-started-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        background: linear-gradient(
-            135deg,
-            rgb(78, 154, 105) 0%,
-            rgb(56, 118, 79) 100%
-        );
-    }
-
-    .product-info {
         font-size: 11px;
-        line-height: 1.5;
-        margin-top: 6px;
-        font-family: "Inter", sans-serif;
-        text-align: left;
-        color: #3a3a3a;
-    }
-
-    .product-info p {
+        color: #666;
         margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
     }
 
-    .product-info strong {
-        font-weight: 700;
-    }
-
-    .testimonials {
-        position: relative;
-        overflow: hidden;
-        margin-top: 8px;
+    .price-value {
         display: flex;
-        align-items: center;
-        gap: 8px;
+        align-items: baseline;
+        justify-content: center;
+        gap: 2px;
     }
 
-    .testimonial-nav {
-        background: transparent;
+    .currency {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+
+    .amount {
+        font-family: "Inter", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #1a1a1a;
+        line-height: 1;
+    }
+
+    .period {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .competitor-price {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: #999;
+        margin: 0;
+    }
+
+    /* Product Features */
+    .product-features {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        color: #444;
+        line-height: 1.5;
+    }
+
+    .feature-item svg {
+        flex-shrink: 0;
+        stroke: #4e9a69;
+        margin-top: 2px;
+    }
+
+    /* CTA Button */
+    .cta-button {
+        width: 100%;
+        padding: 14px 24px;
         border: none;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #ffffff;
         cursor: pointer;
-        padding: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-        flex-shrink: 0;
-        z-index: 2;
-    }
-
-    .testimonial-nav:hover {
-        transform: scale(1.1);
-    }
-
-    .testimonial-nav:active {
-        transform: scale(0.95);
-    }
-
-    .testimonial-nav svg {
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        width: 16px;
-        height: 16px;
-    }
-
-    .testimonials-scroll {
-        display: flex;
-        gap: 0;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-        flex: 1;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        scroll-snap-type: x mandatory;
-    }
-
-    .testimonials-scroll::-webkit-scrollbar {
-        display: none;
-    }
-
-    .testimonial-box {
-        background-color: #f5f5f5;
-        border-radius: 14px;
-        padding: 12px;
-        flex-shrink: 0;
-        width: 100%;
-        min-width: 100%;
-        scroll-snap-align: start;
-    }
-
-    .testimonial-name {
-        font-weight: 700;
-        margin-bottom: 6px;
-        font-size: 12px;
-        font-family: "Inter", sans-serif;
-        color: #3a3a3a;
-    }
-
-    .testimonial-text {
-        font-size: 11px;
-        line-height: 1.4;
-        font-style: italic;
-        font-family: "Inter", sans-serif;
-        color: #3a3a3a;
-    }
-
-    /* Longevity Card */
-    .longevity-card {
-        background-color: #ffffff;
-        color: #3a3a3a;
-    }
-
-    .longevity-card .subtitle {
-        color: #3a3a3a;
-    }
-
-    .nad-box {
-        max-width: 120px;
-        height: auto;
-    }
-
-    /* Regrow Hair Card */
-    .regrow-hair-card {
-        border-radius: 32px;
-        padding: 20px;
-        color: #3a3a3a;
-        background-color: #ffffff;
-        box-shadow: 2px 4px 12px #00000014;
-        min-height: 398px;
-    }
-
-    .regrow-hair-card h2 {
-        font-size: 28px;
-        font-weight: 400;
-        margin-bottom: 0;
-        font-family: "Sofia", sans-serif;
-        line-height: 1.1;
-    }
-
-    .regrow-hair-card h3 {
-        font-size: 18px;
-        font-weight: 400;
-        margin-bottom: 6px;
-        margin-top: 10px;
-        font-family: "Sofia", sans-serif;
-        line-height: 1.2;
-        color: #3a3a3a;
-    }
-
-    .description {
-        font-size: 12px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        line-height: 1.4;
-        font-family: "Inter", sans-serif;
-        color: #3a3a3a;
-    }
-
-    .hair-content {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 16px;
-        align-items: start;
-        margin-top: 10px;
-    }
-
-    .hair-content .get-started-btn {
-        margin: 0;
-    }
-
-    .hair-info {
-        display: flex;
-        flex-direction: column;
         gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .pricing-info {
-        font-size: 12px;
-        font-weight: 700;
+    .cta-button svg {
+        stroke: #ffffff;
+        transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover svg {
+        transform: translateX(4px);
+    }
+
+    .orange-gradient {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ffa06b 100%);
+    }
+
+    .orange-gradient:hover {
+        background: linear-gradient(135deg, #ff5252 0%, #ff9052 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    }
+
+    .purple-gradient {
+        background: linear-gradient(135deg, #9571a0 0%, #b59ec8 100%);
+    }
+
+    .purple-gradient:hover {
+        background: linear-gradient(135deg, #865d92 0%, #a68db8 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(149, 113, 160, 0.4);
+    }
+
+    .green-gradient {
+        background: linear-gradient(135deg, #4e9a69 0%, #6cb88b 100%);
+    }
+
+    .green-gradient:hover {
+        background: linear-gradient(135deg, #3f8758 0%, #5da778 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(78, 154, 105, 0.4);
+    }
+
+    /* Review Snippet */
+    .review-snippet {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 14px;
+        text-align: center;
+    }
+
+    .stars {
+        color: #ffa726;
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    .review-text {
         font-family: "Inter", sans-serif;
-        line-height: 1.3;
-        color: #3a3a3a;
-    }
-
-    .clinical-info {
         font-size: 11px;
-        margin-top: 0;
-        font-family: "Inter", sans-serif;
+        font-style: italic;
+        color: #444;
+        margin: 0 0 6px 0;
         line-height: 1.4;
-        color: #3a3a3a;
     }
 
-    .better-together {
-        font-size: 12px;
-        margin-top: 0;
+    .review-author {
         font-family: "Inter", sans-serif;
-        font-weight: 700;
-        color: #3a3a3a;
-    }
-
-    .hair-info p {
-        font-family: "Inter", sans-serif;
-        font-size: 11px;
-        line-height: 1.4;
-        color: #3a3a3a;
+        font-size: 10px;
+        color: #999;
         margin: 0;
     }
 
-    .hair-disclaimer {
-        font-size: 9px;
-        line-height: 1.3;
-        color: #666;
-        font-style: italic;
-        margin: 6px 0;
-        font-family: "Inter", sans-serif;
-    }
-
-    .hair-info .get-started-btn {
-        margin-top: 4px;
-        align-self: flex-start;
-    }
-
-    .hair-products {
+    /* Info Tag */
+    .info-tag {
         display: flex;
         align-items: center;
+        gap: 8px;
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: #666;
+        padding: 10px 12px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #e8e9ea;
     }
 
-    .hair-pill {
-        width: 140px;
-        height: auto;
-    }
-
-    .hair-spray {
-        width: 120px;
-        height: auto;
-    }
-
-    @media (max-width: 1045px) {
-        .hair-products {
-            flex-direction: column;
-        }
+    .info-tag svg {
+        flex-shrink: 0;
+        stroke: #999;
     }
 
     /* Responsive Design */
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         .treatments-main-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        .hair-content {
-            grid-template-columns: 1fr;
-        }
-
-        .hair-products {
-            flex-direction: row;
-            justify-content: center;
-        }
-
-        .top-section {
-            flex-direction: column;
+        .card-header {
+            padding-right: 100px;
         }
     }
 
     @media (max-width: 768px) {
         .additional-sections {
-            padding: 0 20px 12px 20px;
-            gap: 12px;
-        }
-
-        .treatment-card,
-        .regrow-hair-card {
-            padding: 16px;
-            border-radius: 24px;
+            padding: 0 20px 32px 20px;
         }
 
         .treatment-card {
-            gap: 8px;
+            padding: 24px 20px;
+            gap: 16px;
         }
 
-        .treatment-card h2,
-        .regrow-hair-card h2 {
-            font-size: 24px;
-        }
-
-        .regrow-hair-card h3 {
-            font-size: 16px;
-            margin-bottom: 6px;
+        .card-header h2 {
+            font-size: 22px;
         }
 
         .subtitle {
             font-size: 12px;
         }
 
-        .top-section {
-            flex-direction: column;
-            gap: 10px;
+        .product-visual {
+            min-height: 140px;
+            padding: 16px 0;
         }
 
-        .left-content,
-        .right-content {
-            width: 100%;
-            gap: 8px;
+        .product-image-main {
+            max-width: 130px;
         }
 
-        .product-image {
-            max-width: 120px;
+        .product-image-dual {
+            max-width: 80px;
         }
 
-        .nad-box {
-            max-width: 100px;
+        .amount {
+            font-size: 30px;
         }
 
-        .pricing p {
+        .feature-item {
             font-size: 11px;
         }
 
-        .pricing strong {
-            font-size: 12px;
-        }
-
-        .get-started-btn {
-            padding: 8px 18px;
-            font-size: 12px;
-            width: 130px;
-        }
-
-        .product-info {
-            font-size: 10px;
-            margin-top: 6px;
-        }
-
-        .product-info p {
-            margin-bottom: 6px;
-        }
-
-        .testimonials {
-            margin-top: 8px;
-            gap: 6px;
-        }
-
-        .description {
-            font-size: 11px;
-            margin-bottom: 8px;
-        }
-
-        .hair-content {
-            gap: 12px;
-        }
-
-        .hair-info {
-            gap: 6px;
-        }
-
-        .pricing-info {
-            font-size: 11px;
-        }
-
-        .clinical-info {
-            font-size: 10px;
-        }
-
-        .better-together {
-            font-size: 11px;
-        }
-
-        .hair-info p {
-            font-size: 10px;
-        }
-
-        .hair-disclaimer {
-            font-size: 8px;
-        }
-
-        .hair-pill {
-            width: 120px;
-        }
-
-        .hair-spray {
-            width: 100px;
-        }
-
-        .testimonial-box {
-            padding: 10px;
-            border-radius: 12px;
-        }
-
-        .testimonial-name {
-            font-size: 11px;
-            margin-bottom: 4px;
-        }
-
-        .testimonial-text {
-            font-size: 10px;
+        .cta-button {
+            padding: 12px 20px;
+            font-size: 13px;
         }
     }
 </style>
