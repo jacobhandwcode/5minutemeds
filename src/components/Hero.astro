@@ -601,6 +601,39 @@ const services = [
         justify-content: center;
         padding: 0;
         flex: 1;
+        position: relative;
+    }
+
+    /* Floor shadow effect - elliptical shadow beneath image */
+    .card-image-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65%;
+        height: 12px;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.1) 40%,
+            transparent 70%
+        );
+        border-radius: 50%;
+        transition: all 0.4s ease;
+        z-index: 0;
+    }
+
+    .service-card:hover .card-image-container::after {
+        width: 75%;
+        height: 18px;
+        bottom: -8px;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.15) 40%,
+            transparent 70%
+        );
     }
 
     .card-image {
@@ -610,20 +643,22 @@ const services = [
         max-height: 200px;
         object-fit: contain;
         transition: all 0.4s ease;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
         display: block;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     /* Specific styling for "Improve Your Sex Life" image */
     .card-image.sex-life-image {
         position: relative;
         top: 5px;
+        width: 80px;
+        height: 120px;
     }
 
     .service-card:hover .card-image {
-        transform: rotate(5deg) scale(1.05);
-        filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.35));
+        transform: translateY(-8px) rotate(3deg) scale(1.05);
     }
 
     .card-images-dual {
@@ -632,12 +667,59 @@ const services = [
         align-items: flex-end;
         justify-content: center;
         margin-top: auto;
+        position: relative;
+    }
+
+    /* Floor shadow for dual images */
+    .card-images-dual::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 12px;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.1) 40%,
+            transparent 70%
+        );
+        border-radius: 50%;
+        transition: all 0.4s ease;
+        z-index: 0;
+    }
+
+    .service-card:hover .card-images-dual::after {
+        width: 90%;
+        height: 18px;
+        bottom: -8px;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.15) 40%,
+            transparent 70%
+        );
     }
 
     .card-images-dual .card-image {
         width: 100%;
         max-width: 80px;
         margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-card:hover .card-images-dual .card-image {
+        transform: translateY(-8px) scale(1.05);
+    }
+
+    .service-card:hover .card-images-dual .card-image:first-child {
+        transform: translateY(-8px) rotate(-3deg) scale(1.05);
+    }
+
+    .service-card:hover .card-images-dual .card-image:last-child {
+        transform: translateY(-8px) rotate(3deg) scale(1.05);
     }
 
     @media (max-width: 768px) {
