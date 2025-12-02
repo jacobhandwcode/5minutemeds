@@ -4,22 +4,26 @@ const services = [
         title: "Lose Weight",
         image: "/images/lose-weight.png",
         alt: "Weight loss products",
+        link: "/weight-loss-form",
     },
     {
         title: "Support Longevity",
         image: "/images/longevity.png",
         alt: "Longevity support products",
+        link: "/nad-form",
     },
     {
         title: "Regrow Hair",
         image: "/images/regrow-hair1.png",
         alt: "Hair regrowth products",
+        link: "/hair-loss-form",
     },
     {
         title: "Improve Your Sex Life",
         image: "/images/improve.png",
         alt: "Sexual health products",
         customClass: "sex-life-image",
+        link: "/ed-form",
     },
 ];
 ---
@@ -89,7 +93,7 @@ const services = [
                             stroke-linejoin="round"></path>
                     </svg>
                 </a>
-                <a href="#longevity" class="menu-item">
+                <a href="#products" class="menu-item">
                     <span class="menu-item-text">Longevity</span>
                     <svg
                         class="menu-item-arrow"
@@ -106,7 +110,7 @@ const services = [
                             stroke-linejoin="round"></path>
                     </svg>
                 </a>
-                <a href="#hair-growth" class="menu-item">
+                <a href="#products" class="menu-item">
                     <span class="menu-item-text">Hair Growth</span>
                     <svg
                         class="menu-item-arrow"
@@ -123,7 +127,7 @@ const services = [
                             stroke-linejoin="round"></path>
                     </svg>
                 </a>
-                <a href="#sexual-health" class="menu-item">
+                <a href="#products" class="menu-item">
                     <span class="menu-item-text">Sexual Health</span>
                     <svg
                         class="menu-item-arrow"
@@ -140,7 +144,7 @@ const services = [
                             stroke-linejoin="round"></path>
                     </svg>
                 </a>
-                <a href="#about" class="menu-item" id="aboutMenuItem">
+                <a href="#" class="menu-item" id="aboutMenuItem">
                     <span class="menu-item-text">About Us</span>
                     <svg
                         class="menu-item-arrow"
@@ -157,7 +161,24 @@ const services = [
                             stroke-linejoin="round"></path>
                     </svg>
                 </a>
-                <a href="#contact" class="menu-item">
+                <!-- <a href="#reviews" class="menu-item" id="aboutMenuItem">
+                    <span class="menu-item-text">Reviews</span>
+                    <svg
+                        class="menu-item-arrow"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+                        <path
+                            d="M9 18l6-6-6-6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </a> -->
+                <a href="/contact" class="menu-item">
                     <span class="menu-item-text">Contact</span>
                     <svg
                         class="menu-item-arrow"
@@ -281,7 +302,7 @@ const services = [
     <div class="services-grid">
         {
             services.map((service) => (
-                <a href="#" class="service-card">
+                <a href={service.link} class="service-card">
                     <div class="card-inner">
                         <div class="card-header">
                             <h2 class="card-title">{service.title}</h2>
@@ -319,7 +340,7 @@ const services = [
                                 <img
                                     src={service.image}
                                     alt={service.alt}
-                                    class={`card-image ${service.customClass || ''}`}
+                                    class={`card-image ${service.customClass || ""}`}
                                 />
                             </div>
                         )}
@@ -530,7 +551,7 @@ const services = [
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        bottom: -2rem;
+        bottom: -3.01rem;
         position: relative;
     }
 

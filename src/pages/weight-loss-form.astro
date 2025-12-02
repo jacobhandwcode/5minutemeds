@@ -1,0 +1,904 @@
+---
+// WeightLossForm.astro - GLP-1 Weight Loss Eligibility Screening
+---
+
+<section class="form-page">
+    <!-- Back Button -->
+    <a href="/" class="back-btn" aria-label="Go back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M19 12H5M5 12l7 7M5 12l7-7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+        Back
+    </a>
+
+    <div class="form-container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text">
+                <span id="currentStep">1</span> of <span id="totalSteps"
+                    >4</span
+                >
+            </div>
+        </div>
+
+        <!-- Form Steps -->
+        <form class="eligibility-form" id="eligibilityForm">
+            <!-- Step 1: Age Verification -->
+            <div class="form-step active" data-step="1">
+                <h2 class="step-title">Are you 18 years or older?</h2>
+                <div class="answer-options">
+                    <button
+                        type="button"
+                        class="answer-btn"
+                        data-answer="yes"
+                        data-question="age"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M5 13l4 4L19 7"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        Yes
+                    </button>
+                    <button
+                        type="button"
+                        class="answer-btn"
+                        data-answer="no"
+                        data-question="age"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M18 6L6 18M6 6l12 12"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                        No
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Weight and Height -->
+            <div class="form-step" data-step="2">
+                <h2 class="step-title">What is your weight and height?</h2>
+                <p class="step-subtitle">
+                    This helps us determine your eligibility for weight loss
+                    treatment
+                </p>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="weight">Weight</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="number"
+                                id="weight"
+                                name="weight"
+                                placeholder="180"
+                                min="80"
+                                max="600"
+                                required
+                            />
+                            <span class="input-unit">lbs</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="heightFeet">Height</label>
+                        <div class="input-row">
+                            <div class="input-wrapper">
+                                <input
+                                    type="number"
+                                    id="heightFeet"
+                                    name="heightFeet"
+                                    placeholder="5"
+                                    min="3"
+                                    max="8"
+                                    required
+                                />
+                                <span class="input-unit">ft</span>
+                            </div>
+                            <div class="input-wrapper">
+                                <input
+                                    type="number"
+                                    id="heightInches"
+                                    name="heightInches"
+                                    placeholder="10"
+                                    min="0"
+                                    max="11"
+                                    required
+                                />
+                                <span class="input-unit">in</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bmi-display" id="bmiDisplay">
+                    <span class="bmi-label">Your BMI:</span>
+                    <span class="bmi-value" id="bmiValue">--</span>
+                </div>
+            </div>
+
+            <!-- Step 3: Pregnancy/Breastfeeding -->
+            <div class="form-step" data-step="3">
+                <h2 class="step-title">Are you currently...</h2>
+                <p class="step-subtitle">Select all that apply</p>
+                <div class="checkbox-options">
+                    <label class="checkbox-label">
+                        <input
+                            type="checkbox"
+                            name="status"
+                            value="pregnant"
+                        />
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Pregnant</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input
+                            type="checkbox"
+                            name="status"
+                            value="breastfeeding"
+                        />
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Breastfeeding</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input
+                            type="checkbox"
+                            name="status"
+                            value="none"
+                            id="noneCheckbox"
+                        />
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">None of the above</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 4: Weight Loss Intent -->
+            <div class="form-step" data-step="4">
+                <h2 class="step-title">
+                    Are you looking for treatment specifically to support weight
+                    loss?
+                </h2>
+                <div class="answer-options">
+                    <button
+                        type="button"
+                        class="answer-btn"
+                        data-answer="yes"
+                        data-question="intent"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M5 13l4 4L19 7"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        Yes
+                    </button>
+                    <button
+                        type="button"
+                        class="answer-btn"
+                        data-answer="no"
+                        data-question="intent"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M18 6L6 18M6 6l12 12"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                        No
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-navigation">
+                <button type="button" class="nav-btn back-btn-nav" id="backBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M19 12H5M5 12l7 7M5 12l7-7"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    Back
+                </button>
+                <button type="button" class="nav-btn next-btn" id="nextBtn">
+                    Next
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 12h14M12 5l7 7-7 7"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<style>
+    .form-page {
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f9f9fa 0%, #ffffff 100%);
+        padding: 80px 20px 40px 20px;
+        position: relative;
+    }
+
+    .back-btn {
+        position: absolute;
+        top: 40px;
+        left: 80px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background-color: #ffffff;
+        border: 2px solid #e8e9ea;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .back-btn:hover {
+        background-color: #f9f9fa;
+        border-color: #0070da;
+        transform: translateX(-4px);
+        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.15);
+    }
+
+    .form-container {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+        margin-bottom: 48px;
+        position: relative;
+    }
+
+    .progress-bar {
+        height: 8px;
+        background-color: #e8e9ea;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .progress-bar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 25%;
+        background: linear-gradient(90deg, #0070da 0%, #00a2ff 100%);
+        border-radius: 10px;
+        transition: width 0.4s ease;
+    }
+
+    .progress-text {
+        text-align: center;
+        margin-top: 12px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+    }
+
+    /* Form Steps */
+    .eligibility-form {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 48px 40px;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.1);
+        position: relative;
+        min-height: 400px;
+    }
+
+    .form-step {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .form-step.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .step-title {
+        font-family: "Sofia", sans-serif;
+        font-size: 32px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 12px 0;
+        line-height: 1.3;
+    }
+
+    .step-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #666;
+        margin: 0 0 32px 0;
+    }
+
+    /* Answer Buttons */
+    .answer-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .answer-btn {
+        padding: 24px 32px;
+        background: #f8f9fa;
+        border: 2px solid #e8e9ea;
+        border-radius: 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1a1a1a;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .answer-btn svg {
+        stroke: #666;
+        transition: stroke 0.3s ease;
+    }
+
+    .answer-btn:hover {
+        background: #ffffff;
+        border-color: #0070da;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.15);
+    }
+
+    .answer-btn.selected {
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        border-color: #0070da;
+        color: #ffffff;
+    }
+
+    .answer-btn.selected svg {
+        stroke: #ffffff;
+    }
+
+    /* Input Groups */
+    .input-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .input-group label {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+
+    .input-wrapper {
+        position: relative;
+        background-color: #f8f9fa;
+        border-radius: 14px;
+        border: 2px solid #e8e9ea;
+        transition: all 0.3s ease;
+    }
+
+    .input-wrapper:focus-within {
+        border-color: #0070da;
+        background-color: #ffffff;
+    }
+
+    .input-wrapper input {
+        width: 100%;
+        padding: 16px 50px 16px 16px;
+        font-size: 16px;
+        border: none;
+        background: transparent;
+        outline: none;
+        color: #1a1a1a;
+        font-family: "Inter", sans-serif;
+    }
+
+    .input-unit {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: #666;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+    }
+
+    .input-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    /* BMI Display */
+    .bmi-display {
+        margin-top: 24px;
+        padding: 20px;
+        background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%);
+        border: 2px solid #0070da;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .bmi-label {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+
+    .bmi-value {
+        font-family: "Inter", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #0070da;
+    }
+
+    /* Checkbox Options */
+    .checkbox-options {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 24px;
+        background: #f8f9fa;
+        border: 2px solid #e8e9ea;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: #1a1a1a;
+    }
+
+    .checkbox-label:hover {
+        background: #ffffff;
+        border-color: #0070da;
+        transform: translateX(4px);
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        display: none;
+    }
+
+    .checkbox-custom {
+        width: 24px;
+        height: 24px;
+        border: 2px solid #e8e9ea;
+        border-radius: 6px;
+        position: relative;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        border-color: #0070da;
+    }
+
+    .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+        content: "✓";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    /* Navigation Buttons */
+    .form-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 2px solid #f0f0f0;
+    }
+
+    .nav-btn {
+        padding: 14px 28px;
+        border: none;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .back-btn-nav {
+        background: #f8f9fa;
+        color: #1a1a1a;
+        border: 2px solid #e8e9ea;
+    }
+
+    .back-btn-nav:hover {
+        background: #ffffff;
+        border-color: #0070da;
+        transform: translateX(-4px);
+    }
+
+    .back-btn-nav:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .next-btn {
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        color: #ffffff;
+        margin-left: auto;
+    }
+
+    .next-btn:hover {
+        transform: translateX(4px);
+        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.3);
+    }
+
+    .next-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .form-page {
+            padding: 60px 20px 40px 20px;
+        }
+
+        .back-btn {
+            top: 20px;
+            left: 20px;
+            padding: 10px 16px;
+            font-size: 13px;
+        }
+
+        .eligibility-form {
+            padding: 32px 24px;
+        }
+
+        .step-title {
+            font-size: 24px;
+        }
+
+        .step-subtitle {
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .answer-options {
+            grid-template-columns: 1fr;
+        }
+
+        .answer-btn {
+            padding: 20px 24px;
+            font-size: 16px;
+        }
+
+        .form-navigation {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+    }
+</style>
+
+<script>
+    let currentStep = 1;
+    const totalSteps = 4;
+    const formData: any = {
+        age: null,
+        weight: null,
+        heightFeet: null,
+        heightInches: null,
+        bmi: null,
+        status: [],
+        intent: null,
+    };
+
+    // Update progress bar
+    function updateProgress() {
+        const progressBar = document.querySelector(
+            ".progress-bar::before",
+        ) as HTMLElement;
+        const percentage = (currentStep / totalSteps) * 100;
+
+        const styleSheet = document.styleSheets[0];
+        const rules = Array.from(styleSheet.cssRules);
+        const progressRule = rules.find((rule) =>
+            rule.cssText.includes(".progress-bar::before"),
+        ) as CSSStyleRule;
+
+        if (progressRule) {
+            progressRule.style.width = `${percentage}%`;
+        }
+
+        document.getElementById("currentStep")!.textContent =
+            currentStep.toString();
+    }
+
+    // Show step
+    function showStep(step: number) {
+        document.querySelectorAll(".form-step").forEach((stepEl) => {
+            stepEl.classList.remove("active");
+        });
+
+        const targetStep = document.querySelector(
+            `.form-step[data-step="${step}"]`,
+        );
+        targetStep?.classList.add("active");
+
+        // Update back button
+        const backBtn = document.getElementById("backBtn") as HTMLButtonElement;
+        backBtn.disabled = step === 1;
+
+        // Update next button text
+        const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
+        nextBtn.textContent = step === totalSteps ? "Submit" : "Next";
+
+        updateProgress();
+        validateCurrentStep();
+    }
+
+    // Calculate BMI
+    function calculateBMI() {
+        const weight = parseFloat(
+            (document.getElementById("weight") as HTMLInputElement).value,
+        );
+        const feet = parseFloat(
+            (document.getElementById("heightFeet") as HTMLInputElement).value,
+        );
+        const inches = parseFloat(
+            (document.getElementById("heightInches") as HTMLInputElement).value,
+        );
+
+        if (weight && feet >= 0 && inches >= 0) {
+            const totalInches = feet * 12 + inches;
+            const bmi = (weight / (totalInches * totalInches)) * 703;
+            formData.bmi = bmi;
+
+            document.getElementById("bmiValue")!.textContent = bmi.toFixed(1);
+            return bmi;
+        }
+        return null;
+    }
+
+    // Validate current step
+    function validateCurrentStep() {
+        const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
+        let isValid = false;
+
+        if (currentStep === 1) {
+            isValid = formData.age !== null;
+        } else if (currentStep === 2) {
+            const weight = (
+                document.getElementById("weight") as HTMLInputElement
+            ).value;
+            const feet = (
+                document.getElementById("heightFeet") as HTMLInputElement
+            ).value;
+            const inches = (
+                document.getElementById("heightInches") as HTMLInputElement
+            ).value;
+            isValid = weight !== "" && feet !== "" && inches !== "";
+        } else if (currentStep === 3) {
+            const checkboxes = document.querySelectorAll(
+                'input[name="status"]:checked',
+            );
+            isValid = checkboxes.length > 0;
+        } else if (currentStep === 4) {
+            isValid = formData.intent !== null;
+        }
+
+        nextBtn.disabled = !isValid;
+    }
+
+    // Answer button clicks
+    document.querySelectorAll(".answer-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const target = e.currentTarget as HTMLButtonElement;
+            const answer = target.dataset.answer;
+            const question = target.dataset.question;
+
+            // Remove selected from siblings
+            target.parentElement
+                ?.querySelectorAll(".answer-btn")
+                .forEach((sibling) => {
+                    sibling.classList.remove("selected");
+                });
+
+            // Add selected to clicked
+            target.classList.add("selected");
+
+            // Store answer
+            if (question === "age") {
+                formData.age = answer;
+            } else if (question === "intent") {
+                formData.intent = answer;
+            }
+
+            validateCurrentStep();
+        });
+    });
+
+    // Weight/height inputs
+    ["weight", "heightFeet", "heightInches"].forEach((id) => {
+        document.getElementById(id)?.addEventListener("input", () => {
+            calculateBMI();
+            validateCurrentStep();
+        });
+    });
+
+    // Checkbox handling
+    const noneCheckbox = document.getElementById(
+        "noneCheckbox",
+    ) as HTMLInputElement;
+    const statusCheckboxes = document.querySelectorAll(
+        'input[name="status"]',
+    ) as NodeListOf<HTMLInputElement>;
+
+    statusCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+            if (checkbox.id === "noneCheckbox" && checkbox.checked) {
+                // Uncheck others when "none" is selected
+                statusCheckboxes.forEach((cb) => {
+                    if (cb.id !== "noneCheckbox") {
+                        cb.checked = false;
+                    }
+                });
+            } else if (checkbox.checked && checkbox.id !== "noneCheckbox") {
+                // Uncheck "none" when others are selected
+                noneCheckbox.checked = false;
+            }
+
+            // Update form data
+            formData.status = Array.from(
+                document.querySelectorAll('input[name="status"]:checked'),
+            ).map((cb: any) => cb.value);
+
+            validateCurrentStep();
+        });
+    });
+
+    // Navigation buttons
+    document.getElementById("backBtn")?.addEventListener("click", () => {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    });
+
+    document.getElementById("nextBtn")?.addEventListener("click", () => {
+        if (currentStep < totalSteps) {
+            // Check for failures before advancing
+            if (currentStep === 1 && formData.age === "no") {
+                window.location.href = "/weight-loss-ineligible";
+                return;
+            }
+
+            if (currentStep === 2) {
+                const bmi = calculateBMI();
+                if (bmi && bmi < 27) {
+                    window.location.href = "/weight-loss-ineligible";
+                    return;
+                }
+            }
+
+            if (
+                currentStep === 3 &&
+                (formData.status.includes("pregnant") ||
+                    formData.status.includes("breastfeeding"))
+            ) {
+                window.location.href = "/weight-loss-ineligible";
+                return;
+            }
+
+            currentStep++;
+            showStep(currentStep);
+        } else {
+            // Final submission
+            if (formData.intent === "no") {
+                window.location.href = "/weight-loss-ineligible";
+            } else {
+                // Pass to eligible page
+                window.location.href = "/weight-loss-eligible";
+            }
+        }
+    });
+
+    // Initialize
+    showStep(1);
+</script>
