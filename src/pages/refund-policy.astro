@@ -1,0 +1,621 @@
+---
+// refund-policy.astro - Refund Policy Page
+---
+
+<section class="policy-page">
+    <!-- Back Button -->
+    <a href="/" class="back-btn" aria-label="Go back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M19 12H5M5 12l7 7M5 12l7-7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+        Back
+    </a>
+
+    <div class="policy-container">
+        <!-- Header -->
+        <div class="policy-header">
+            <div class="header-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                        stroke="url(#dollarGradient)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <defs>
+                        <linearGradient
+                            id="dollarGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="100%"
+                        >
+                            <stop offset="0%" stop-color="#0070da"></stop>
+                            <stop offset="100%" stop-color="#00a2ff"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1 class="policy-title">Refund Policy</h1>
+            <p class="policy-subtitle">
+                Please read our refund policy carefully before placing an order
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="policy-content">
+            <!-- Main Notice -->
+            <div class="important-notice">
+                <div class="notice-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            stroke-width="2"></circle>
+                        <path
+                            d="M12 8v4M12 16h.01"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"></path>
+                    </svg>
+                </div>
+                <div class="notice-content">
+                    <h3>All Sales Are Final</h3>
+                    <p>
+                        Once a prescription order has been placed, it cannot be
+                        canceled, returned, or refunded due to federal and state
+                        pharmacy regulations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Policy Sections -->
+            <div class="policy-sections">
+                <!-- Section 1 -->
+                <div class="policy-card">
+                    <div class="card-icon red">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M18 6L6 18M6 6l12 12"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>No Cancellations After Order</h3>
+                        <p>
+                            Due to federal and state pharmacy regulations,
+                            prescription medications cannot be canceled,
+                            returned, or refunded once they have been prescribed
+                            or ordered for a specific patient. This applies even
+                            if the medication has not yet shipped.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="policy-card">
+                    <div class="card-icon green">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M5 13l4 4L19 7"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>When Refunds Are Possible</h3>
+                        <p>
+                            Refunds are only possible if you are medically
+                            disqualified by a licensed provider before any
+                            prescription is issued. If your provider determines
+                            that treatment is not appropriate, you will receive
+                            a <strong>full refund</strong> for that order.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="policy-card">
+                    <div class="card-icon orange">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <line
+                                x1="7"
+                                y1="7"
+                                x2="7.01"
+                                y2="7"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"></line>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Damaged or Incorrect Shipments</h3>
+                        <p>
+                            If your shipment arrives damaged or incorrect,
+                            please contact us immediately at
+                            <a href="mailto:support@5minutemeds.com"
+                                >support@5minutemeds.com</a
+                            >. In most cases, a replacement will be issued.
+                            Refunds for damaged or incorrect shipments are
+                            handled on a case-by-case basis and are at our sole
+                            discretion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="policy-card">
+                    <div class="card-icon blue">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M12 2L4 6v6c0 5.5 3.84 10.74 8 12 4.16-1.26 8-6.5 8-12V6l-8-4z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Regulatory Compliance</h3>
+                        <p>
+                            Once prescribed, your medication is final,
+                            non-returnable, and non-refundable under
+                            <strong>FDA 21 CFR § 205.50</strong> and
+                            corresponding state pharmacy regulations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why This Policy -->
+            <div class="why-section">
+                <h3>Why We Have This Policy</h3>
+                <p>
+                    This policy ensures patient safety and full compliance with
+                    pharmacy law and telehealth standards. Prescription
+                    medications are personalized to each patient based on their
+                    medical consultation, making them unsuitable for return or
+                    reuse.
+                </p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h3>Questions About Your Order?</h3>
+                <p>
+                    If you have questions or concerns about your order, our
+                    support team is here to help.
+                </p>
+                <div class="contact-options">
+                    <a href="mailto:support@5minutemeds.com" class="contact-btn">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path
+                                d="M22 6l-10 7L2 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        support@5minutemeds.com
+                    </a>
+                    <a href="/contact" class="contact-btn secondary">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        Contact Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .policy-page {
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f9f9fa 0%, #ffffff 100%);
+        padding: 80px 20px 60px 20px;
+        position: relative;
+    }
+
+    .back-btn {
+        position: absolute;
+        top: 40px;
+        left: 80px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background-color: #ffffff;
+        border: 2px solid #e8e9ea;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .back-btn:hover {
+        background-color: #f9f9fa;
+        border-color: #0070da;
+        transform: translateX(-4px);
+        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.15);
+    }
+
+    .policy-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .policy-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    .header-icon {
+        margin-bottom: 20px;
+    }
+
+    .policy-title {
+        font-family: "Sofia", sans-serif;
+        font-size: 48px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 12px 0;
+        line-height: 1.2;
+    }
+
+    .policy-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #666;
+        margin: 0;
+    }
+
+    /* Content */
+    .policy-content {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 48px;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Important Notice */
+    .important-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px;
+        background: linear-gradient(135deg, #fff5f5 0%, #fff8f5 100%);
+        border: 2px solid #ff6b6b;
+        border-radius: 20px;
+        margin-bottom: 32px;
+    }
+
+    .notice-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ffa06b 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+    }
+
+    .notice-content h3 {
+        font-family: "Sofia", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 8px 0;
+    }
+
+    .notice-content p {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* Policy Sections */
+    .policy-sections {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 32px;
+    }
+
+    .policy-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px;
+        background: #f8f9fa;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .policy-card:hover {
+        background: #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        transform: translateX(4px);
+    }
+
+    .card-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+    }
+
+    .card-icon.red {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ffa06b 100%);
+    }
+
+    .card-icon.green {
+        background: linear-gradient(135deg, #4e9a69 0%, #6cb88b 100%);
+    }
+
+    .card-icon.orange {
+        background: linear-gradient(135deg, #ffa06b 0%, #ffd56b 100%);
+    }
+
+    .card-icon.blue {
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+    }
+
+    .card-content h3 {
+        font-family: "Sofia", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 8px 0;
+    }
+
+    .card-content p {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+        line-height: 1.7;
+    }
+
+    .card-content p strong {
+        color: #1a1a1a;
+    }
+
+    .card-content a {
+        color: #0070da;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .card-content a:hover {
+        color: #005bb5;
+        text-decoration: underline;
+    }
+
+    /* Why Section */
+    .why-section {
+        padding: 24px;
+        background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%);
+        border-radius: 20px;
+        border-left: 4px solid #0070da;
+        margin-bottom: 32px;
+    }
+
+    .why-section h3 {
+        font-family: "Sofia", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 12px 0;
+    }
+
+    .why-section p {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #444;
+        margin: 0;
+        line-height: 1.7;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        text-align: center;
+        padding: 32px;
+        background: #f8f9fa;
+        border-radius: 20px;
+    }
+
+    .contact-section h3 {
+        font-family: "Sofia", sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 8px 0;
+    }
+
+    .contact-section > p {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #666;
+        margin: 0 0 24px 0;
+    }
+
+    .contact-options {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .contact-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 24px;
+        background: linear-gradient(135deg, #0070da 0%, #00a2ff 100%);
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.3);
+    }
+
+    .contact-btn.secondary {
+        background: #ffffff;
+        color: #1a1a1a;
+        border: 2px solid #e8e9ea;
+    }
+
+    .contact-btn.secondary:hover {
+        border-color: #0070da;
+        box-shadow: 0 8px 20px rgba(0, 112, 218, 0.15);
+    }
+
+    .contact-btn.secondary svg {
+        stroke: #1a1a1a;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .policy-page {
+            padding: 60px 20px 40px 20px;
+        }
+
+        .back-btn {
+            top: 20px;
+            left: 20px;
+            padding: 10px 16px;
+            font-size: 13px;
+        }
+
+        .policy-header {
+            margin-bottom: 32px;
+        }
+
+        .policy-title {
+            font-size: 32px;
+        }
+
+        .policy-subtitle {
+            font-size: 14px;
+        }
+
+        .policy-content {
+            padding: 28px 24px;
+            border-radius: 24px;
+        }
+
+        .important-notice {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .policy-card {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+        }
+
+        .why-section {
+            padding: 20px;
+        }
+
+        .contact-section {
+            padding: 24px;
+        }
+
+        .contact-options {
+            flex-direction: column;
+        }
+
+        .contact-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

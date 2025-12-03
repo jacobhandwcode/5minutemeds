@@ -291,12 +291,13 @@ const services = [
                 <span class="stars-top">★★★</span>
                 <span class="stars-bottom">★★</span>
             </div>
-            <p class="rating-text">
-                4.9/5 Based on 46,392 monthly active users<sup>1</sup>
-            </p>
+            <div class="rating-right">
+                <p class="rating-text">
+                    4.9/5 Based on 46,392 monthly active users<sup>1</sup>
+                </p>
+                <p class="fha-hsa-text">FSA/HSA eligible</p>
+            </div>
         </div>
-
-        <p class="fha-hsa-text">FHA/HSA eligible</p>
     </div>
 
     <div class="services-grid">
@@ -434,12 +435,29 @@ const services = [
         stroke: #1a1a1a;
     }
 
-    /* FHA/HSA Text - Left aligned under rating */
+    /* Rating section */
+    .rating {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .rating-right {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .rating-text {
+        margin: 0;
+    }
+
+    /* FSA/HSA Text - Aligned with rating text */
     .fha-hsa-text {
         font-size: 14px;
         font-weight: 600;
         color: rgba(0, 0, 0, 0.65);
-        margin-top: 12px;
+        margin: 0;
         font-family: "Inter", sans-serif;
         text-align: left;
     }
@@ -743,7 +761,6 @@ const services = [
 
         .fha-hsa-text {
             font-size: 13px;
-            margin-top: 10px;
         }
 
         .about-modal-container {

@@ -22,9 +22,7 @@ const features = [
             <div class="testimonial-slideshow-bmi">
                 {
                     testimonials.map((testimonial, index) => (
-                        <div
-                            class={`slide-bmi ${index === 0 ? "active" : ""}`}
-                        >
+                        <div class={`slide-bmi ${index === 0 ? "active" : ""}`}>
                             <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
@@ -54,11 +52,13 @@ const features = [
                     <span class="weight-unit">lbs</span>
                 </div>
 
+                <!-- Arrow Marker - ABOVE the bar chart -->
+                <div class="chart-marker">▼</div>
+
                 <div class="bar-chart" id="barChart">
-                    <div class="chart-bars">
+                    <div class="chart-bars" id="chartBars">
                         <!-- Bars will be generated dynamically -->
                     </div>
-                    <div class="chart-marker">▼</div>
                 </div>
 
                 <div class="starting-weight-section">
@@ -148,22 +148,24 @@ const features = [
         <div class="weight-modal-content">
             <!-- Left Side: 20% Info -->
             <div class="weight-modal-left">
-                <p class="modal-average-label">Lose on average:</p>
+                <p class="modal-average-label">Lose up to:</p>
                 <div class="modal-percentage">
                     20<span class="percent-symbol">%</span>
                 </div>
                 <p class="modal-percentage-text">
-                    of your body weight with 5 Minute Meds
+                    of your body weight with 5MinuteMeds
                 </p>
 
                 <button class="modal-get-started-btn">Get started</button>
 
                 <p class="modal-disclaimer">
-                    *In a clinical trial, adults taking FDA-approved 5 Minute
-                    Meds lost an average of 20% body weight. Results vary. Side
-                    effects may include nausea or diarrhea. Only a licensed
-                    provider can decide if it's appropriate. Compounded GLP-1s
-                    are not FDA-approved.
+                    *In clinical trials lasting 68 and 72 weeks, patients
+                    without diabetes who used Wegovy (2.4 mg) and Zepbound (15
+                    mg) alongside diet and exercise saw significant weight loss.
+                    Those with a BMI ≥30, or a BMI ≥27 with a weight-related
+                    condition, experienced an average weight loss of 15% and
+                    20%, respectively. In comparison, participants who only made
+                    diet and exercise changes lost 2.4% and 3.1% on average.
                 </p>
             </div>
 
@@ -187,11 +189,13 @@ const features = [
                         <span class="modal-loss-unit">lbs</span>
                     </div>
 
+                    <!-- Arrow Marker - ABOVE the bar chart in modal -->
+                    <div class="modal-chart-marker">▼</div>
+
                     <div class="modal-bar-chart">
                         <div class="modal-chart-bars" id="modalChartBars">
                             <!-- Bars generated dynamically -->
                         </div>
-                        <div class="modal-chart-marker">▼</div>
                     </div>
 
                     <div class="modal-slider-container">
@@ -658,7 +662,7 @@ const features = [
 
     .weight-loss-display {
         text-align: center;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
     }
 
     .weight-number {
@@ -674,45 +678,41 @@ const features = [
         color: #030303;
     }
 
+    /* Arrow Marker - Now ABOVE the bar chart */
+    .chart-marker {
+        text-align: center;
+        font-size: 28px;
+        color: #4e9a69;
+        margin-bottom: 4px;
+        line-height: 1;
+    }
+
     /* Bar Chart with Slider-Based Animation */
     .bar-chart {
         position: relative;
         margin-bottom: 16px;
         overflow: hidden;
         height: 120px;
+        width: 100%;
     }
 
     .chart-bars {
+        position: absolute;
+        left: 0;
+        top: 0;
         display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        gap: 4px;
+        align-items: center;
         height: 120px;
-        padding: 0 16px;
         background-color: transparent;
-        width: 100%;
-        transition: transform 0.3s ease;
+        transition: transform 0.15s ease-out;
+        gap: 3px;
     }
 
     .chart-bar {
         flex-shrink: 0;
-        background: #4e9a69;
-        border-radius: 6px 6px 0 0;
-        transition: height 0.3s ease;
-        width: 12px;
-        position: relative;
-        display: block;
-        height: 50%;
-    }
-
-    .chart-marker {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -32px;
-        font-size: 28px;
-        color: #4e9a69;
-        z-index: 10;
+        width: 8px;
+        background-color: #7cb892;
+        border-radius: 4px;
     }
 
     /* Starting Weight Section */
@@ -1023,7 +1023,7 @@ const features = [
 
     .modal-weight-loss {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
     }
 
     .modal-loss-number {
@@ -1039,6 +1039,15 @@ const features = [
         color: #030303;
     }
 
+    /* Modal Arrow Marker - ABOVE the bar chart */
+    .modal-chart-marker {
+        text-align: center;
+        font-size: 24px;
+        color: #4e9a69;
+        margin-bottom: 4px;
+        line-height: 1;
+    }
+
     .modal-bar-chart {
         position: relative;
         margin-bottom: 20px;
@@ -1048,34 +1057,17 @@ const features = [
 
     .modal-chart-bars {
         display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        gap: 3px;
-        height: 100px;
-        padding: 0 8px;
+        align-items: center;
+        height: 100%;
         background-color: transparent;
-        width: 100%;
-        transition: transform 0.3s ease;
+        gap: 2px;
     }
 
     .modal-chart-bar {
         flex-shrink: 0;
-        background: #4e9a69;
-        border-radius: 5px 5px 0 0;
-        width: 10px;
-        position: relative;
-        display: block;
-        height: 50%;
-    }
-
-    .modal-chart-marker {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -28px;
-        font-size: 24px;
-        color: #4e9a69;
-        z-index: 10;
+        width: 6px;
+        background-color: #7cb892;
+        border-radius: 4px;
     }
 
     .modal-slider-container {
@@ -1456,7 +1448,7 @@ const features = [
         }
 
         .weight-loss-display {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .bar-chart {
@@ -1552,7 +1544,7 @@ const features = [
         }
 
         .modal-weight-loss {
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         .modal-loss-number {
@@ -1653,8 +1645,8 @@ const features = [
     const sliderStartingWeight = document.getElementById(
         "sliderStartingWeight",
     ) as HTMLElement;
-    const chartBarsContainer = document.querySelector(
-        ".chart-bars",
+    const chartBarsContainer = document.getElementById(
+        "chartBars",
     ) as HTMLElement;
     const weightModal = document.getElementById("weightModal");
     const closeWeightModalBtn = document.getElementById("closeWeightModal");
@@ -1670,31 +1662,37 @@ const features = [
 
     let isSliding = false;
 
-    // Generate bar chart - just enough bars to fill the container
-    function generateBarChart(container: HTMLElement, bars = 24) {
+    // Generate bar chart - alternating big/small pattern, centered
+    function generateBarChart(container: HTMLElement, bars = 40) {
         container.innerHTML = "";
+        const isMain = container === chartBarsContainer;
+        const barWidth = isMain ? 8 : 6;
+        const bigHeight = 95;
+        const smallHeight = 50;
+
         for (let i = 0; i < bars; i++) {
             const bar = document.createElement("div");
-            bar.className =
-                container === chartBarsContainer
-                    ? "chart-bar"
-                    : "modal-chart-bar";
-            const heightPercent = Math.random() * 60 + 40;
+            bar.className = isMain ? "chart-bar" : "modal-chart-bar";
+
+            // Alternate between big and small
+            const heightPercent = i % 2 === 0 ? bigHeight : smallHeight;
+
+            // Set styles
             bar.style.height = heightPercent + "%";
-            bar.style.width =
-                container === chartBarsContainer ? "12px" : "10px";
-            bar.style.display = "block";
-            bar.style.backgroundColor = "#4e9a69";
+            bar.style.backgroundColor = "#7cb892";
+            bar.style.borderRadius = "4px";
+            bar.style.width = barWidth + "px";
             bar.style.flexShrink = "0";
+
             container.appendChild(bar);
         }
     }
 
     // Initialize bar charts
-    generateBarChart(chartBarsContainer);
-    generateBarChart(modalChartBars);
+    generateBarChart(chartBarsContainer, 60);
+    generateBarChart(modalChartBars, 40);
 
-    // Slider-based bar chart animation
+    // Slider-based bar chart animation - scroll bars as slider moves
     function updateBarChartPosition() {
         if (!chartBarsContainer || !weightSlider) return;
 
@@ -1706,22 +1704,14 @@ const features = [
         const sliderPercent =
             (sliderValue - sliderMin) / (sliderMax - sliderMin);
 
-        // Get container and bars width
-        const containerWidth =
-            chartBarsContainer.parentElement?.offsetWidth || 0;
-        const barsWidth = chartBarsContainer.scrollWidth;
-
-        // Calculate how much we can scroll
-        const maxScroll = barsWidth - containerWidth;
-
-        // Map slider position to scroll position
-        // We want bars to move from right to left as slider increases
+        // Fixed scroll range - bars move left as slider increases
+        const maxScroll = 200;
         const scrollPosition = -(sliderPercent * maxScroll);
 
         chartBarsContainer.style.transform = `translateX(${scrollPosition}px)`;
     }
 
-    // Update weight loss based on slider (changed to 20%)
+    // Update weight loss based on slider (20%)
     function updateWeightLoss() {
         const currentWeight = parseInt(weightSlider.value);
         const weightLoss = Math.round(currentWeight * 0.2);
@@ -1736,7 +1726,23 @@ const features = [
     // Weight slider input event
     weightSlider.addEventListener("input", () => {
         isSliding = true;
-        updateWeightLoss();
+
+        const currentWeight = parseInt(weightSlider.value);
+        const weightLoss = Math.round(currentWeight * 0.2);
+
+        sliderWeightLoss.textContent = weightLoss.toString();
+        sliderStartingWeight.textContent = currentWeight.toString();
+
+        // Scroll bars based on slider position
+        const sliderMin = 140;
+        const sliderMax = 400;
+        const sliderPercent =
+            (currentWeight - sliderMin) / (sliderMax - sliderMin);
+        const scrollPosition = -(sliderPercent * 200);
+
+        if (chartBarsContainer) {
+            chartBarsContainer.style.transform = `translateX(${scrollPosition}px)`;
+        }
     });
 
     // Weight slider change event (when user releases)
@@ -1751,7 +1757,7 @@ const features = [
             modalWeightLoss.textContent = weightLoss.toString();
 
             // Regenerate modal bar chart
-            generateBarChart(modalChartBars);
+            generateBarChart(modalChartBars, 40);
 
             // Show modal
             weightModal?.classList.add("active");

@@ -1,7 +1,7 @@
 ---
 // WeightLossSection.astro
 const treatments = [
-    {
+{
         name: "Semaglutide Standard Treatment",
         image: "/images/semaglutide-standard.png",
         price: "$140/month",
@@ -13,6 +13,7 @@ const treatments = [
         image: "/images/tirzepatide-premium.png",
         price: "$200/month",
         link: "#",
+        brandNote: "Same Active Ingredient as Zepound® and Mounjaro®",
     },
     {
         name: "Semaglutide Tablets Oral Treatment",
@@ -22,11 +23,12 @@ const treatments = [
         link: "#",
     },
     {
-        name: "Name Brand GIP-1's",
+        name: "Name Brand GLP-1's",
         image: "/images/shots.avif",
         price: "$1,600/month",
         link: "#",
         isGip: true,
+        brandNote: "Ozempic®, Wegovy®, Mounjaro® and Zepound®",
     },
 ];
 
@@ -78,12 +80,9 @@ import WeightModal from "./WeightModal.astro";
                             stroke-linejoin="round"></path>
                     </svg>
                     <p class="stats-description">
-                        People lost an average of <strong>15%</strong> (up to <strong
-                            >20%</strong
-                        >) bodyweight in a 68-week clinical study of 5 Minute
-                        Meds
+                        People lost an average of 15% (up to 20%) bodyweight in a 68-week clinical study of Wegovy®
                     </p>
-                    <p class="fha-text">FHA/HSA eligible</p>
+                    <p class="fha-text">FSA/HSA eligible</p>
                     <a href="#" class="get-started-btn-gradient">
                         Get Started
                         <svg
@@ -101,13 +100,7 @@ import WeightModal from "./WeightModal.astro";
                         </svg>
                     </a>
                     <p class="disclaimer">
-                        *In a 68- and 72-week clinical trial studying 5 Minute
-                        Meds (2.4 mg) and Zepbound (15 mg) in patients without
-                        diabetes and with BMI ≥30, or BMI ≥27 with a
-                        weight-related condition, the average weight loss was
-                        15% and 20%, when paired with diet and exercise changes
-                        (compared to 2.4% and 3.1%, respectively, with diet and
-                        exercise alone).
+                        *In clinical trials lasting 68 and 72 weeks, patients without diabetes who used Wegovy (2.4 mg) and Zepbound (15 mg) alongside diet and exercise saw significant weight loss. Those with a BMI ≥30, or a BMI ≥27 with a weight-related condition, experienced an average weight loss of 15% and 20%, respectively. In comparison, participants who only made diet and exercise changes lost 2.4% and 3.1% on average.
                     </p>
                 </div>
 
