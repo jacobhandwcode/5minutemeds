@@ -1,9 +1,24 @@
 ---
 // BmiCalc.astro - Updated with testimonials and weight loss slider side by side
 const testimonials = [
-    { name: "Daryl", pounds: "72 POUNDS", image: "/images/slide2.jpg" },
-    { name: "Sarah", pounds: "58 POUNDS", image: "/images/slide1.jpg" },
-    { name: "Mary", pounds: "65 POUNDS", image: "/images/slide3.jpg" },
+    { 
+        name: "Daryl", 
+        pounds: "72 POUNDS", 
+        image: "/images/slide2.jpg",
+        quote: "I never thought I could do it, but 5MinuteMeds made it so easy. The weight just started melting off and I finally feel like myself again."
+    },
+    { 
+        name: "Sarah", 
+        pounds: "58 POUNDS", 
+        image: "/images/slide1.jpg",
+        quote: "After years of struggling with my weight, I finally found something that works. My energy levels are through the roof and I'm loving life!"
+    },
+    { 
+        name: "Mary", 
+        pounds: "65 POUNDS", 
+        image: "/images/slide3.jpg",
+        quote: "The support from the medical team was incredible. They were with me every step of the way. I can't recommend this enough!"
+    },
 ];
 
 const features = [
@@ -22,23 +37,47 @@ const features = [
             <div class="testimonial-slideshow-bmi">
                 {
                     testimonials.map((testimonial, index) => (
-                        <div class={`slide-bmi ${index === 0 ? "active" : ""}`}>
+                        <div 
+                            class={`slide-bmi ${index === 0 ? "active" : ""}`}
+                            data-index={index}
+                            data-name={testimonial.name}
+                            data-pounds={testimonial.pounds}
+                            data-quote={testimonial.quote}
+                        >
                             <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
                                 class="testimonial-image-bmi"
                             />
                             <div class="testimonial-info-bmi">
-                                <p class="testimonial-name-bmi">
-                                    {testimonial.name}
-                                </p>
-                                <p class="testimonial-weight-bmi">
-                                    Lost {testimonial.pounds}
-                                </p>
+                                <div class="testimonial-text-content">
+                                    <p class="testimonial-name-bmi">
+                                        {testimonial.name}
+                                    </p>
+                                    <p class="testimonial-weight-bmi">
+                                        Lost {testimonial.pounds}
+                                    </p>
+                                </div>
+                                <button class="testimonial-quote-btn" aria-label="Read quote">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     ))
                 }
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    {testimonials.map((_, index) => (
+                        <button 
+                            class={`indicator ${index === 0 ? "active" : ""}`}
+                            data-slide={index}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
 
@@ -64,9 +103,7 @@ const features = [
                 <div class="starting-weight-section">
                     <p class="starting-label">Starting weight:</p>
                     <div class="starting-weight-badge">
-                        <span class="badge-value" id="sliderStartingWeight"
-                            >200</span
-                        >
+                        <span class="badge-value" id="sliderStartingWeight">200</span>
                         <span class="badge-unit">lbs</span>
                     </div>
                 </div>
@@ -128,20 +165,41 @@ const features = [
     </div>
 </section>
 
+<!-- Testimonial Quote Modal -->
+<div class="quote-modal-overlay" id="quoteModal">
+    <div class="quote-modal-container">
+        <button class="quote-modal-close" id="closeQuoteModal" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+        </button>
+        
+        <div class="quote-modal-content">
+            <div class="quote-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z" fill="#0070da" opacity="0.2"/>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="#0070da" opacity="0.2"/>
+                </svg>
+            </div>
+            <p class="quote-text" id="quoteText">"Quote goes here"</p>
+            <div class="quote-author-info">
+                <div class="quote-author-avatar" id="quoteAvatar"></div>
+                <div class="quote-author-details">
+                    <p class="quote-author-name" id="quoteAuthorName">Name</p>
+                    <p class="quote-author-result" id="quoteAuthorResult">Lost XX POUNDS</p>
+                </div>
+            </div>
+            <div class="quote-stars">★★★★★</div>
+        </div>
+    </div>
+</div>
+
 <!-- Weight Loss Results Modal -->
 <div class="weight-modal-overlay" id="weightModal">
     <div class="weight-modal-container">
-        <button
-            class="weight-modal-close"
-            id="closeWeightModal"
-            aria-label="Close"
-        >
+        <button class="weight-modal-close" id="closeWeightModal" aria-label="Close">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path
-                    d="M18 6L6 18M6 6l12 12"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"></path>
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
             </svg>
         </button>
 
@@ -162,7 +220,7 @@ const features = [
                     *In clinical trials lasting 68 and 72 weeks, patients
                     without diabetes who used Wegovy (2.4 mg) and Zepbound (15
                     mg) alongside diet and exercise saw significant weight loss.
-                    Those with a BMI ≥30, or a BMI ≥27 with a weight-related
+                    Those with a BMI of 30 or higher, or a BMI of 27 or higher with a weight-related
                     condition, experienced an average weight loss of 15% and
                     20%, respectively. In comparison, participants who only made
                     diet and exercise changes lost 2.4% and 3.1% on average.
@@ -174,18 +232,14 @@ const features = [
                 <div class="modal-weight-card">
                     <div class="modal-starting-badge">
                         <span class="modal-badge-label">Starting weight:</span>
-                        <span class="modal-badge-value" id="modalStartingWeight"
-                            >200</span
-                        >
+                        <span class="modal-badge-value" id="modalStartingWeight">200</span>
                         <span class="modal-badge-unit">lbs</span>
                     </div>
 
                     <p class="modal-lose-label">You could lose:</p>
 
                     <div class="modal-weight-loss">
-                        <span class="modal-loss-number" id="modalWeightLoss"
-                            >40</span
-                        >
+                        <span class="modal-loss-number" id="modalWeightLoss">40</span>
                         <span class="modal-loss-unit">lbs</span>
                     </div>
 
@@ -210,17 +264,9 @@ const features = [
 <!-- BMI Results Modal -->
 <div class="bmi-results-modal-overlay" id="bmiResultsModal">
     <div class="bmi-results-modal-container">
-        <button
-            class="bmi-results-modal-close"
-            id="closeBMIResultsModal"
-            aria-label="Close"
-        >
+        <button class="bmi-results-modal-close" id="closeBMIResultsModal" aria-label="Close">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path
-                    d="M18 6L6 18M6 6l12 12"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"></path>
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
             </svg>
         </button>
 
@@ -231,30 +277,11 @@ const features = [
 
                 <div class="bmi-results-circle-container">
                     <svg class="bmi-results-circle" viewBox="0 0 200 200">
-                        <circle
-                            cx="100"
-                            cy="100"
-                            r="80"
-                            fill="none"
-                            stroke="#f0f0f0"
-                            stroke-width="16"></circle>
-                        <circle
-                            id="bmiResultsArc"
-                            cx="100"
-                            cy="100"
-                            r="80"
-                            fill="none"
-                            stroke="#89cff0"
-                            stroke-width="16"
-                            stroke-dasharray="502"
-                            stroke-dashoffset="125"
-                            stroke-linecap="round"
-                            transform="rotate(-90 100 100)"></circle>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#f0f0f0" stroke-width="16"></circle>
+                        <circle id="bmiResultsArc" cx="100" cy="100" r="80" fill="none" stroke="#89cff0" stroke-width="16" stroke-dasharray="502" stroke-dashoffset="125" stroke-linecap="round" transform="rotate(-90 100 100)"></circle>
                     </svg>
                     <div class="bmi-results-value-container">
-                        <div class="bmi-results-value" id="bmiResultsValue">
-                            0
-                        </div>
+                        <div class="bmi-results-value" id="bmiResultsValue">0</div>
                         <div class="bmi-results-label">Your BMI</div>
                     </div>
                 </div>
@@ -270,53 +297,29 @@ const features = [
 
             <!-- Right Side: Category Info -->
             <div class="bmi-results-modal-right">
-                <div
-                    class="bmi-results-category-alert"
-                    id="categoryResultsAlert"
-                >
+                <div class="bmi-results-category-alert" id="categoryResultsAlert">
                     <div class="bmi-results-alert-header">
-                        <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
-                            <path
-                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"></path>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
-                        <span
-                            class="bmi-results-alert-category"
-                            id="alertResultsCategory">Underweight</span
-                        >
-                        <span
-                            class="bmi-results-alert-range"
-                            id="alertResultsRange">&lt; 18.5</span
-                        >
+                        <span class="bmi-results-alert-category" id="alertResultsCategory">Underweight</span>
+                        <span class="bmi-results-alert-range" id="alertResultsRange">&lt; 18.5</span>
                     </div>
                     <p class="bmi-results-alert-text" id="alertResultsText">
                         Your BMI is below the healthy range.
                     </p>
-                    <button class="bmi-results-consultation-btn"
-                        >Start Consultation</button
-                    >
+                    <button class="bmi-results-consultation-btn">Start Consultation</button>
                 </div>
 
                 <div class="bmi-results-categories">
                     <div class="bmi-results-category-item">
                         <div class="bmi-results-category-dot healthy"></div>
-                        <span class="bmi-results-category-name"
-                            >Healthy Weight</span
-                        >
+                        <span class="bmi-results-category-name">Healthy Weight</span>
                         <span class="bmi-results-category-range">18.5+</span>
                     </div>
                     <div class="bmi-results-category-item">
                         <div class="bmi-results-category-dot overweight"></div>
-                        <span class="bmi-results-category-name">Overweight</span
-                        >
+                        <span class="bmi-results-category-name">Overweight</span>
                         <span class="bmi-results-category-range">25+</span>
                     </div>
                     <div class="bmi-results-category-item">
@@ -452,7 +455,7 @@ const features = [
     .testimonial-slider-panel {
         background-color: #ffffff;
         border-radius: 40px;
-        box-shadow: 2px 4px 12px #00000014;
+        box-shadow: 0 8px 32px rgba(0, 41, 95, 0.15);
         overflow: hidden;
     }
 
@@ -471,9 +474,10 @@ const features = [
         width: 100%;
         height: 100%;
         opacity: 0;
-        transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.6s ease-in-out;
         display: flex;
         flex-direction: column;
+        cursor: pointer;
     }
 
     .slide-bmi.active {
@@ -486,154 +490,233 @@ const features = [
         height: 65%;
         object-fit: cover;
         object-position: center top;
+        transition: transform 0.4s ease;
+    }
+
+    .slide-bmi:hover .testimonial-image-bmi {
+        transform: scale(1.02);
     }
 
     .testimonial-info-bmi {
-        background: linear-gradient(135deg, #278fc3 0%, #00295f 100%);
-        padding: 20px;
+        background: linear-gradient(135deg, #0070da 0%, #00295f 100%);
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex: 1;
+    }
+
+    .testimonial-text-content {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        flex: 1;
+        gap: 4px;
     }
 
     .testimonial-name-bmi {
         font-family: "Sofia";
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 400;
         color: white;
         margin: 0;
     }
 
     .testimonial-weight-bmi {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
-        color: white;
+        color: rgba(255, 255, 255, 0.9);
         margin: 0;
         font-family: "Inter";
+        display: flex;
+        align-items: center;
+        gap: 6px;
     }
 
-    /* Left Panel: BMI Input Form */
-    .bmi-input-panel {
-        background-color: #ffffff;
-        border-radius: 40px;
-        padding: 32px 28px;
-        box-shadow: 2px 4px 12px #00000014;
+    .testimonial-weight-bmi::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: #4e9a69;
+        border-radius: 50%;
+        display: inline-block;
     }
 
-    .bmi-title {
-        font-family: "Sofia";
-        font-size: 28px;
-        font-weight: 400;
-        color: #030303;
-        margin-bottom: 6px;
-    }
-
-    .bmi-subtitle {
-        font-size: 14px;
-        color: #666;
-        margin-bottom: 16px;
-        font-weight: 400;
-        font-family: "Inter";
-    }
-
-    .bmi-display {
-        font-size: 100px;
-        font-weight: 700;
-        color: #030303;
-        margin-bottom: 16px;
-        line-height: 1;
-    }
-
-    .form-group {
-        margin-bottom: 16px;
-    }
-
-    .form-label {
-        display: block;
-        font-size: 14px;
-        color: #030303;
-        margin-bottom: 10px;
-        font-weight: 500;
-        font-family: "Inter";
-    }
-
-    .input-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-    .input-wrapper {
-        position: relative;
-        background-color: #f8f8f8;
-        border-radius: 14px;
-        border: 2px solid transparent;
+    .testimonial-quote-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: all 0.3s ease;
+        flex-shrink: 0;
     }
 
-    .input-wrapper.single {
-        grid-column: 1 / -1;
+    .testimonial-quote-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
     }
 
-    .input-wrapper:focus-within {
-        border-color: #0070da;
-        background-color: #ffffff;
-    }
-
-    .form-input {
-        width: 100%;
-        padding: 14px 16px;
-        font-size: 15px;
-        border: none;
-        background: transparent;
-        outline: none;
-        color: #030303;
-        font-family: "Inter";
-    }
-
-    .form-input::placeholder {
-        color: #999;
-    }
-
-    .input-unit {
+    /* Slide Indicators */
+    .slide-indicators {
         position: absolute;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 14px;
-        color: #666;
-        pointer-events: none;
-        font-family: "Inter";
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
     }
 
-    .calculate-btn {
-        width: 100%;
-        padding: 16px;
-        background: linear-gradient(
-            135deg,
-            #ff6b9d 0%,
-            #ffa06b 50%,
-            #ffd56b 100%
-        );
-        border: 2px solid transparent;
-        border-radius: 50px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #030303;
+    .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        border: none;
         cursor: pointer;
         transition: all 0.3s ease;
+        padding: 0;
+    }
+
+    .indicator.active {
+        background: #ffffff;
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    .indicator:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Quote Modal */
+    .quote-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 41, 95, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .quote-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .quote-modal-container {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        border-radius: 32px;
+        max-width: 500px;
+        width: 100%;
+        padding: 40px;
+        position: relative;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .quote-modal-overlay.active .quote-modal-container {
+        transform: scale(1) translateY(0);
+    }
+
+    .quote-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        background: #f0f0f0;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+    .quote-modal-close:hover {
+        background: #e0e0e0;
+        transform: rotate(90deg);
+    }
+
+    .quote-modal-content {
+        text-align: center;
+    }
+
+    .quote-icon {
+        margin-bottom: 20px;
+    }
+
+    .quote-text {
+        font-family: "Sofia";
+        font-size: 22px;
+        font-weight: 400;
+        color: #1a1a1a;
+        line-height: 1.5;
+        margin: 0 0 28px 0;
+        font-style: italic;
+    }
+
+    .quote-author-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .quote-author-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        border: 3px solid #0070da;
+        box-shadow: 0 4px 12px rgba(0, 112, 218, 0.2);
+    }
+
+    .quote-author-details {
+        text-align: left;
+    }
+
+    .quote-author-name {
+        font-family: "Sofia";
+        font-size: 20px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0 0 4px 0;
+    }
+
+    .quote-author-result {
         font-family: "Inter";
+        font-size: 14px;
+        font-weight: 600;
+        color: #4e9a69;
+        margin: 0;
     }
 
-    .calculate-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
-        border-color: #0070da;
-    }
-
-    .calculate-btn:active {
-        transform: translateY(0);
+    .quote-stars {
+        color: #ffa726;
+        font-size: 20px;
+        letter-spacing: 4px;
     }
 
     /* Right Panel: Weight Slider */
@@ -846,9 +929,7 @@ const features = [
         padding: 20px;
         opacity: 0;
         visibility: hidden;
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .weight-modal-overlay.active {
@@ -972,12 +1053,7 @@ const features = [
     }
 
     .modal-weight-card {
-        background: linear-gradient(
-            135deg,
-            #e8f4ff 0%,
-            #f8f4ff 50%,
-            #fff8f4 100%
-        );
+        background: linear-gradient(135deg, #e8f4ff 0%, #f8f4ff 50%, #fff8f4 100%);
         border: 3px solid;
         border-image: linear-gradient(135deg, #84a9fa, #fb6fec, #ffa06b) 1;
         border-radius: 32px;
@@ -1105,9 +1181,7 @@ const features = [
         padding: 20px;
         opacity: 0;
         visibility: hidden;
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .bmi-results-modal-overlay.active {
@@ -1410,7 +1484,6 @@ const features = [
             gap: 12px;
         }
 
-        .bmi-input-panel,
         .weight-slider-panel,
         .testimonial-slider-panel {
             padding: 20px 20px;
@@ -1421,15 +1494,6 @@ const features = [
             padding: 0;
         }
 
-        .bmi-title {
-            font-size: 24px;
-        }
-
-        .bmi-subtitle {
-            margin-bottom: 12px;
-        }
-
-        .bmi-display,
         .weight-number {
             font-size: 70px;
             margin-bottom: 12px;
@@ -1437,10 +1501,6 @@ const features = [
 
         .weight-unit {
             font-size: 28px;
-        }
-
-        .form-group {
-            margin-bottom: 12px;
         }
 
         .slider-label {
@@ -1574,6 +1634,28 @@ const features = [
         .testimonial-info-bmi {
             padding: 16px;
         }
+
+        .testimonial-quote-btn {
+            width: 38px;
+            height: 38px;
+        }
+
+        .slide-indicators {
+            bottom: 75px;
+        }
+
+        .quote-modal-container {
+            padding: 32px 24px;
+        }
+
+        .quote-text {
+            font-size: 18px;
+        }
+
+        .quote-author-avatar {
+            width: 48px;
+            height: 48px;
+        }
     }
 </style>
 
@@ -1583,8 +1665,10 @@ const features = [
     let isPausedBMI = false;
     let slideIntervalBMI: number;
 
+    const slides = document.querySelectorAll(".slide-bmi");
+    const indicators = document.querySelectorAll(".indicator");
+
     function showSlideBMI(index: number) {
-        const slides = document.querySelectorAll(".slide-bmi");
         slides.forEach((slide, i) => {
             if (i === index) {
                 slide.classList.add("active");
@@ -1592,11 +1676,18 @@ const features = [
                 slide.classList.remove("active");
             }
         });
+
+        indicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.add("active");
+            } else {
+                indicator.classList.remove("active");
+            }
+        });
     }
 
     function nextSlideBMI() {
         if (!isPausedBMI) {
-            const slides = document.querySelectorAll(".slide-bmi");
             currentSlideBMI = (currentSlideBMI + 1) % slides.length;
             showSlideBMI(currentSlideBMI);
         }
@@ -1624,41 +1715,69 @@ const features = [
         });
     }
 
-    // BMI Calculator
-    const feetInput = document.getElementById("feet") as HTMLInputElement;
-    const inchesInput = document.getElementById("inches") as HTMLInputElement;
-    const weightInput = document.getElementById("weight") as HTMLInputElement;
-    const calculateBtn = document.getElementById("calculateBtn");
-    const bmiDisplay = document.querySelector(".bmi-display") as HTMLElement;
-    const bmiResultsModal = document.getElementById("bmiResultsModal");
-    const closeBMIResultsModalBtn = document.getElementById(
-        "closeBMIResultsModal",
-    );
+    // Indicator click events
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+            currentSlideBMI = index;
+            showSlideBMI(currentSlideBMI);
+        });
+    });
+
+    // Quote Modal
+    const quoteModal = document.getElementById("quoteModal");
+    const closeQuoteModalBtn = document.getElementById("closeQuoteModal");
+    const quoteText = document.getElementById("quoteText");
+    const quoteAvatar = document.getElementById("quoteAvatar");
+    const quoteAuthorName = document.getElementById("quoteAuthorName");
+    const quoteAuthorResult = document.getElementById("quoteAuthorResult");
+
+    // Quote button click events
+    const quoteButtons = document.querySelectorAll(".testimonial-quote-btn");
+    quoteButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const slide = btn.closest(".slide-bmi") as HTMLElement;
+            if (slide) {
+                const name = slide.dataset.name || "";
+                const pounds = slide.dataset.pounds || "";
+                const quote = slide.dataset.quote || "";
+                const img = slide.querySelector(".testimonial-image-bmi") as HTMLImageElement;
+                const imgSrc = img?.src || "";
+
+                if (quoteText) quoteText.textContent = `"${quote}"`;
+                if (quoteAuthorName) quoteAuthorName.textContent = name;
+                if (quoteAuthorResult) quoteAuthorResult.textContent = `Lost ${pounds}`;
+                if (quoteAvatar) quoteAvatar.style.backgroundImage = `url(${imgSrc})`;
+
+                quoteModal?.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+        });
+    });
+
+    function closeQuoteModal() {
+        quoteModal?.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    closeQuoteModalBtn?.addEventListener("click", closeQuoteModal);
+
+    quoteModal?.addEventListener("click", (e) => {
+        if (e.target === quoteModal) {
+            closeQuoteModal();
+        }
+    });
 
     // Weight Slider Elements
-    const weightSlider = document.getElementById(
-        "weightSlider",
-    ) as HTMLInputElement;
-    const sliderWeightLoss = document.getElementById(
-        "sliderWeightLoss",
-    ) as HTMLElement;
-    const sliderStartingWeight = document.getElementById(
-        "sliderStartingWeight",
-    ) as HTMLElement;
-    const chartBarsContainer = document.getElementById(
-        "chartBars",
-    ) as HTMLElement;
+    const weightSlider = document.getElementById("weightSlider") as HTMLInputElement;
+    const sliderWeightLoss = document.getElementById("sliderWeightLoss") as HTMLElement;
+    const sliderStartingWeight = document.getElementById("sliderStartingWeight") as HTMLElement;
+    const chartBarsContainer = document.getElementById("chartBars") as HTMLElement;
     const weightModal = document.getElementById("weightModal");
     const closeWeightModalBtn = document.getElementById("closeWeightModal");
-    const modalStartingWeight = document.getElementById(
-        "modalStartingWeight",
-    ) as HTMLElement;
-    const modalWeightLoss = document.getElementById(
-        "modalWeightLoss",
-    ) as HTMLElement;
-    const modalChartBars = document.getElementById(
-        "modalChartBars",
-    ) as HTMLElement;
+    const modalStartingWeight = document.getElementById("modalStartingWeight") as HTMLElement;
+    const modalWeightLoss = document.getElementById("modalWeightLoss") as HTMLElement;
+    const modalChartBars = document.getElementById("modalChartBars") as HTMLElement;
 
     let isSliding = false;
 
@@ -1701,8 +1820,7 @@ const features = [
         const sliderMax = parseInt(weightSlider.max);
 
         // Calculate slider position as percentage (0 to 1)
-        const sliderPercent =
-            (sliderValue - sliderMin) / (sliderMax - sliderMin);
+        const sliderPercent = (sliderValue - sliderMin) / (sliderMax - sliderMin);
 
         // Fixed scroll range - bars move left as slider increases
         const maxScroll = 200;
@@ -1736,8 +1854,7 @@ const features = [
         // Scroll bars based on slider position
         const sliderMin = 140;
         const sliderMax = 400;
-        const sliderPercent =
-            (currentWeight - sliderMin) / (sliderMax - sliderMin);
+        const sliderPercent = (currentWeight - sliderMin) / (sliderMax - sliderMin);
         const scrollPosition = -(sliderPercent * 200);
 
         if (chartBarsContainer) {
@@ -1779,102 +1896,16 @@ const features = [
         }
     });
 
-    // BMI Calculator
-    function updateModalBMI(bmi: number) {
-        const bmiResultsValue = document.getElementById(
-            "bmiResultsValue",
-        ) as HTMLElement;
-        const categoryResultsAlert = document.getElementById(
-            "categoryResultsAlert",
-        ) as HTMLElement;
-        const alertResultsCategory = document.getElementById(
-            "alertResultsCategory",
-        ) as HTMLElement;
-        const alertResultsRange = document.getElementById(
-            "alertResultsRange",
-        ) as HTMLElement;
-        const alertResultsText = document.getElementById(
-            "alertResultsText",
-        ) as HTMLElement;
-        const bmiResultsArc = document.getElementById(
-            "bmiResultsArc",
-        ) as SVGCircleElement;
-
-        bmiResultsValue.textContent = bmi.toFixed(1);
-
-        let category: string, color: string, range: string, text: string;
-
-        if (bmi < 18.5) {
-            category = "Underweight";
-            color = "#89cff0";
-            range = "< 18.5";
-            text =
-                "Your BMI is below the healthy range. A licensed provider can help explore the underlying causes and guide you toward a safe, sustainable plan for reaching a healthier weight.";
-        } else if (bmi < 25) {
-            category = "Healthy Weight";
-            color = "#4e9a69";
-            range = "18.5+";
-            text =
-                "Your BMI is within the healthy range. Maintaining a balanced diet and regular exercise can help you stay healthy.";
-        } else if (bmi < 30) {
-            category = "Overweight";
-            color = "#ffa06b";
-            range = "25+";
-            text =
-                "Your BMI indicates you are overweight. A licensed provider can help you develop a personalized plan to reach a healthier weight.";
-        } else {
-            category = "Obesity";
-            color = "#ff6b6b";
-            range = "30+";
-            text =
-                "Your BMI indicates obesity. We recommend consulting with a licensed provider to explore treatment options that may be right for you.";
-        }
-
-        alertResultsCategory.textContent = category;
-        alertResultsRange.textContent = range;
-        alertResultsText.textContent = text;
-        categoryResultsAlert.style.borderColor = color;
-        bmiResultsArc.setAttribute("stroke", color);
-
-        const percentage = Math.min(bmi / 40, 1);
-        const dashOffset = 502 - 502 * percentage * 0.75;
-        bmiResultsArc.setAttribute("stroke-dashoffset", dashOffset.toString());
-    }
-
-    function calculateBMI() {
-        const feet = parseFloat(feetInput.value) || 0;
-        const inches = parseFloat(inchesInput.value) || 0;
-        const weight = parseFloat(weightInput.value) || 0;
-
-        if (feet === 0 || weight === 0) {
-            alert("Please enter valid height and weight");
-            return;
-        }
-
-        const totalInches = feet * 12 + inches;
-        const bmi = (weight / (totalInches * totalInches)) * 703;
-        bmiDisplay.textContent = bmi.toFixed(1);
-
-        updateModalBMI(bmi);
-        bmiResultsModal?.classList.add("active");
-        document.body.style.overflow = "hidden";
-    }
+    // BMI Results Modal Elements
+    const bmiResultsModal = document.getElementById("bmiResultsModal");
+    const closeBMIResultsModalBtn = document.getElementById("closeBMIResultsModal");
 
     function closeBMIResultsModal() {
         bmiResultsModal?.classList.remove("active");
         document.body.style.overflow = "";
     }
 
-    calculateBtn?.addEventListener("click", calculateBMI);
     closeBMIResultsModalBtn?.addEventListener("click", closeBMIResultsModal);
-
-    [feetInput, inchesInput, weightInput].forEach((input) => {
-        input?.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-                calculateBMI();
-            }
-        });
-    });
 
     bmiResultsModal?.addEventListener("click", (e) => {
         if (e.target === bmiResultsModal) {
@@ -1889,6 +1920,9 @@ const features = [
             }
             if (weightModal?.classList.contains("active")) {
                 closeWeightModal();
+            }
+            if (quoteModal?.classList.contains("active")) {
+                closeQuoteModal();
             }
         }
     });
